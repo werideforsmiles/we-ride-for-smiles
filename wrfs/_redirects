@@ -5,3 +5,7 @@
 
 # Pour toute page non trouvée, rediriger vers la racine
 /* /   302
+
+# Règle pour forcer les URLs "propres" (sans .html)
+/:lang/index.html   /:lang/   301!
+/:lang/:page.html   /:lang/:page    301!

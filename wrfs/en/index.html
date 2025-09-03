@@ -31,7 +31,7 @@
     <style>
         /* === WE RIDE FOR SMILES - CORRECTED AND IMPROVED VERSION === */
 
-        /* --- 1. FOUNDATIONS & THEMES --- */
+        /* --- 1. FONDATIONS & THÈMES --- */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
         :root {
           --font-sans: 'Inter', sans-serif;
@@ -58,7 +58,7 @@
         /* --- 2. LAYOUT & ANIMATIONS --- */
         .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-background); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease 0.2s, visibility 0.5s ease 0.2s; }
         .preloader.fade-out { opacity: 0; visibility: hidden; }
-        .preloader-logo-container { font-family: var(--font-sans); font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--color-primary); display: flex; flex-wrap: wrap; justify-content: center; white-space: nowrap; transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+        .preloader-logo-container { font-family: var(--font-sans); font-weight: 900; font-size: clamp(1.5rem, 8vw, 4rem); color: var(--color-primary); display: flex; flex-wrap: wrap; justify-content: center; white-space: nowrap; transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
         .preloader .word { display: inline-flex; margin: 0 0.25em; transition: margin 1s cubic-bezier(0.86, 0, 0.07, 1); }
         .preloader .char { display: inline-block; overflow: hidden; }
         .preloader .lower { transition: max-width 1s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.5s ease; max-width: 2em; opacity: 1; }
@@ -92,7 +92,7 @@
         .theme-switch svg { width: 24px; height: 24px; transition: transform 0.4s ease; }
         .nav-toggle { display: none; background: none; border: none; color: var(--color-text-primary); font-size: 1.5rem; cursor: pointer; z-index: 1001; }
 
-        /* --- 3B. MOBILE MENU --- */
+        /* --- 3B. MENU MOBILE --- */
         .nav-mobile-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-background); z-index: 1002; display: flex; flex-direction: column; padding: 1.5rem; transform: translateY(-100%); visibility: hidden; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0s 0.4s; }
         .nav-mobile-overlay.is-active { transform: translateY(0); visibility: visible; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
         .nav-mobile-header { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4rem; }
@@ -109,20 +109,27 @@
         .nav-mobile-overlay .btn { margin-top: 2rem; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s; }
         .nav-mobile-overlay.is-active .btn { opacity: 1; transform: translateY(0); }
         
-        /* --- 4. HERO --- */
+        /* --- 4. HÉROS --- */
         .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background-color: var(--color-background); }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background.webp') no-repeat bottom right; background-size: cover; animation: kenburns 30s ease-out infinite; }
         html.light-mode .hero::before { background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background.webp') no-repeat bottom right; background-size: cover; }
         @keyframes kenburns { 0% { background-position: 80% 100%; } 50% { background-position: 100% 100%; } 100% { background-position: 80% 100%; } }
         .hero-content { position: relative; z-index: 2; }
-        h1 { font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2.8rem, 7vw, 5rem); }
+        h1 { font-size: clamp(2rem, 7vw, 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2rem, 7vw, 5rem); }
         .hero-content .lead { font-size: 1.2rem; max-width: 580px; margin: 1.5rem 0 2.5rem 0; color: var(--color-text-secondary); }
+        @media (max-width: 767px) {
+            .hero-content { margin-top: 2rem; }
+            .hero-content .lead { font-size: 0.9rem; }
+        }
         html.light-mode .hero-content .lead { color: var(--color-text-primary); opacity: 0.9; }
         .countdown-timer { display: flex; gap: 1.5rem; margin-top: 2.5rem;margin-bottom: 2.5rem; }
         .timer-item { text-align: center; }
         .timer-value { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--color-primary); line-height: 1; }
         .timer-label { font-size: 0.9rem; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px; }
         .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-align: center; transition: all 0.3s ease; border: none; cursor: pointer; position: relative; }
+        @media (max-width: 767px) {
+            .btn { font-size: 1rem; }
+        }
         .btn:hover { transform: scale(1.05); }
         .btn-primary { background: var(--color-primary); color: #0A0A0A; }
         .btn-primary:hover { background: var(--color-primary-dark); }
@@ -134,7 +141,8 @@
         /* --- 5. SECTIONS --- */
         .section { padding: var(--section-padding); }
         .section-surface { background-color: var(--color-surface); }
-        .section h2 { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(2.2rem, 5vw, 3.5rem); }
+        .section h2 { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(1.8rem, 5vw, 3.5rem); }
+        #mission.section h2 { margin-bottom: 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 4rem auto 0 auto; text-align: center; }
         .stat-item .stat-number { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; color: var(--color-primary); line-height: 1; }
         .stat-item .stat-label { color: var(--color-text-secondary); font-weight: 500; margin-top: 0.5rem; }
@@ -148,7 +156,7 @@
         .charity-logo img { max-height: 50px; width: auto }
         .charity-logo span { font-weight: 500; font-size: 1.1rem; color: #000; }
 
-        /* --- 7. VALUES --- */
+        /* --- 7. VALEURS --- */
         .values-container { position: relative; min-height: 400vh; }
         .values-sticky { position: sticky; top: 0; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         .value-step { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; text-align: center; opacity: 0; transform: scale(0.95); transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; }
@@ -160,7 +168,7 @@
         .value-next-btn { position: absolute; bottom: 2.5rem; left: 50%; background: var(--color-primary); color: #0A0A0A; border: none; border-radius: 50px; padding: 1rem 2rem; font-weight: 700; font-size: 1rem; cursor: pointer; opacity: 0; transform: translateX(-50%) translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; visibility: hidden; }
         .value-next-btn.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); visibility: visible; }
         
-        /* --- 8. TEAM --- */
+        /* --- 8. ÉQUIPE --- */
         .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 4rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
 
         .team-member { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 1 / 1.2; box-shadow: 0 10px 20px rgba(0,0,0,0.1); background-color: var(--color-background); flex: 0 1 340px; }
@@ -231,7 +239,7 @@
             position: relative;
         }
         .team-modal-socials a:hover { color: var(--color-primary); transform: translateY(-3px); }
-        /* --- Styles for the "Join the team" card --- */
+        /* --- Styles pour la carte "Rejoindre l'équipe" --- */
         .team-member--join {
             background-color: transparent;
             border: 3px dashed var(--color-border);
@@ -272,57 +280,57 @@
             font-weight: 500;
         }
 
-        /* Tooltip bubble style (::after) */
+        /* Style de la bulle du tooltip (::after) */
         .team-modal-socials a::after {
-            content: attr(aria-label); /* Retrieves text from the aria-label! */
+            content: attr(aria-label); /* Récupère le texte de l'aria-label ! */
             position: absolute;
-            bottom: 150%; /* Positions the tooltip above the icon */
+            bottom: 150%; /* Positionne le tooltip au-dessus de l'icône */
             left: 50%;
             transform: translateX(-50%);
 
-            /* Appearance */
+            /* Apparence */
             background-color: var(--color-surface);
             color: var(--color-text-primary);
             padding: 0.5rem 1rem;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 500;
-            white-space: nowrap; /* Prevents text from wrapping */
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-            /* Initial state (hidden) */
+            /* État initial (caché) */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
-        /* Tooltip little arrow style (::before) */
+        /* Style de la petite flèche du tooltip (::before) */
         .team-modal-socials a::before {
             content: '';
             position: absolute;
             bottom: 150%;
             left: 50%;
-            transform: translateX(-50%) translateY(16px); /* Offsets the arrow below the bubble */
+            transform: translateX(-50%) translateY(16px); /* Décale la flèche sous la bulle */
 
-            /* Creating the triangle with borders */
+            /* Création du triangle avec les bordures */
             border: 8px solid transparent;
             border-top-color: var(--color-surface);
 
-            /* Initial state (hidden) */
+            /* État initial (caché) */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
-        /* --- Hover behavior --- */
+        /* --- Comportement au survol --- */
 
-        /* Only for devices that can hover (not mobiles) */
+        /* Uniquement pour les appareils qui peuvent survoler (pas les mobiles) */
         @media (hover: hover) and (min-width: 768px) {
             .team-modal-socials a:hover::before,
             .team-modal-socials a:hover::after {
                 opacity: 1;
                 visibility: visible;
-                bottom: 140%; /* "Pop" up effect */
+                bottom: 140%; /* Effet de "pop" vers le haut */
             }
         }
 
@@ -334,10 +342,10 @@
         .faq-question::after { content: '+'; position: absolute; right: 1.75rem; top: 50%; transform: translateY(-50%); font-size: 2rem; transition: transform 0.3s ease; color: var(--color-primary); }
         .faq-question.active::after { transform: translateY(-50%) rotate(45deg); }
         .faq-answer { overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 0; }
-        .faq-answer-content { padding: 0 1.75rem 1.75rem 1.75rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .faq-answer-content { padding: 1.75rem; color: var(--color-text-secondary); line-height: 1.6; }
         .faq-answer-content p { margin-bottom: 0; }
         
-        /* --- 10. MODAL --- */
+        /* --- 10. MODALE --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
         .modal-overlay.is-active { opacity: 1; visibility: visible; }
         .modal-content { background: var(--color-surface); border-radius: 12px; padding: 2.5rem; width: 90%; max-width: 850px; position: relative; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -384,7 +392,7 @@
         .custom-checkbox-container input:checked + .checkbox-label::before { background-color: var(--color-primary); border-color: var(--color-primary); }
         .custom-checkbox-container input:checked + .checkbox-label::after { transform: rotate(45deg) scale(1); }
         
-        /* --- 10B. FORM SUBMISSION ANIMATION --- */
+        /* --- 10B. ANIMATION DE SOUMISSION DE FORMULAIRE --- */
         .btn-loader { width: 1.2em; height: 1.2em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
         .form-submit-btn.loading .btn-text { display: none; }
         .form-submit-btn.loading .btn-loader { display: inline-block; vertical-align: middle; }
@@ -404,10 +412,13 @@
         .input-group button { flex-shrink: 0; }
         .footer-bottom { border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .footer-bottom p { color: var(--color-text-secondary); font-size: 0.9rem; }
+        .footer-copyright { color: var(--color-text-secondary); font-size: 0.9rem; margin: 0; }
+        .footer-copyright a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
+        .footer-copyright a:hover { color: var(--color-primary-dark); }
         .footer-socials a { color: var(--color-text-secondary); font-size: 1.5rem; margin-left: 1.5rem; transition: color 0.3s ease; }
         .footer-socials a:hover { color: var(--color-text-primary); }
 
-        /* --- 11B. CHARITY WIDGET --- */
+        /* --- 11B. WIDGET ASSOCIATIONS --- */
         .charity-slider-widget {
             position: fixed;
             bottom: 1.5rem;
@@ -423,7 +434,7 @@
             opacity: 0;
             transform: translateY(20px);
             animation: slide-in-widget 0.5s ease 2.5s forwards;
-            display: none; /* Hidden by default, displayed on desktop */
+            display: none; /* Caché par défaut, affiché sur desktop */
             transition: width 0.4s ease, bottom 0.3s ease; 
         }
         .charity-slider-widget.scrolled { width: 320px; }
@@ -489,7 +500,8 @@
         /* --- 12. RESPONSIVE --- */
         @media (min-width: 992px) { .nav-links-desktop { display: flex; align-items: center; } }
         @media (max-width: 991px) { 
-            .nav-toggle { display: block; } 
+            .nav-toggle { display: block; }
+            .hero::before { background: none !important; animation: none !important; }
         }
         @media (min-width: 768px) { 
             .stats-grid { grid-template-columns: repeat(4, 1fr); } 
@@ -510,11 +522,14 @@
                 overflow-y: auto;
             }
         }
+
         @media (max-width: 767px) { 
             .modal-content { padding: 2rem 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; } 
-            .footer-about p { margin: 0 auto; } 
-            .footer-bottom {justify-content: center;}
+            .footer-about p { margin: 0 auto; text-align: center; }
+            .footer-bottom { justify-content: center; flex-direction: column; gap: 1.5rem; text-align: center; }
+            .footer-copyright { display: flex; flex-direction: column; gap: 0.75rem; }
+            .footer-socials a { margin: 0 0.75rem; }
             .value-next-btn { bottom: 1.5rem; padding: 0.8rem 1.5rem; font-size: 0.9rem; }
             #newsletter-modal .input-group {
                 flex-direction: column;
@@ -927,12 +942,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="copyright-year"></span> We Ride For Smiles. <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+                <span class="footer-links"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
                 </div>
+                <p>&copy; <span id="copyright-year"></span> We Ride For Smiles</p>
             </div>
         </div>
     </footer>

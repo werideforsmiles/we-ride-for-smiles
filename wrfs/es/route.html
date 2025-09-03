@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles</title>
+    <meta name="description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona. Sigue nuestro recorrido de 1500 km día a día en el mapa interactivo.">
+    <link rel="canonical" href="https://www.werideforsmiles.org/es/route.html" />
+
+    <meta property="og:title" content="La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/es/route.html" />
+    <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
+    <meta property="og:description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona." />
+    <meta property="og:site_name" content="We Ride For Smiles" />
+    <meta property="og:locale" content="es_ES" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles">
+    <meta name="twitter:description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona.">
+    <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
+
+    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route.html" />
+    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route.html" />
+    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/es/route.html" />
+    
+    <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="../css/styles.css" rel="stylesheet" />
+
+    <style>
+        :root {
+          --font-sans: 'Inter', sans-serif;
+          --color-background: #0A0A0A; --color-surface: #191919; --color-text-primary: #FAFAFA;
+          --color-text-secondary: #999999; --color-primary: #FFA500; --color-primary-dark: #E59400;
+          --color-border: #333333;
+        }
+        html.light-mode {
+          --color-background: #F5F5F5; --color-surface: #FFFFFF; --color-text-primary: #191919;
+          --color-text-secondary: #555555; --color-border: #DDDDDD;
+        }
+        
+        .step-content {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0.4;
+        }
+        .step-content.is-active {
+            opacity: 1;
+        }
+        
+        .step-description {
+            background-color: rgba(128, 128, 128, 0.05);
+            border: 1px solid rgba(128, 128, 128, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+        html.light-mode .step-description {
+            border: 1px solid rgba(128, 128, 128, 0.15);
+        }
+        .step-description p { margin: 0; }
+        
+        .step-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .image-credit {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            text-align: right;
+            margin-top: -0.5rem;
+        }
+        .image-credit a {
+            color: var(--color-text-secondary);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            #map {
+                height: 30vh;
+                position: sticky;
+                top: 80px; 
+                z-index: 5;
+            }
+            .story-container {
+                position: relative;
+                z-index: 1; 
+                background-color: var(--color-background);
+            }
+            .step-content {
+                min-height: calc(70vh - 40px);
+                padding: 2rem 1rem;
+                margin-top: 40px;
+            }
+            .step-content:first-child {
+                margin-top: 0;
+            }
+            .step-content h3 {
+                font-size: 1.75rem; 
+                margin-bottom: 1rem;
+            }
+            .step-description {
+                padding: 1rem;
+            }
+            .step-image,
+            .image-credit {
+                display: none; 
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "La Ruta del Desafío Londres-Barcelona 2026",
+      "url": "https://www.werideforsmiles.org/es/route.html",
+      "description": "Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona. Sigue nuestro recorrido de 1500 km día a día en el mapa interactivo.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "We Ride For Smiles",
+        "url": "https://www.werideforsmiles.org/es/index.html"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.werideforsmiles.org/es/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "La Ruta"
+      }]
+    }
+    </script>
+</head>
+
+<body class="route-body dark-mode">
+
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-brand">WRFS</a>
+            <div class="nav-menu">
+                <div class="nav-links-desktop">
+                    <a href="index.html#mission" class="nav-link">Misión</a>
+                    <a href="route.html" class="nav-link">Ruta</a>
+                    <a href="index.html#causes" class="nav-link">Beneficiarios</a>
+                    <a href="index.html#team" class="nav-link">El equipo</a>
+                    <a href="index.html#faq" class="nav-link">FAQ</a>
+                    <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">Involúcrarse</button>
+                </div>
+                <div class="nav-controls">
+                    <div class="lang-switcher">
+                        <span class="selected-lang">ES</span>
+                        <ul class="lang-dropdown">
+                            <li><a href="../fr/route.html">FR</a></li>
+                            <li><a href="../en/route.html">EN</a></li>
+                        </ul>
+                    </div>
+                    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="nav-mobile-overlay" id="nav-mobile-overlay">
+        <div class="nav-mobile-header">
+            <a href="index.html" class="navbar-brand">WRFS</a>
+            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="nav-mobile-links">
+            <a href="index.html#mission" class="nav-link">Misión</a>
+            <a href="route.html" class="nav-link">Ruta</a>
+            <a href="index.html#causes" class="nav-link">Beneficiarios</a>
+            <a href="index.html#team" class="nav-link">El equipo</a>
+            <a href="index.html#faq" class="nav-link">FAQ</a>
+            <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">Involúcrarse</button>
+        </div>
+    </div>
+
+    <div class="route-container">
+        <div id="map"></div>
+        
+        <div class="story-container">
+            <div class="step-content is-active" id="step-0">
+                <h3>La Gran Salida</h3>
+                <h4>Junio 2026: Londres</h4>
+                <div class="step-description">
+                    <p>La aventura comienza en el corazón de Londres. Cada pedalada es una promesa para los niños que apoyamos.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="Foto aérea de Londres" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+            
+            <div class="step-content" id="step-1">
+                <h3>Día 1: Londres → Southampton (130 km)</h4>
+                <div class="step-description">
+                    <p>Primer día para salir de la metrópoli y llegar al gran puerto de Southampton, puerta de embarque hacia Francia.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Puerto de Southampton" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-2">
+                <h3>Día 2: Le Havre → Ruán (90 km)</h4>
+                <div class="step-description">
+                    <p>Después de la travesía, una primera etapa francesa a lo largo del Sena para calentar motores hasta la histórica ciudad de Ruán.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Foto urbana de Ruán" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-3">
+                <h3>Día 3: Ruán → París (135 km)</h4>
+                <div class="step-description">
+                    <p>Seguimos los meandros del Sena para una llegada majestuosa a la capital, a los pies de la Torre Eiffel.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="Foto de la ciudad de París" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-4">
+                <h3>Día 4: París → Orleans (130 km)</h4>
+                <div class="step-description">
+                    <p>Dejamos París en dirección sur. Un recorrido más llano para llegar a Orleans y a los primeros castillos del Loira.</p>
+                </div>
+                 <img src="https://images.unsplash.com/photo-1669834812431-a6605c206c0e?q=80&w=1170&auto=format&fit=crop" alt="Foto de la ciudad de Orleans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@passimage" target="_blank">Snap Wander</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+            
+            <div class="step-content" id="step-5">
+                <h3>Día 5: Descanso en Orleans</h3>
+                <div class="step-description">
+                    <p>Después de 4 días intensos, una merecida pausa para recargar las baterías y explorar la ciudad antes de afrontar el centro de Francia.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Estatua de Juana de Arco en Orleans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+            
+            <div class="step-content" id="step-6">
+                <h3>Día 6: Orleans → Châteauroux (150 km)</h4>
+                <div class="step-description">
+                    <p>Dejamos el Loira para adentrarnos en el corazón de Francia. Una etapa de transición a través de los paisajes de Berry para llegar a Châteauroux.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg/960px-Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg" alt="Foto de un edificio en la calle de la Gare en Châteauroux" class="step-image">
+                <p class="image-credit">Foto de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> en <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+            </div>
+
+            <div class="step-content" id="step-7">
+                <h3>Día 7: Châteauroux → Limoges (140 km)</h4>
+                <div class="step-description">
+                    <p>¡Rumbo al suroeste! El terreno se vuelve más ondulado a medida que nos acercamos al Lemosín, un día para probar las piernas antes de las estribaciones del Macizo Central.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1706873556600-7bdf44c2caff?q=80&w=1470&auto=format&fit=crop" alt="Estación de Limoges-Bénédictins" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@getapony" target="_blank">pony</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-8">
+                <h3>Día 8: Limoges → Brive (100 km)</h4>
+                <div class="step-description">
+                    <p>Una etapa más corta pero exigente que nos lleva hacia la Dordoña. Los paisajes verdes nos dan la bienvenida en Brive-la-Gaillarde.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg/960px-Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg" alt="Foto de la plaza Latreille en Brive-la-Gaillarde" class="step-image">
+                <p class="image-credit">Foto de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> en <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+            </div>
+
+            <div class="step-content" id="step-9">
+                <h3>Día 9: Brive → Tolosa (220 km)</h4>
+                <div class="step-description">
+                    <p>¡La etapa reina de la semana! Un largo día a través del Lot para finalmente llegar al Garona y a la magnífica "Ciudad Rosa", Tolosa.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1576367872882-489d040b9bde?q=80&w=1470&auto=format&fit=crop" alt="Pont Neuf en Tolosa" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-10">
+                <h3>Día 10: Descanso en Tolosa</h3>
+                <div class="step-description">
+                    <p>Segundo y último día de descanso. La oportunidad de pasear por el Canal du Midi, disfrutar del ambiente del suroeste y preparar la recta final.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Plaza del Capitolio en Tolosa" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-11">
+                <h3>Día 11: Tolosa → Carcasona (100 km)</h4>
+                <div class="step-description">
+                    <p>Seguimos el Canal du Midi por un recorrido llano. El objetivo: la majestuosa ciudad medieval de Carcasona que se alza en el horizonte.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1580513860129-dee8825dfe44?q=80&w=1329&auto=format&fit=crop" alt="Ciudad medieval de Carcasona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@bonnarda" target="_blank">Alain Bonnardeaux</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+            
+            <div class="step-content" id="step-12">
+                <h3>Día 12: Carcasona → Perpiñán (100 km)</h4>
+                <div class="step-description">
+                    <p>A través de las Corbières y sus castillos cátaros, el recorrido vuelve a ser exigente antes de descender hacia el Mediterráneo y la capital catalana, Perpiñán.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1733670787852-3a2254b178c5?q=80&w=1473&auto=format&fit=crop" alt="Foto de un puente en Perpiñán" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@moondtheartist" target="_blank">Moon D The Artist</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-13">
+                <h3>Día 13: Perpiñán → Gerona (115 km)</h4>
+                <div class="step-description">
+                    <p>¡Ya está, cruzamos la frontera! Los Pirineos han quedado atrás. Bienvenidos a España para esta etapa hasta la magnífica Gerona.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1515974448560-3e45c9d51f95?q=80&w=1138&auto=format&fit=crop" alt="Casas de colores de Gerona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@lucasgallone" target="_blank">Lucas Gallone</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+
+            <div class="step-content" id="step-14">
+                <h3>Día 14: Gerona → Barcelona (105 km)</h4>
+                <div class="step-description">
+                    <p>¡La recta final! Una etapa cargada de emoción, a lo largo de la costa catalana, para la gran llegada a Barcelona.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Foto aérea de Barcelona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@loganstrongarms" target="_blank">Logan Armstrong</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="involve-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-modal-close>&times;</button>
+            <div class="modal-header">
+                <h3>¡Conviértete en un motor de esta aventura!</h3>
+                <p class="modal-intro">Cada ayuda, grande o pequeña, en el terreno o a distancia, es una pedalada más para los niños. Descubre cómo puedes marcar la diferencia.</p>
+            </div>
+            <form name="get-involved-es-improved" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="get-involved-es-improved" />
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname-involve">Nombre</label>
+                        <input type="text" id="firstname-involve" name="firstname" placeholder="Ej: Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-involve">Email</label>
+                        <input type="email" id="email-involve" name="email" placeholder="Ej: juan.perez@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 2.5rem;">
+                    <label>¿Cómo te gustaría apoyarnos?</label>
+                    <div class="involvement-options">
+                        <div class="option-card"><input type="checkbox" name="involvement_ride" value="ride" id="role-ride"><label for="role-ride" class="option-label"><div class="option-label-header"><i class="fa-solid fa-bicycle"></i><strong>Pedalear con nosotros</strong></div><span>Participar en el desafío.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event"><label for="role-event" class="option-label"><div class="option-label-header"><i class="fa-solid fa-flag-checkered"></i><strong>Voluntario/a</strong></div><span>Ayudar en el terreno.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_partner" value="partner" id="role-partner"><label for="role-partner" class="option-label"><div class="option-label-header"><i class="fa-solid fa-handshake"></i><strong>Convertirse en socio</strong></div><span>Asociar tu empresa.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_donation" value="donation" id="role-donation"><label for="role-donation" class="option-label"><div class="option-label-header"><i class="fa-solid fa-hand-holding-dollar"></i><strong>Hacer una donación</strong></div><span>Apoyar financieramente.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote"><label for="role-remote" class="option-label"><div class="option-label-header"><i class="fa-solid fa-laptop"></i><strong>Ayudar a distancia</strong></div><span>Comunicación, etc.</span></label></div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">Enviar mi propuesta</span><span class="btn-loader"></span></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="newsletter-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-modal-close>&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-envelope-open-text icon-header"></i>
+                <h3>¡No te pierdas nada de la aventura!</h3>
+                <p class="modal-intro">Únete a nuestra comunidad y recibe las noticias clave del desafío, directamente en tu correo.</p>
+            </div>
+            <form name="newsletter-popup-es-rgpd" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="newsletter-popup-es-rgpd" />
+                <div class="input-group">
+                   <input type="email" name="email" placeholder="Tu mejor email" required>
+                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">Me inscribo</span><span class="btn-loader"></span></button>
+                </div>
+                <label class="custom-checkbox-container">
+                    <input type="checkbox" name="consent" id="consent-modal" required>
+                    <span class="checkbox-label">Acepto recibir las noticias del proyecto. (<a href="../privacidad.html" target="_blank">Política de Privacidad</a>)</span>
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => navbar?.classList.toggle('scrolled', window.scrollY > 50));
+
+            const navToggle = document.getElementById('nav-toggle');
+            const mobileNav = document.getElementById('nav-mobile-overlay');
+            const navClose = document.getElementById('nav-mobile-close');
+            
+            if (navToggle && mobileNav && navClose) {
+                const openMobileNav = () => { mobileNav.classList.add('is-active'); body.classList.add('mobile-nav-open'); };
+                const closeMobileNav = () => { mobileNav.classList.remove('is-active'); body.classList.remove('mobile-nav-open'); };
+                navToggle.addEventListener('click', (e) => { e.stopPropagation(); openMobileNav(); });
+                navClose.addEventListener('click', closeMobileNav);
+                mobileNav.querySelectorAll('a, button').forEach(link => {
+                    link.addEventListener('click', closeMobileNav);
+                });
+            }
+
+            const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+            const modals = document.querySelectorAll('.modal-overlay');
+            const openModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (modal) { modal.classList.add('is-active'); body.classList.add('modal-open'); }
+            };
+            const closeModal = (modal) => {
+                modal.classList.remove('is-active'); body.classList.remove('modal-open');
+            };
+            modalTriggers.forEach(trigger => trigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openModal(trigger.dataset.modalTrigger); }));
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
+                modal.querySelector('[data-modal-close]')?.addEventListener('click', () => closeModal(modal));
+            });
+
+            document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    const submitBtn = form.querySelector('.form-submit-btn');
+                    if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
+                });
+            });
+
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlEl = document.documentElement;
+            const sunIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+            const moonIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            
+            const setTheme = (theme) => {
+                htmlEl.className = theme + '-mode route-body';
+                localStorage.setItem('theme', theme);
+                if (themeToggle) themeToggle.innerHTML = theme === 'dark' ? sunIconSVG : moonIconSVG;
+            };
+            setTheme(localStorage.getItem('theme') || 'dark');
+            
+            themeToggle?.addEventListener('click', () => setTheme(htmlEl.classList.contains('dark-mode') ? 'light' : 'dark'));
+            
+            const map = L.map('map', {
+                scrollWheelZoom: false,
+                zoomControl: false
+            }).setView([47.0, 2.0], 5);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+            
+            const stepsData = [
+                { id: 'step-0', coords: [51.5074, -0.1278], zoom: 12 }, { id: 'step-1', coords: [50.9097, -1.4044], zoom: 12 }, { id: 'step-2', coords: [49.4432, 1.0999], zoom: 12 }, { id: 'step-3', coords: [48.8566, 2.3522], zoom: 11 }, { id: 'step-4', coords: [47.9029, 1.9093], zoom: 12 }, { id: 'step-5', coords: [47.9029, 1.9093], zoom: 13 }, { id: 'step-6', coords: [46.8103, 1.6912], zoom: 12 }, { id: 'step-7', coords: [45.8336, 1.2611], zoom: 12 }, { id: 'step-8', coords: [45.1586, 1.5332], zoom: 12 }, { id: 'step-9', coords: [43.6047, 1.4442], zoom: 12 }, { id: 'step-10', coords: [43.6047, 1.4442], zoom: 13 }, { id: 'step-11', coords: [43.2130, 2.3491], zoom: 12 }, { id: 'step-12', coords: [42.6887, 2.8948], zoom: 12 }, { id: 'step-13', coords: [41.9831, 2.8249], zoom: 12 }, { id: 'step-14', coords: [41.3851, 2.1734], zoom: 12 },
+            ];
+
+            const latlngs = stepsData.map(s => s.coords);
+            L.polyline(latlngs, { color: '#FFA500', weight: 3, opacity: 0.7 }).addTo(map);
+
+            const allElements = document.querySelectorAll('.step-content');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const elementId = entry.target.id;
+                        const activeStepData = stepsData.find(s => s.id === elementId);
+
+                        if (activeStepData) {
+                            map.flyTo(activeStepData.coords, activeStepData.zoom, { animate: true, duration: 1.5 });
+                        }
+                        
+                        allElements.forEach(el => {
+                            el.classList.toggle('is-active', el.id === elementId);
+                        });
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            allElements.forEach(el => observer.observe(el));
+            
+            let isScrolling = false;
+            const scrollTimeout = 1000;
+
+            const scrollToElement = (index) => {
+                if (isScrolling || index < 0 || index >= allElements.length) return;
+                isScrolling = true;
+
+                const element = allElements[index];
+                const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+                
+                let targetPosition;
+
+                if (window.innerWidth <= 768) {
+                    const offsetFromViewTop = window.innerHeight * 0.35; 
+                    targetPosition = elementTop - offsetFromViewTop;
+                } else {
+                    const navbarHeight = 80;
+                    targetPosition = elementTop - navbarHeight;
+                }
+                
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                setTimeout(() => { isScrolling = false; }, scrollTimeout);
+            };
+
+            window.addEventListener('wheel', (event) => {
+                if (isScrolling) { event.preventDefault(); return; }
+                const currentIndex = Array.from(allElements).findIndex(el => el.classList.contains('is-active'));
+                if (event.deltaY > 0 && currentIndex < allElements.length - 1) {
+                    event.preventDefault();
+                    scrollToElement(currentIndex + 1);
+                } else if (event.deltaY < 0 && currentIndex > 0) {
+                    event.preventDefault();
+                    scrollToElement(currentIndex - 1);
+                }
+            }, { passive: false });
+
+            let touchStartY = 0;
+            window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+            window.addEventListener('touchend', (e) => {
+                if (isScrolling) return;
+                const touchEndY = e.changedTouches[0].clientY;
+                const swipeDistance = touchStartY - touchEndY;
+                const currentIndex = Array.from(allElements).findIndex(el => el.classList.contains('is-active'));
+                if (Math.abs(swipeDistance) > 50) {
+                    if (swipeDistance > 0 && currentIndex < allElements.length - 1) {
+                        scrollToElement(currentIndex + 1);
+                    } else if (swipeDistance < 0 && currentIndex > 0) {
+                        scrollToElement(currentIndex - 1);
+                    }
+                }
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>

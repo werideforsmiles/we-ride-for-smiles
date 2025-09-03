@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - We Ride For Smiles</title>
+    <meta name="description" content="Politique de confidentialité de We Ride For Smiles, détaillant comment nous collectons, utilisons et protégeons vos données personnelles en conformité avec le RGPD, le CCPA et d'autres réglementations.">
+    <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Styles copiés de index.html pour la cohérence */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+        :root {
+          --font-sans: 'Inter', sans-serif;
+          --color-background: #0A0A0A; --color-surface: #191919; --color-text-primary: #FAFAFA;
+          --color-text-secondary: #999999; --color-primary: #FFA500; --color-primary-dark: #E59400;
+          --color-border: #333333; --section-padding: 7rem 0; --container-width: 1280px;
+        }
+        html.light-mode {
+          --color-background: #F5F5F5; --color-surface: #FFFFFF; --color-text-primary: #191919;
+          --color-text-secondary: #555555; --color-border: #DDDDDD;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { padding: 0 20px; background-color: var(--color-background); color: var(--color-text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background-color 0.4s ease, color 0.4s ease; }
+        body.mobile-nav-open { overflow: hidden; }
+        body.modal-open { overflow: hidden; }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 1.5rem; }
+        h1, h2, h3 { text-wrap: balance; }
+        p, .lead { text-wrap: pretty; }
+        a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--color-primary-dark); }
+        a.btn, a.navbar-brand, .charity-logo, .nav-link { text-decoration: none !important; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; z-index: 1000; transition: background-color 0.3s ease; }
+        .navbar.scrolled { background-color: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); }
+        html.light-mode .navbar.scrolled { background-color: rgba(255, 255, 255, 0.8); }
+        .navbar-content { display: flex; justify-content: space-between; align-items: center; }
+        .navbar-brand { font-weight: 900; font-size: 1.8rem; color: var(--color-text-primary); z-index: 1001; }
+        .nav-menu { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-links-desktop { display: none; }
+        .nav-link { color: var(--color-text-primary); font-weight: 500; margin: 0 1rem; }
+        .nav-link-button { background: none; border: none; font-family: inherit; font-size: inherit; color: var(--color-text-primary); font-weight: 500; cursor: pointer; padding: 0; margin: 0 1rem; transition: color 0.3s ease; }
+        .nav-link-button:hover { color: var(--color-primary-dark); }
+        .nav-controls { display: flex; align-items: center; gap: 1.5rem; z-index: 1001; }
+        .lang-switcher { position: relative; }
+        .lang-switcher .selected-lang { color: var(--color-text-secondary); font-weight: 700; cursor: pointer; }
+        .lang-switcher .lang-dropdown { position: absolute; top: 100%; left: 50%; background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.5rem; margin-top: 0.5rem; list-style: none; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); transition: all 0.3s ease; }
+        .lang-switcher:hover .lang-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .lang-switcher .lang-dropdown a { display: block; padding: 0.5rem 1rem; color: var(--color-text-primary); }
+        .lang-switcher .lang-dropdown a:hover { color: var(--color-primary); }
+        .theme-switch { background: none; border: none; color: var(--color-text-primary); font-size: 1.2rem; cursor: pointer; line-height: 0; }
+        .theme-switch svg { width: 24px; height: 24px; transition: transform 0.4s ease; }
+        .nav-toggle { display: none; background: none; border: none; color: var(--color-text-primary); font-size: 1.5rem; cursor: pointer; z-index: 1001; }
+        .nav-mobile-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-background); z-index: 1002; display: flex; flex-direction: column; padding: 1.5rem; transform: translateY(-100%); visibility: hidden; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0s 0.4s; }
+        .nav-mobile-overlay.is-active { transform: translateY(0); visibility: visible; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .nav-mobile-header { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4rem; }
+        .nav-mobile-close { background: none; border: none; color: var(--color-text-primary); font-size: 2rem; cursor: pointer; }
+        .nav-mobile-links { display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1; }
+        .nav-mobile-overlay .nav-link, .nav-mobile-overlay .nav-link-button { font-size: 2rem; margin: 1rem 0; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > * { opacity: 1; transform: translateY(0); }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(1) { transition-delay: 0.2s; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(2) { transition-delay: 0.25s; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(3) { transition-delay: 0.3s; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(4) { transition-delay: 0.35s; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(5) { transition-delay: 0.4s; }
+        .nav-mobile-overlay.is-active .nav-mobile-links > *:nth-child(6) { transition-delay: 0.45s; }
+        .nav-mobile-overlay .btn { margin-top: 2rem; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s; }
+        .nav-mobile-overlay.is-active .btn { opacity: 1; transform: translateY(0); }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-align: center; transition: all 0.3s ease; border: none; cursor: pointer; position: relative; }
+        .btn:hover { transform: scale(1.05); }
+        .btn-primary { background: var(--color-primary); color: #0A0A0A; }
+        .btn-primary:hover { background: var(--color-primary-dark); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
+        .modal-overlay.is-active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--color-surface); border-radius: 12px; padding: 2.5rem; width: 90%; max-width: 850px; position: relative; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        #involve-modal .modal-content { max-height: 90vh; overflow-y: auto; }
+        #involve-modal .modal-content::-webkit-scrollbar { width: 8px; }
+        #involve-modal .modal-content::-webkit-scrollbar-track { background: var(--color-background); border-radius: 10px; }
+        #involve-modal .modal-content::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 10px; border: 2px solid var(--color-background); }
+        #involve-modal .modal-content::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
+        .modal-overlay.is-active .modal-content { transform: translateY(0); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--color-text-secondary); font-size: 2rem; cursor: pointer; z-index: 10; }
+        .modal-header { text-align: center; margin-bottom: 2.5rem; }
+        .icon-header { color: var(--color-primary); font-size: 3rem; margin-bottom: 1rem; }
+        .modal-content h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .modal-intro { color: var(--color-text-secondary); max-width: 500px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
+        .form-group input[type="text"], .form-group input[type="email"] { width: 100%; padding: 0.8rem; background: var(--color-background); border: 1px solid var(--color-border); color: var(--color-text-primary); border-radius: 6px; }
+        .form-group input::placeholder { color: var(--color-text-secondary); opacity: 0.7; }
+        .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
+        .involvement-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .option-card { position: relative; }
+        .option-card input[type="checkbox"] { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+        .option-label { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; border: 2px solid var(--color-border); border-radius: 12px; transition: all 0.3s ease; cursor: pointer; height: 100%; }
+        .option-label i { font-size: 2rem; margin-bottom: 0; color: var(--color-primary); transition: transform 0.3s ease; }
+        .option-label-header { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; margin-bottom: 0.2rem; }
+        .option-label strong { font-size: 1.1rem; color: var(--color-text-primary); }
+        .option-label span { font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 0.25rem; }
+        .option-card:hover .option-label { border-color: var(--color-primary); transform: translateY(-5px); }
+        .option-card:hover .option-label i { transform: scale(1.1); }
+        .option-card input:checked + .option-label { border-color: var(--color-primary); background-color: rgba(255, 165, 0, 0.05); box-shadow: 0 0 15px rgba(255, 165, 0, 0.2); }
+        .custom-checkbox-container { display: flex; justify-content: center; align-items: center; margin-top: 1.5rem; gap: 0.75rem; cursor: pointer; }
+        .custom-checkbox-container input[type="checkbox"] { position: absolute; opacity: 0; }
+        .custom-checkbox-container .checkbox-label { font-size: 0.9rem; color: var(--color-text-secondary); position: relative; padding-left: 30px; line-height: 22px; }
+        .custom-checkbox-container .checkbox-label::before { content: ''; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border: 2px solid var(--color-border); background-color: var(--color-background); border-radius: 6px; transition: all 0.2s ease; }
+        .custom-checkbox-container .checkbox-label::after { content: ''; position: absolute; left: 8px; top: 4px; width: 5px; height: 10px; border: solid var(--color-background); border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0); transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .custom-checkbox-container input:checked + .checkbox-label::before { background-color: var(--color-primary); border-color: var(--color-primary); }
+        .custom-checkbox-container input:checked + .checkbox-label::after { transform: rotate(45deg) scale(1); }
+        .btn-loader { width: 1.2em; height: 1.2em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
+        .form-submit-btn.loading .btn-text { display: none; }
+        .form-submit-btn.loading .btn-loader { display: inline-block; vertical-align: middle; }
+        .form-submit-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        footer { padding: 5rem 0 2rem 0; text-align: left; background-color: #101010; border-top: 1px solid var(--color-border); }
+        html.light-mode footer { background-color: #e9ecef; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+        .footer-about h3 { font-size: 1.5rem; font-weight: 800; color: var(--color-text-primary); margin-bottom: 1rem; }
+        .footer-about p { color: var(--color-text-secondary); max-width: 350px; }
+        .footer-newsletter h4 { font-size: 1rem; font-weight: 700; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .input-group { display: flex; border: 1px solid var(--color-border); border-radius: 50px; padding: 5px; background-color: var(--color-background); }
+        .input-group input { flex-grow: 1; background: transparent; border: none; color: var(--color-text-primary); padding: 0.75rem 1.5rem; font-size: 1rem; }
+        .input-group input:focus { outline: none; }
+        .input-group button { flex-shrink: 0; }
+        .footer-bottom { border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: var(--color-text-secondary); font-size: 0.9rem; }
+        .footer-socials a { color: var(--color-text-secondary); font-size: 1.5rem; margin-left: 1.5rem; transition: color 0.3s ease; }
+        .footer-socials a:hover { color: var(--color-text-primary); }
+        
+        /* Responsive */
+        @media (min-width: 992px) { .nav-links-desktop { display: flex; align-items: center; } }
+        @media (max-width: 991px) { .nav-toggle { display: block; } }
+        @media (min-width: 768px) { }
+        @media (max-width: 767px) { 
+            .modal-content { padding: 2rem 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; } 
+            .footer-about p { margin: 0 auto; } 
+            .footer-bottom {justify-content: center;}
+            #newsletter-modal .input-group {
+                flex-direction: column;
+                gap: 0.75rem;
+                border: none;
+                background-color: transparent;
+                padding: 0;
+            }
+            #newsletter-modal .input-group input,
+            #newsletter-modal .input-group button {
+                width: 100%;
+                border-radius: 50px !important;
+            }
+            #newsletter-modal .input-group input {
+                border: 1px solid var(--color-border);
+                padding: 1.2rem;
+            }
+        }
+        @media (min-width: 576px) {
+            .form-row { flex-direction: row; }
+            .form-row .form-group { flex: 1; margin-bottom: 0; }
+        }
+        @media (max-width: 576px) {
+          .option-label-header { flex-direction: row; gap: 0.75rem; margin-bottom: 0.75rem; }
+          .involvement-options { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            footer .input-group {
+                flex-direction: column;
+                gap: 0.75rem;
+                border: none;
+                background-color: transparent;
+                padding: 0;
+            }
+            footer .input-group input,
+            footer .input-group button {
+                width: 100%;
+                border-radius: 50px !important;
+            }
+            footer .input-group input {
+                border: 1px solid var(--color-border);
+                padding: 1.2rem;
+            }
+        }
+
+        /* Styles spécifiques pour les pages légales */
+        .legal-header {
+            padding-top: 12rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+        .legal-content {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legal-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .legal-content p, .legal-content li {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            text-align: left;
+        }
+        .legal-content ul {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .legal-content a {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-brand">WRFS</a>
+            <div class="nav-menu">
+                <div class="nav-links-desktop">
+                    <a href="index.html#mission" class="nav-link">Mission</a>
+                    <a href="route.html" class="nav-link">Le Parcours</a>
+                    <a href="index.html#causes" class="nav-link">Les Causes</a>
+                    <a href="index.html#team" class="nav-link">L'Équipe</a>
+                    <a href="index.html#faq" class="nav-link">FAQ</a>
+                    <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">S'impliquer</button>
+                </div>
+                <div class="nav-controls">
+                    <div class="lang-switcher">
+                        <span class="selected-lang">FR</span>
+                        <ul class="lang-dropdown">
+                            <li><a href="../en/index.html">EN</a></li>
+                            <li><a href="../es/index.html">ES</a></li>
+                        </ul>
+                    </div>
+                    <button class="theme-switch" id="theme-toggle" aria-label="Changer de thème"></button>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="nav-mobile-overlay" id="nav-mobile-overlay">
+        <div class="nav-mobile-header">
+            <a href="index.html" class="navbar-brand">WRFS</a>
+            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Fermer le menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="nav-mobile-links">
+            <a href="index.html#mission" class="nav-link">Mission</a>
+            <a href="route.html" class="nav-link">Le Parcours</a>
+            <a href="index.html#causes" class="nav-link">Les Causes</a>
+            <a href="index.html#team" class="nav-link">L'Équipe</a>
+            <a href="index.html#faq" class="nav-link">FAQ</a>
+            <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">S'impliquer</button>
+        </div>
+    </div>
+
+    <main>
+        <header class="section legal-header">
+            <div class="container">
+                <h1>Politique de Confidentialité</h1>
+                <p class="lead" style="margin-top: 1rem;">Dernière mise à jour : 3 septembre 2025</p>
+            </div>
+        </header>
+
+        <section class="legal-content container">
+            <h2>1. Introduction</h2>
+            <p>We Ride For Smiles ("nous", "notre" ou "nos") s'engage à protéger vos données personnelles. Cette Politique de Confidentialité décrit comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web. Nos pratiques sont conçues pour être conformes au Règlement Général sur la Protection des Données (RGPD), à la Loi californienne sur la protection de la vie privée des consommateurs (CCPA), à la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) du Canada, et à la Loi britannique sur la protection des données de 2018.</p>
+
+            <h2>2. Informations que nous collectons</h2>
+            <p>Nous pouvons collecter les types de données personnelles suivants :</p>
+            <ul>
+                <li><strong>Informations Personnelles Identifiables (IPI) :</strong> Cela inclut votre nom, votre adresse e-mail et tout autre détail que vous fournissez volontairement en soumettant des formulaires sur notre site web, tels que les formulaires "S'impliquer" ou d'inscription à la newsletter.</li>
+                <li><strong>Données d'Utilisation :</strong> Nous collectons automatiquement des informations techniques lorsque vous naviguez sur notre site, y compris votre adresse IP, le type de navigateur, le système d'exploitation et les pages visitées. Ces données nous aident à comprendre comment notre site web est utilisé et comment l'améliorer.</li>
+                <li><strong>Cookies et Technologies de Suivi :</strong> Nous utilisons des cookies pour améliorer l'expérience utilisateur, mémoriser vos préférences (comme le choix du thème) et analyser le trafic du site. Nous pouvons utiliser une Plateforme de Gestion du Consentement (CMP) pour gérer votre consentement aux cookies de manière transparente.</li>
+            </ul>
+
+            <h2>3. Base Juridique du Traitement des Données Personnelles</h2>
+            <p>Nous traitons vos données personnelles sur la base des fondements juridiques suivants :</p>
+            <ul>
+                <li><strong>Consentement :</strong> Lorsque vous donnez votre consentement explicite, par exemple en vous abonnant à notre newsletter, en cochant une case de consentement ou en acceptant les cookies via notre CMP.</li>
+                <li><strong>Nécessité Contractuelle :</strong> Si vous vous inscrivez pour participer à un événement, nous traitons vos données pour remplir notre engagement envers vous.</li>
+                <li><strong>Obligation Légale :</strong> Nous pouvons traiter vos données pour nous conformer aux lois, réglementations ou demandes légales applicables.</li>
+                <li><strong>Intérêt Légitime :</strong> Nous traitons des données à des fins telles que la sécurité du site web, la prévention de la fraude et l'analyse des performances du site, qui relèvent de nos intérêts légitimes sans porter atteinte à vos droits fondamentaux.</li>
+            </ul>
+
+            <h2>4. Comment nous utilisons vos informations</h2>
+            <p>Vos informations sont utilisées aux fins suivantes :</p>
+            <ul>
+                <li>Pour exploiter et maintenir efficacement notre site web.</li>
+                <li>Pour répondre à vos demandes et gérer la participation à nos événements.</li>
+                <li>Pour vous envoyer des mises à jour, des newsletters et d'autres informations sur notre mission, mais uniquement avec votre consentement explicite.</li>
+                <li>Pour personnaliser votre expérience et améliorer les fonctionnalités de notre site web.</li>
+                <li>Pour assurer la sécurité, prévenir la fraude et nous conformer aux obligations légales.</li>
+            </ul>
+
+            <h2>5. Partage de Données et Sous-traitants</h2>
+            <p>Nous ne vendons pas vos données personnelles. Nous les partageons uniquement avec des tiers qui agissent en tant que nos prestataires de services (sous-traitants) dans le cadre d'accords de confidentialité stricts. Cela inclut :</p>
+            <ul>
+                <li><strong>Hébergement et Traitement des Formulaires :</strong> Notre site web est hébergé sur Netlify, Inc. Lorsque vous soumettez un formulaire sur notre site, les données sont traitées par les services de Netlify pour nous permettre de recevoir et de gérer votre soumission.</li>
+            </ul>
+            <p>Nous ne travaillons qu'avec des sous-traitants qui fournissent des garanties suffisantes pour mettre en œuvre des mesures techniques et organisationnelles appropriées de manière à garantir la protection de vos droits.</p>
+
+            <h2>6. Sécurité et Conservation des Données</h2>
+            <p>Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre l'accès, l'utilisation ou la divulgation non autorisés. Cependant, aucune méthode de transmission sur Internet n'est sécurisée à 100%.</p>
+            <p><strong>Conservation des Données :</strong> Nous ne conservons vos données personnelles que le temps nécessaire aux fins énoncées dans cette politique, ou tel que requis par nos obligations légales.</p>
+
+            <h2>7. Vos Droits</h2>
+            <p>Selon votre juridiction, vous disposez des droits suivants concernant vos données personnelles :</p>
+            <ul>
+                <li><strong>Droit d'Accès :</strong> Vous pouvez demander une copie des données personnelles que nous détenons à votre sujet.</li>
+                <li><strong>Droit de Rectification :</strong> Vous pouvez demander la mise à jour ou la correction de données inexactes.</li>
+                <li><strong>Droit à l'Effacement (Droit à l'oubli) :</strong> Vous pouvez demander la suppression de vos données personnelles.</li>
+                <li><strong>Droit d'Opposition ou de Limitation du Traitement :</strong> Vous pouvez vous opposer ou demander une limitation du traitement de vos données.</li>
+                <li><strong>Droit de Retirer votre Consentement :</strong> Vous pouvez retirer votre consentement à tout moment pour les communications marketing ou le suivi par cookies.</li>
+                <li><strong>Droit à la Portabilité des Données :</strong> Vous pouvez demander à recevoir vos données dans un format lisible par machine (en vertu du RGPD).</li>
+            </ul>
+            <p>Pour exercer ces droits, veuillez nous contacter à <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
+
+            <h2>8. Cookies et Gestion du Consentement</h2>
+            <p>Nous utilisons des cookies pour améliorer la fonctionnalité et à des fins d'analyse. Vous pouvez gérer vos préférences en matière de cookies à tout moment via les paramètres de votre navigateur ou l'outil de consentement de notre site, le cas échéant.</p>
+
+            <h2>9. Liens vers des Tiers</h2>
+            <p>Notre site web peut contenir des liens vers des sites externes (par exemple, réseaux sociaux, associations caritatives partenaires). Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites tiers. Nous vous encourageons à consulter leurs politiques de confidentialité.</p>
+            
+            <h2>10. Mises à Jour de cette Politique</h2>
+            <p>Nous pouvons mettre à jour cette Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique sur cette page et en mettant à jour la date de "Dernière mise à jour".</p>
+
+            <h2>11. Nous Contacter</h2>
+            <p>Si vous avez des questions ou des préoccupations concernant cette Politique de Confidentialité ou nos pratiques en matière de données, veuillez nous contacter à : <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about"><h3>We Ride For Smiles</h3><p>Un mouvement caritatif international qui utilise le pouvoir du cyclisme pour apporter de l'espoir aux enfants malades et à leurs familles.</p></div>
+                <div class="footer-newsletter">
+                    <h4>Ne manquez rien</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Recevez nos dernières actualités, directement dans votre boîte de réception.</p>
+                    <form name="newsletter-fr" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="newsletter-fr" />
+                        <div class="input-group">
+                           <input type="email" name="email" placeholder="Votre email" required>
+                           <button type="submit" class="btn btn-primary form-submit-btn">
+                               <span class="btn-text">S'abonner</span>
+                               <span class="btn-loader"></span>
+                           </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="copyright-year"></span> We Ride For Smiles. <a href="privacy.html">Confidentialité</a> &middot; <a href="terms.html">Conditions</a></p>
+                <div class="footer-socials">
+                    <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="involve-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-modal-close>&times;</button>
+            <div class="modal-header">
+                <h3>Devenez un moteur de cette aventure !</h3>
+                <p class="modal-intro">Chaque aide, petite ou grande, sur le terrain ou à distance, est un coup de pédale de plus pour les enfants. Découvrez comment vous pouvez faire la différence.</p>
+            </div>
+            <form name="get-involved-fr-improved" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="get-involved-fr-improved" />
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname-privacy">Prénom</label>
+                        <input type="text" id="firstname-privacy" name="firstname" placeholder="Ex: Jean" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-privacy">Email</label>
+                        <input type="email" id="email-privacy" name="email" placeholder="Ex: jean.dupont@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 2.5rem;">
+                    <label>Comment aimeriez-vous nous soutenir ?</label>
+                    <div class="involvement-options">
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
+                            <label for="role-ride" class="option-label">
+                                <div class="option-label-header">
+                                    <i class="fa-solid fa-bicycle"></i>
+                                    <strong>Rouler avec nous</strong>
+                                </div>
+                                <span>Rejoindre le défi.</span>
+                            </label>
+                        </div>
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event">
+                            <label for="role-event" class="option-label">
+                                <div class="option-label-header">
+                                    <i class="fa-solid fa-flag-checkered"></i>
+                                    <strong>Être volontaire</strong>
+                                </div>
+                                <span>Aider sur le terrain.</span>
+                            </label>
+                        </div>
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
+                            <label for="role-partner" class="option-label">
+                                <div class="option-label-header">
+                                    <i class="fa-solid fa-handshake"></i>
+                                    <strong>Devenir partenaire</strong>
+                                </div>
+                                <span>Associer votre entreprise.</span>
+                            </label>
+                        </div>
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_donation" value="donation" id="role-donation">
+                            <label for="role-donation" class="option-label">
+                                <div class="option-label-header">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    <strong>Faire un don</strong>
+                                </div>
+                                <span>Apporter un soutien financier.</span>
+                            </label>
+                        </div>
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote">
+                            <label for="role-remote" class="option-label">
+                                <div class="option-label-header">
+                                    <i class="fa-solid fa-laptop"></i>
+                                    <strong>Aider à distance</strong>
+                                </div>
+                                <span>Communication, etc.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;">
+                    <span class="btn-text">Envoyer ma proposition</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="newsletter-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-modal-close>&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-envelope-open-text icon-header"></i>
+                <h3>Ne manquez rien de l'aventure !</h3>
+                <p class="modal-intro">Rejoignez notre communauté et recevez les informations clés sur le défi, directement dans votre boîte de réception.</p>
+            </div>
+            <form name="newsletter-popup-fr-rgpd" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="newsletter-popup-fr-rgpd" />
+                <div class="input-group">
+                   <input type="email" name="email" placeholder="Votre meilleur email" required>
+                   <button type="submit" class="btn btn-primary form-submit-btn">
+                       <span class="btn-text">Je m'inscris</span>
+                       <span class="btn-loader"></span>
+                   </button>
+                </div>
+                <label class="custom-checkbox-container">
+                    <input type="checkbox" name="consent" id="consent-modal-privacy" required>
+                    <span class="checkbox-label">
+                        J'accepte de recevoir des nouvelles du projet. (<a href="privacy.html" target="_blank">Politique de Confidentialité</a>)
+                    </span>
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Script complet copié de index.html
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyrightYearEl = document.getElementById('copyright-year');
+            if (copyrightYearEl) copyrightYearEl.textContent = new Date().getFullYear();
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => navbar?.classList.toggle('scrolled', window.scrollY > 50));
+
+            const navToggle = document.getElementById('nav-toggle');
+            const mobileNav = document.getElementById('nav-mobile-overlay');
+            const navClose = document.getElementById('nav-mobile-close');
+            const body = document.body;
+
+            if (navToggle && mobileNav && navClose) {
+                const openMobileNav = () => { mobileNav.classList.add('is-active'); body.classList.add('mobile-nav-open'); };
+                const closeMobileNav = () => { mobileNav.classList.remove('is-active'); body.classList.remove('mobile-nav-open'); };
+                navToggle.addEventListener('click', (e) => { e.stopPropagation(); openMobileNav(); });
+                navClose.addEventListener('click', closeMobileNav);
+                mobileNav.querySelectorAll('a, button').forEach(link => {
+                    link.addEventListener('click', (e) => { 
+                        if (e.currentTarget.dataset.modalTrigger) {
+                           // Garder la nav mobile ouverte si une modale est ouverte depuis celle-ci
+                        } else if (e.currentTarget.getAttribute('href')?.startsWith('index.html#')) {
+                           closeMobileNav();
+                        }
+                    });
+                });
+            }
+
+            const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+            const modals = document.querySelectorAll('.modal-overlay');
+            const openModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (modal) { modal.classList.add('is-active'); body.classList.add('modal-open'); }
+            };
+            const closeModal = (modal) => {
+                modal.classList.remove('is-active');
+                body.classList.remove('modal-open');
+            };
+            modalTriggers.forEach(trigger => trigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openModal(trigger.dataset.modalTrigger); }));
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
+                modal.querySelector('[data-modal-close]')?.addEventListener('click', () => closeModal(modal));
+            });
+
+            document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    const submitBtn = form.querySelector('.form-submit-btn');
+                    if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
+                });
+            });
+
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlEl = document.documentElement;
+            const sunIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+            const moonIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            const setTheme = (theme) => {
+                htmlEl.className = theme + '-mode';
+                localStorage.setItem('theme', theme);
+                if (themeToggle) themeToggle.innerHTML = theme === 'dark' ? sunIconSVG : moonIconSVG;
+            };
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(savedTheme);
+            htmlEl.classList.add('scrolled'); // Garder la nav opaque sur les pages légales
+            themeToggle?.addEventListener('click', () => setTheme(htmlEl.classList.contains('dark-mode') ? 'light' : 'dark'));
+        });
+    </script>
+</body>
+</html>

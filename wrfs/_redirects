@@ -1,0 +1,7 @@
+# Redirection de la page d'accueil selon la langue du navigateur
+/   /fr/index.html   302   Language=fr
+/   /es/index.html   302   Language=es
+/   /en/index.html   302
+
+# Pour toute page non trouvée, rediriger vers la racine
+/* /   302

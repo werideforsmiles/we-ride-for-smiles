@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark-mode">
+<html lang="es" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Parcours du défi Londres-Barcelone 2026 - We Ride For Smiles</title>
-    <meta name="description" content="Découvrez les 14 jours du défi cycliste caritatif We Ride For Smiles, de Londres à Barcelone. Suivez notre parcours de 1500 km jour par jour sur la carte interactive.">
-    <link rel="canonical" href="https://www.werideforsmiles.org/fr/route.html" />
 
-    <meta property="og:title" content="Le Parcours du Défi Londres-Barcelone 2026 - We Ride For Smiles" />
+    <title>La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles</title>
+    <meta name="description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona. Sigue nuestro recorrido de 1500 km día a día en el mapa interactivo.">
+    <link rel="canonical" href="https://www.werideforsmiles.org/es/route.html" />
+
+    <meta name="author" content="Ben Morin, bemorin.com">
+    <meta name="copyright" content="© 2025 We Ride For Smiles. Sitio creado por Ben Morin.">
+
+    <!--
+        Sitio creado por Ben Morin, bemorin.com. Todos los derechos reservados.
+        El sitio We Ride For Smiles y su contenido están protegidos por derechos de autor.
+        Cualquier reproducción parcial o total está prohibida sin autorización.
+    -->
+
+    <meta property="og:title" content="La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/fr/route.html" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/es/route.html" />
     <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
-    <meta property="og:description" content="Découvrez les 14 jours du défi cycliste caritatif We Ride For Smiles, de Londres à Barcelone." />
+    <meta property="og:description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona." />
     <meta property="og:site_name" content="We Ride For Smiles" />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale" content="es_ES" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Le Parcours du Défi Londres-Barcelone 2026 - We Ride For Smiles">
-    <meta name="twitter:description" content="Découvrez les 14 jours du défi cycliste caritatif We Ride For Smiles, de Londres à Barcelone.">
+    <meta name="twitter:title" content="La Ruta del Desafío Londres-Barcelona 2026 - We Ride For Smiles">
+    <meta name="twitter:description" content="Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona.">
     <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
 
     <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route.html" />
     <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route.html" />
     <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/fr/route.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/es/route.html" />
     
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -43,14 +53,11 @@
         }
         
         .step-content {
-            /* Styles ajoutés/modifiés pour le centrage vertical sur tous les écrans */
             min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 2rem;
-            
-            /* Styles originaux conservés */
             transition: opacity 0.5s ease-in-out;
             opacity: 0.4;
         }
@@ -102,7 +109,6 @@
                 background-color: var(--color-background);
             }
             .step-content {
-                /* La min-height est ajustée pour le mobile pour tenir compte de la carte */
                 min-height: calc(70vh - 40px);
                 padding: 2rem 1rem;
                 margin-top: 40px;
@@ -128,13 +134,13 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Le Parcours du Défi Londres-Barcelone 2026",
-      "url": "https://www.werideforsmiles.org/fr/route.html",
-      "description": "Découvrez les 14 jours du défi cycliste caritatif We Ride For Smiles, de Londres à Barcelone. Suivez notre parcours de 1500 km jour par jour sur la carte interactive.",
+      "name": "La Ruta del Desafío Londres-Barcelona 2026",
+      "url": "https://www.werideforsmiles.org/es/route.html",
+      "description": "Descubre los 14 días del desafío ciclista benéfico We Ride For Smiles, de Londres a Barcelona. Sigue nuestro recorrido de 1500 km día a día en el mapa interactivo.",
       "isPartOf": {
         "@type": "WebSite",
         "name": "We Ride For Smiles",
-        "url": "https://www.werideforsmiles.org/fr/index.html"
+        "url": "https://www.werideforsmiles.org/es/index.html"
       }
     }
     </script>
@@ -145,12 +151,12 @@
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": "Accueil",
-        "item": "https://www.werideforsmiles.org/fr/index.html"
+        "name": "Inicio",
+        "item": "https://www.werideforsmiles.org/es/index.html"
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "Le Parcours"
+        "name": "La Ruta"
       }]
     }
     </script>
@@ -163,25 +169,25 @@
             <a href="index.html" class="navbar-brand">WRFS</a>
             <div class="nav-menu">
                 <div class="nav-links-desktop">
-                    <a href="index.html#mission" class="nav-link">Mission</a>
-                    <a href="route.html" class="nav-link">Parcours</a>
-                    <a href="index.html#causes" class="nav-link">Bénéficiaires</a>
-                    <a href="index.html#team" class="nav-link">L'équipe</a>
+                    <a href="index.html#mission" class="nav-link">Misión</a>
+                    <a href="route.html" class="nav-link">Ruta</a>
+                    <a href="index.html#causes" class="nav-link">Beneficiarios</a>
+                    <a href="index.html#team" class="nav-link">El equipo</a>
                     <a href="index.html#faq" class="nav-link">FAQ</a>
                     <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">S'impliquer</button>
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">Involúcrarse</button>
                 </div>
                 <div class="nav-controls">
                     <div class="lang-switcher">
-                        <span class="selected-lang">FR</span>
+                        <span class="selected-lang">ES</span>
                         <ul class="lang-dropdown">
+                            <li><a href="../fr/route.html">FR</a></li>
                             <li><a href="../en/route.html">EN</a></li>
-                            <li><a href="../es/route.html">ES</a></li>
                         </ul>
                     </div>
-                    <button class="theme-switch" id="theme-toggle" aria-label="Changer de thème"></button>
+                    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
                 </div>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
@@ -189,16 +195,16 @@
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
             <a href="index.html" class="navbar-brand">WRFS</a>
-            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Fermer le menu"><i class="fa-solid fa-xmark"></i></button>
+            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="nav-mobile-links">
-            <a href="index.html#mission" class="nav-link">Mission</a>
-            <a href="route.html" class="nav-link">Parcours</a>
-            <a href="index.html#causes" class="nav-link">Bénéficiaires</a>
-            <a href="index.html#team" class="nav-link">L'équipe</a>
+            <a href="index.html#mission" class="nav-link">Misión</a>
+            <a href="route.html" class="nav-link">Ruta</a>
+            <a href="index.html#causes" class="nav-link">Beneficiarios</a>
+            <a href="index.html#team" class="nav-link">El equipo</a>
             <a href="index.html#faq" class="nav-link">FAQ</a>
             <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-            <button class="btn btn-primary" data-modal-trigger="involve-modal">S'impliquer</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">Involúcrarse</button>
         </div>
     </div>
 
@@ -207,139 +213,139 @@
         
         <div class="story-container">
             <div class="step-content is-active" id="step-0">
-                <h3>Le Grand Départ</h3>
-                <h4>Juin 2026 : Londres</h4>
+                <h3>La Gran Salida</h3>
+                <h4>Junio 2026: Londres</h4>
                 <div class="step-description">
-                    <p>L'aventure commence au cœur de Londres. Chaque coup de pédale est une promesse pour les enfants que nous soutenons.</p>
+                    <p>La aventura comienza en el corazón de Londres. Cada pedalada es una promesa para los niños que apoyamos.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="Photo aérienne de Londres" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="Foto aérea de Londres" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
             
             <div class="step-content" id="step-1">
-                <h3>Jour 1 : Londres → Southampton (130 km)</h4>
+                <h3>Día 1: Londres → Southampton (130 km)</h4>
                 <div class="step-description">
-                    <p>Première journée pour sortir de la métropole et rejoindre le grand port de Southampton, porte d'embarquement vers la France.</p>
+                    <p>Primer día para salir de la metrópoli y llegar al gran puerto de Southampton, puerta de embarque hacia Francia.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Port de Southampton" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Puerto de Southampton" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-2">
-                <h3>Jour 2 : Le Havre → Rouen (90 km)</h4>
+                <h3>Día 2: Le Havre → Ruán (90 km)</h4>
                 <div class="step-description">
-                    <p>Après la traversée, une première étape française le long de la Seine pour se mettre en jambes jusqu'à la ville historique de Rouen.</p>
+                    <p>Después de la travesía, una primera etapa francesa a lo largo del Sena para calentar motores hasta la histórica ciudad de Ruán.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Photo urbaine de Rouen" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Foto urbana de Ruán" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-3">
-                <h3>Jour 3 : Rouen → Paris (135 km)</h4>
+                <h3>Día 3: Ruán → París (135 km)</h4>
                 <div class="step-description">
-                    <p>Nous suivons les méandres de la Seine pour une arrivée majestueuse dans la capitale, au pied de la Tour Eiffel.</p>
+                    <p>Seguimos los meandros del Sena para una llegada majestuosa a la capital, a los pies de la Torre Eiffel.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="Photo de la ville de Paris" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="Foto de la ciudad de París" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-4">
-                <h3>Jour 4 : Paris → Orléans (130 km)</h4>
+                <h3>Día 4: París → Orleans (130 km)</h4>
                 <div class="step-description">
-                    <p>Nous quittons Paris vers le sud. Un parcours plus roulant pour rejoindre Orléans et les premiers châteaux de la Loire.</p>
+                    <p>Dejamos París en dirección sur. Un recorrido más llano para llegar a Orleans y a los primeros castillos del Loira.</p>
                 </div>
-                 <img src="https://images.unsplash.com/photo-1669834812431-a6605c206c0e?q=80&w=1170&auto=format&fit=crop" alt="Photo de la ville d'Orléans" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@passimage" target="_blank">Snap Wander</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                 <img src="https://images.unsplash.com/photo-1669834812431-a6605c206c0e?q=80&w=1170&auto=format&fit=crop" alt="Foto de la ciudad de Orleans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@passimage" target="_blank">Snap Wander</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
             
             <div class="step-content" id="step-5">
-                <h3>Jour 5 : Repos à Orléans</h3>
+                <h3>Día 5: Descanso en Orleans</h3>
                 <div class="step-description">
-                    <p>Après 4 jours intenses, une pause méritée pour recharger les batteries et explorer la ville avant de s'attaquer au centre de la France.</p>
+                    <p>Después de 4 días intensos, una merecida pausa para recargar las baterías y explorar la ciudad antes de afrontar el centro de Francia.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Statue de Jeanne d'Arc à Orléans" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Estatua de Juana de Arco en Orleans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
             
             <div class="step-content" id="step-6">
-                <h3>Jour 6 : Orléans → Châteauroux (150 km)</h4>
+                <h3>Día 6: Orleans → Châteauroux (150 km)</h4>
                 <div class="step-description">
-                    <p>On quitte la Loire pour s'enfoncer dans le cœur de la France. Une étape de transition à travers les paysages du Berry pour atteindre Châteauroux.</p>
+                    <p>Dejamos el Loira para adentrarnos en el corazón de Francia. Una etapa de transición a través de los paisajes de Berry para llegar a Châteauroux.</p>
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg/960px-Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg" alt="Photo d'un immeuble rue de la Gare à Châteauroux" class="step-image">
-                <p class="image-credit">Photo de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> sur <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg/960px-Ch%C3%A2teauroux_-_12_rue_de_la_Gare_-_1.jpg" alt="Foto de un edificio en la calle de la Gare en Châteauroux" class="step-image">
+                <p class="image-credit">Foto de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> en <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
             </div>
 
             <div class="step-content" id="step-7">
-                <h3>Jour 7 : Châteauroux → Limoges (140 km)</h4>
+                <h3>Día 7: Châteauroux → Limoges (140 km)</h4>
                 <div class="step-description">
-                    <p>Cap au sud-ouest ! Le terrain devient plus vallonné à l'approche du Limousin, une journée pour tester les jambes avant les contreforts du Massif Central.</p>
+                    <p>¡Rumbo al suroeste! El terreno se vuelve más ondulado a medida que nos acercamos al Lemosín, un día para probar las piernas antes de las estribaciones del Macizo Central.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1706873556600-7bdf44c2caff?q=80&w=1470&auto=format&fit=crop" alt="Gare de Limoges-Bénédictins" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@getapony" target="_blank">pony</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1706873556600-7bdf44c2caff?q=80&w=1470&auto=format&fit=crop" alt="Estación de Limoges-Bénédictins" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@getapony" target="_blank">pony</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-8">
-                <h3>Jour 8 : Limoges → Brive (100 km)</h4>
+                <h3>Día 8: Limoges → Brive (100 km)</h4>
                 <div class="step-description">
-                    <p>Une étape plus courte mais nerveuse qui nous fait basculer vers la Dordogne. Les paysages verdoyants nous accueillent à Brive-la-Gaillarde.</p>
+                    <p>Una etapa más corta pero exigente que nos lleva hacia la Dordoña. Los paisajes verdes nos dan la bienvenida en Brive-la-Gaillarde.</p>
                 </div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg/960px-Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg" alt="Photo de la place Latreille à Brive-la-Gaillarde" class="step-image">
-                <p class="image-credit">Photo de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> sur <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg/960px-Brive-la-Gaillarde_-_Place_Latreille_-_1.jpg" alt="Foto de la plaza Latreille en Brive-la-Gaillarde" class="step-image">
+                <p class="image-credit">Foto de <a href="https://commons.wikimedia.org/wiki/User:Benjism89" target="_blank">Benjamin Smith</a> en <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
             </div>
 
             <div class="step-content" id="step-9">
-                <h3>Jour 9 : Brive → Toulouse (220 km)</h4>
+                <h3>Día 9: Brive → Tolosa (220 km)</h4>
                 <div class="step-description">
-                    <p>L'étape reine de la semaine ! Une longue journée à travers le Lot pour finalement atteindre la Garonne et la magnifique "Ville Rose", Toulouse.</p>
+                    <p>¡La etapa reina de la semana! Un largo día a través del Lot para finalmente llegar al Garona y a la magnífica "Ciudad Rosa", Tolosa.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1576367872882-489d040b9bde?q=80&w=1470&auto=format&fit=crop" alt="Pont Neuf à Toulouse" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1576367872882-489d040b9bde?q=80&w=1470&auto=format&fit=crop" alt="Pont Neuf en Tolosa" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-10">
-                <h3>Jour 10 : Repos à Toulouse</h3>
+                <h3>Día 10: Descanso en Tolosa</h3>
                 <div class="step-description">
-                    <p>Deuxième et dernière journée de repos. L'occasion de flâner le long du Canal du Midi, de profiter de l'ambiance du sud-ouest et de préparer la dernière ligne droite.</p>
+                    <p>Segundo y último día de descanso. La oportunidad de pasear por el Canal du Midi, disfrutar del ambiente del suroeste y preparar la recta final.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Place du Capitole à Toulouse" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Plaza del Capitolio en Tolosa" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-11">
-                <h3>Jour 11 : Toulouse → Carcassonne (100 km)</h4>
+                <h3>Día 11: Tolosa → Carcasona (100 km)</h4>
                 <div class="step-description">
-                    <p>On suit le Canal du Midi sur un parcours plat. L'objectif : la majestueuse cité médiévale de Carcassonne qui se dresse à l'horizon.</p>
+                    <p>Seguimos el Canal du Midi por un recorrido llano. El objetivo: la majestuosa ciudad medieval de Carcasona que se alza en el horizonte.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1580513860129-dee8825dfe44?q=80&w=1329&auto=format&fit=crop" alt="Cité médiévale de Carcassonne" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@bonnarda" target="_blank">Alain Bonnardeaux</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1580513860129-dee8825dfe44?q=80&w=1329&auto=format&fit=crop" alt="Ciudad medieval de Carcasona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@bonnarda" target="_blank">Alain Bonnardeaux</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
             
             <div class="step-content" id="step-12">
-                <h3>Jour 12 : Carcassonne → Perpignan (100 km)</h4>
+                <h3>Día 12: Carcasona → Perpiñán (100 km)</h4>
                 <div class="step-description">
-                    <p>À travers les Corbières et ses châteaux cathares, le parcours redevient exigeant avant de plonger vers la Méditerranée et la capitale catalane, Perpignan.</p>
+                    <p>A través de las Corbières y sus castillos cátaros, el recorrido vuelve a ser exigente antes de descender hacia el Mediterráneo y la capital catalana, Perpiñán.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1733670787852-3a2254b178c5?q=80&w=1473&auto=format&fit=crop" alt="Photo d'un pont à Perpignan" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@moondtheartist" target="_blank">Moon D The Artist</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1733670787852-3a2254b178c5?q=80&w=1473&auto=format&fit=crop" alt="Foto de un puente en Perpiñán" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@moondtheartist" target="_blank">Moon D The Artist</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-13">
-                <h3>Jour 13 : Perpignan → Gérone (115 km)</h4>
+                <h3>Día 13: Perpiñán → Gerona (115 km)</h4>
                 <div class="step-description">
-                    <p>Ça y est, nous passons la frontière ! Les Pyrénées sont derrière nous. Bienvenue en Espagne pour cette étape jusqu'à la magnifique Gérone.</p>
+                    <p>¡Ya está, cruzamos la frontera! Los Pirineos han quedado atrás. Bienvenidos a España para esta etapa hasta la magnífica Gerona.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1515974448560-3e45c9d51f95?q=80&w=1138&auto=format&fit=crop" alt="Maisons colorées de Gérone" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@lucasgallone" target="_blank">Lucas Gallone</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1515974448560-3e45c9d51f95?q=80&w=1138&auto=format&fit=crop" alt="Casas de colores de Gerona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@lucasgallone" target="_blank">Lucas Gallone</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-14">
-                <h3>Jour 14 : Gérone → Barcelone (105 km)</h4>
+                <h3>Día 14: Gerona → Barcelona (105 km)</h4>
                 <div class="step-description">
-                    <p>La dernière ligne droite ! Une étape chargée d'émotion, le long de la côte catalane, pour la grande arrivée à Barcelone.</p>
+                    <p>¡La recta final! Una etapa cargada de emoción, a lo largo de la costa catalana, para la gran llegada a Barcelona.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Photo aérienne de Barcelone" class="step-image">
-                <p class="image-credit">Photo de <a href="https://unsplash.com/@loganstrongarms" target="_blank">Logan Armstrong</a> sur <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Foto aérea de Barcelona" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@loganstrongarms" target="_blank">Logan Armstrong</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
         </div>
     </div>
@@ -348,32 +354,32 @@
         <div class="modal-content">
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
-                <h3>Devenez un moteur de cette aventure !</h3>
-                <p class="modal-intro">Chaque aide, grande ou petite, sur le terrain ou à distance, est un coup de pédale de plus pour les enfants. Découvrez comment vous pouvez faire la différence.</p>
+                <h3>¡Conviértete en un motor de esta aventura!</h3>
+                <p class="modal-intro">Cada ayuda, grande o pequeña, en el terreno o a distancia, es una pedalada más para los niños. Descubre cómo puedes marcar la diferencia.</p>
             </div>
-            <form name="get-involved-fr-improved" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="get-involved-fr-improved" />
+            <form name="get-involved-es-improved" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="get-involved-es-improved" />
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstname-involve">Prénom</label>
-                        <input type="text" id="firstname-involve" name="firstname" placeholder="Ex: Jean" required>
+                        <label for="firstname-involve">Nombre</label>
+                        <input type="text" id="firstname-involve" name="firstname" placeholder="Ej: Juan" required>
                     </div>
                     <div class="form-group">
                         <label for="email-involve">Email</label>
-                        <input type="email" id="email-involve" name="email" placeholder="Ex: jean.dupont@email.com" required>
+                        <input type="email" id="email-involve" name="email" placeholder="Ej: juan.perez@email.com" required>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top: 2.5rem;">
-                    <label>Comment souhaitez-vous nous soutenir ?</label>
+                    <label>¿Cómo te gustaría apoyarnos?</label>
                     <div class="involvement-options">
-                        <div class="option-card"><input type="checkbox" name="involvement_ride" value="ride" id="role-ride"><label for="role-ride" class="option-label"><div class="option-label-header"><i class="fa-solid fa-bicycle"></i><strong>Rouler avec nous</strong></div><span>Participer au défi.</span></label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event"><label for="role-event" class="option-label"><div class="option-label-header"><i class="fa-solid fa-flag-checkered"></i><strong>Bénévole</strong></div><span>Aider sur le terrain.</span></label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_partner" value="partner" id="role-partner"><label for="role-partner" class="option-label"><div class="option-label-header"><i class="fa-solid fa-handshake"></i><strong>Devenir partenaire</strong></div><span>Associer votre entreprise.</span></label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_donation" value="donation" id="role-donation"><label for="role-donation" class="option-label"><div class="option-label-header"><i class="fa-solid fa-hand-holding-dollar"></i><strong>Faire un don</strong></div><span>Soutenir financièrement.</span></label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote"><label for="role-remote" class="option-label"><div class="option-label-header"><i class="fa-solid fa-laptop"></i><strong>Aider à distance</strong></div><span>Communication, etc.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_ride" value="ride" id="role-ride"><label for="role-ride" class="option-label"><div class="option-label-header"><i class="fa-solid fa-bicycle"></i><strong>Pedalear con nosotros</strong></div><span>Participar en el desafío.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event"><label for="role-event" class="option-label"><div class="option-label-header"><i class="fa-solid fa-flag-checkered"></i><strong>Voluntario/a</strong></div><span>Ayudar en el terreno.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_partner" value="partner" id="role-partner"><label for="role-partner" class="option-label"><div class="option-label-header"><i class="fa-solid fa-handshake"></i><strong>Convertirse en socio</strong></div><span>Asociar tu empresa.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_donation" value="donation" id="role-donation"><label for="role-donation" class="option-label"><div class="option-label-header"><i class="fa-solid fa-hand-holding-dollar"></i><strong>Hacer una donación</strong></div><span>Apoyar financieramente.</span></label></div>
+                        <div class="option-card"><input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote"><label for="role-remote" class="option-label"><div class="option-label-header"><i class="fa-solid fa-laptop"></i><strong>Ayudar a distancia</strong></div><span>Comunicación, etc.</span></label></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">Envoyer ma proposition</span><span class="btn-loader"></span></button>
+                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">Enviar mi propuesta</span><span class="btn-loader"></span></button>
             </form>
         </div>
     </div>
@@ -383,18 +389,18 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
                 <i class="fa-solid fa-envelope-open-text icon-header"></i>
-                <h3>Ne manquez rien de l'aventure !</h3>
-                <p class="modal-intro">Rejoignez notre communauté et recevez les actualités clés du défi, directement dans votre boîte mail.</p>
+                <h3>¡No te pierdas nada de la aventura!</h3>
+                <p class="modal-intro">Únete a nuestra comunidad y recibe las noticias clave del desafío, directamente en tu correo.</p>
             </div>
-            <form name="newsletter-popup-fr-rgpd" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="newsletter-popup-fr-rgpd" />
+            <form name="newsletter-popup-es-rgpd" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="newsletter-popup-es-rgpd" />
                 <div class="input-group">
-                   <input type="email" name="email" placeholder="Votre meilleur email" required>
-                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">Je m'inscris</span><span class="btn-loader"></span></button>
+                   <input type="email" name="email" placeholder="Tu mejor email" required>
+                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">Me inscribo</span><span class="btn-loader"></span></button>
                 </div>
                 <label class="custom-checkbox-container">
                     <input type="checkbox" name="consent" id="consent-modal" required>
-                    <span class="checkbox-label">J'accepte de recevoir les actualités du projet. (<a href="../privacy.html" target="_blank">Politique de confidentialité</a>)</span>
+                    <span class="checkbox-label">Acepto recibir las noticias del proyecto. (<a href="../privacidad.html" target="_blank">Política de Privacidad</a>)</span>
                 </label>
             </form>
         </div>
@@ -509,14 +515,10 @@
                 
                 let targetPosition;
 
-                // Si l'écran est étroit (mobile)
                 if (window.innerWidth <= 768) {
-                    // On calcule la position cible dynamiquement par rapport à la hauteur de la fenêtre.
-                    // 35% est une bonne valeur pour placer le contenu juste en dessous de la carte de 30vh.
                     const offsetFromViewTop = window.innerHeight * 0.35; 
                     targetPosition = elementTop - offsetFromViewTop;
                 } else {
-                    // Sinon, sur un grand écran, on garde la logique originale.
                     const navbarHeight = 80;
                     targetPosition = elementTop - navbarHeight;
                 }
@@ -526,7 +528,6 @@
             };
 
             window.addEventListener('wheel', (event) => {
-                // La condition qui désactivait cette fonction sur mobile a été supprimée.
                 if (isScrolling) { event.preventDefault(); return; }
                 const currentIndex = Array.from(allElements).findIndex(el => el.classList.contains('is-active'));
                 if (event.deltaY > 0 && currentIndex < allElements.length - 1) {
@@ -541,7 +542,6 @@
             let touchStartY = 0;
             window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
             window.addEventListener('touchend', (e) => {
-                // La condition qui désactivait cette fonction sur mobile a été supprimée.
                 if (isScrolling) return;
                 const touchEndY = e.changedTouches[0].clientY;
                 const swipeDistance = touchStartY - touchEndY;

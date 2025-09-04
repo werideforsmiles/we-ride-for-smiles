@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="es" class="dark-mode">
+<html lang="fr" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Ride For Smiles | Desafío Ciclista Benéfico Londres-Barcelona 2026</title>
-    <meta name="description" content="Junio de 2026. Participa en un desafío ciclista de 1500 km de Londres a Barcelona. Únete a nuestra misión para transformar cada pedalada en esperanza para los niños enfermos.">
-    <link rel="canonical" href="https://www.werideforsmiles.org/es/index.html" />
+    <title>We Ride For Smiles | Défi Cycliste Caritatif Londres-Barcelone 2026</title>
+    <meta name="description" content="Juin 2026. Participez à un défi cycliste de 1500 km de Londres à Barcelone. Rejoignez notre mission pour transformer chaque coup de pédale en espoir pour les enfants malades.">
+    <link rel="canonical" href="https://www.werideforsmiles.org/fr/index.html" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
-    <meta name="copyright" content="© 2025 We Ride For Smiles. Sitio creado por Ben Morin.">
+    <meta name="copyright" content="© 2025 We Ride For Smiles. Site créé par Ben Morin.">
 
     <!--
-        Sitio creado por Ben Morin, bemorin.com. Todos los derechos reservados.
-        El sitio We Ride For Smiles y su contenido están protegidos por derechos de autor.
-        Cualquier reproducción parcial o total está prohibida sin autorización.
+        Site créé par Ben Morin, bemorin.com. Tous droits réservés.
+        Le site We Ride For Smiles et son contenu sont protégés par le droit d'auteur.
+        Toute reproduction partielle ou totale est interdite sans autorisation.
     -->
 
-    <meta property="og:title" content="We Ride For Smiles | Desafío Ciclista Benéfico Londres-Barcelona 2026" />
+    <meta property="og:title" content="We Ride For Smiles | Défi Cycliste Caritatif Londres-Barcelone 2026" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/es/index.html" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/fr/index.html" />
     <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
-    <meta property="og:description" content="Participa en un desafío de 1500 km para apoyar a los niños enfermos. Cada pedalada cuenta." />
+    <meta property="og:description" content="Participez à un défi de 1500 km pour soutenir les enfants malades. Chaque coup de pédale compte." />
     <meta property="og:site_name" content="We Ride For Smiles" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content="fr_FR" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="We Ride For Smiles | Desafío Ciclista Benéfico Londres-Barcelona 2026">
-    <meta name="twitter:description" content="Participa en un desafío de 1500 km para apoyar a los niños enfermos. Cada pedalada cuenta.">
+    <meta name="twitter:title" content="We Ride For Smiles | Défi Cycliste Caritatif Londres-Barcelone 2026">
+    <meta name="twitter:description" content="Participez à un défi de 1500 km pour soutenir les enfants malades. Chaque coup de pédale compte.">
     <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
 
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
     <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/index.html" />
     <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/index.html" />
     <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/es/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/fr/index.html" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -119,12 +119,12 @@
         .nav-mobile-overlay.is-active .btn { opacity: 1; transform: translateY(0); }
         
         /* --- 4. HÉROS --- */
-        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background-color: var(--color-background); }
+        .hero { min-height: 100vh; padding-top: 100px; display: flex; align-items: center; position: relative; overflow: hidden; background-color: var(--color-background); }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background.webp') no-repeat bottom right; background-size: cover; animation: kenburns 30s ease-out infinite; }
         html.light-mode .hero::before { background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background.webp') no-repeat bottom right; background-size: cover; }
         @keyframes kenburns { 0% { background-position: 80% 100%; } 50% { background-position: 100% 100%; } 100% { background-position: 80% 100%; } }
         .hero-content { position: relative; z-index: 2; }
-        h1 { font-size: clamp(2rem, 7vw, 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2rem, 7vw, 5rem); }
+        h1 { font-size: clamp(2rem, min(7vw, 10vh), 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2rem, min(7vw, 10vh), 5rem); }
         .hero-content .lead { font-size: 1.2rem; max-width: 580px; margin: 1.5rem 0 2.5rem 0; color: var(--color-text-secondary); }
         @media (max-width: 767px) {
             .hero-content { margin-top: 2rem; }
@@ -600,9 +600,9 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "We Ride For Smiles",
-      "url": "https://www.werideforsmiles.org/es/index.html",
+      "url": "https://www.werideforsmiles.org/fr/index.html",
       "logo": "https://www.werideforsmiles.org/assets/wrfs_favicon.webp",
-      "description": "Un movimiento benéfico internacional que utiliza el poder del ciclismo para llevar esperanza a los niños enfermos y sus familias.",
+      "description": "Un mouvement caritatif international qui utilise le pouvoir du vélo pour apporter de l'espoir aux enfants malades et à leurs familles.",
       "sameAs": [
         "https://www.instagram.com/werideforsmiles/",
         "https://www.youtube.com/@werideforsmiles",
@@ -614,33 +614,33 @@
     {
       "@context": "https://schema.org",
       "@type": "SportsEvent",
-      "name": "We Ride For Smiles: El Desafío Londres-Barcelona 2026",
+      "name": "We Ride For Smiles: Le Défi Londres-Barcelone 2026",
       "startDate": "2026-06-15T09:00:00+02:00",
       "endDate": "2026-06-28",
-      "description": "Un desafío ciclista benéfico de 1500 km desde Londres hasta Barcelona para apoyar a niños enfermos y sus familias.",
+      "description": "Un défi cycliste caritatif de 1500 km de Londres à Barcelone pour soutenir les enfants malades et leurs familles.",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": [
         {
           "@type": "Place",
-          "name": "Salida: Londres, Reino Unido",
+          "name": "Départ : Londres, Royaume-Uni",
           "address": "Londres, UK"
         },
         {
           "@type": "Place",
-          "name": "Llegada: Barcelona, España",
-          "address": "Barcelona, ES"
+          "name": "Arrivée : Barcelone, Espagne",
+          "address": "Barcelone, ES"
         }
       ],
       "organizer": {
         "@type": "Organization",
         "name": "We Ride For Smiles",
-        "url": "https://www.werideforsmiles.org/es/index.html"
+        "url": "https://www.werideforsmiles.org/fr/index.html"
       },
       "performer": {
           "@type": "Person",
           "name": "Ben Morin",
-          "url": "https://www.werideforsmiles.org/es/index.html#team"
+          "url": "https://www.werideforsmiles.org/fr/index.html#team"
       },
       "image": [
         "https://www.werideforsmiles.org/assets/hero-background.webp",
@@ -648,12 +648,12 @@
        ],
       "offers": {
         "@type": "Offer",
-        "url": "https://www.werideforsmiles.org/es/index.html#involve-modal",
+        "url": "https://www.werideforsmiles.org/fr/index.html#involve-modal",
         "price": "0",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
         "validFrom": "2025-01-01",
-        "description": "Participación basada en un compromiso de recaudación de fondos. Conviértete en voluntario o socio."
+        "description": "Participation sur engagement de collecte de fonds. Devenez bénévole ou partenaire."
       }
     }
     </script>
@@ -664,26 +664,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Cuáles son las diferentes formas de apoyar el proyecto?",
+          "name": "Quelles sont les différentes manières de soutenir le projet ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Puedes apoyar a We Ride For Smiles participando en el desafío ciclista (recorrido completo o una etapa), convirtiéndote en voluntario, participando virtualmente, haciendo un donativo o convirtiéndote en socio corporativo."
+            "text": "Vous pouvez soutenir We Ride For Smiles en participant au défi cycliste (parcours intégral ou une étape), en devenant bénévole, en participant virtuellement, en faisant un don ou en devenant partenaire d'entreprise."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Cómo funcionan los donativos y la recaudación de fondos?",
+          "name": "Comment fonctionnent les dons et la collecte de fonds ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Al hacer un donativo, puedes asignarlo a una de las asociaciones beneficiarias. Este mecanismo está diseñado para permitir que los donantes se beneficien de las ventajas fiscales vigentes en su país de residencia. Cada euro recaudado, después de deducir los gastos de funcionamiento, se transfiere íntegramente."
+            "text": "Lors d'un don, vous pouvez l'attribuer à une des associations bénéficiaires. Ce mécanisme est conçu pour permettre aux donateurs de bénéficier des avantages fiscaux en vigueur dans leur pays de résidence. Chaque euro collecté, après déduction des frais de fonctionnement, est intégralement reversé."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Existe un objetivo de recaudación de fondos para los participantes?",
+          "name": "Y a-t-il un objectif de collecte de fonds pour les participants ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, la participación en el desafío ciclista está sujeta a un compromiso de recaudar una cantidad mínima de fondos para garantizar un impacto financiero significativo para las asociaciones que apoyamos. Los detalles se proporcionan durante la inscripción."
+            "text": "Oui, la participation au défi cycliste est conditionnée par un engagement à collecter un montant minimum de fonds pour garantir un impact financier significatif pour les associations que nous soutenons. Les détails sont fournis lors de l'inscription."
           }
         }
       ]
@@ -705,25 +705,25 @@
             <a href="index.html" class="navbar-brand">WRFS</a>
             <div class="nav-menu">
                 <div class="nav-links-desktop">
-                    <a href="#mission" class="nav-link">Misión</a>
-                    <a href="route.html" class="nav-link">Recorrido</a>
-                    <a href="#causes" class="nav-link">Causas</a>
-                    <a href="#team" class="nav-link">El equipo</a>
+                    <a href="#mission" class="nav-link">Mission</a>
+                    <a href="route.html" class="nav-link">Parcours</a>
+                    <a href="#causes" class="nav-link">Bénéficiaires</a>
+                    <a href="#team" class="nav-link">L'équipe</a>
                     <a href="#faq" class="nav-link">FAQ</a>
                     <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">Involúcrate</button>
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal" style="margin-left: 1rem;">S'impliquer</button>
                 </div>
                 <div class="nav-controls">
                     <div class="lang-switcher">
-                        <span class="selected-lang">ES</span>
+                        <span class="selected-lang">FR</span>
                         <ul class="lang-dropdown">
-                            <li><a href="../fr/index.html">FR</a></li>
                             <li><a href="../en/index.html">EN</a></li>
+                            <li><a href="../es/index.html">ES</a></li>
                         </ul>
                     </div>
-                    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
+                    <button class="theme-switch" id="theme-toggle" aria-label="Changer de thème"></button>
                 </div>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
@@ -731,94 +731,108 @@
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
             <a href="index.html" class="navbar-brand">WRFS</a>
-            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú"><i class="fa-solid fa-xmark"></i></button>
+            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Fermer le menu"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="nav-mobile-links">
-            <a href="#mission" class="nav-link">Misión</a>
-            <a href="route.html" class="nav-link">Recorrido</a>
-            <a href="#causes" class="nav-link">Causas</a>
-            <a href="#team" class="nav-link">El equipo</a>
+            <a href="#mission" class="nav-link">Mission</a>
+            <a href="route.html" class="nav-link">Parcours</a>
+            <a href="#causes" class="nav-link">Bénéficiaires</a>
+            <a href="#team" class="nav-link">L'équipe</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-            <button class="btn btn-primary" data-modal-trigger="involve-modal">Involúcrate</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">S'impliquer</button>
         </div>
     </div>
 
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in-up">EL DESAFÍO DE UNA VIDA. PARA CAMBIAR VIDAS.</h1>
-                <p class="lead fade-in-up delay-2">En junio de 2026, el objetivo será conectar Londres con Barcelona en bicicleta. 1500 km por una sola misión: pedalear por los niños enfermos. Cada pedalada será un desafío, cada donativo una victoria.</p>
+                <h1 class="fade-in-up">LE DÉFI D'UNE VIE. POUR CHANGER DES VIES.</h1>
+                <p class="lead fade-in-up delay-2">En juin 2026, l'objectif sera de relier Londres à Barcelone à vélo. 1500 km pour une seule mission : rouler pour les enfants malades. Chaque coup de pédale sera un défi, chaque don une victoire.</p>
                 <div class="cta-buttons fade-in-up delay-3">
-                    <button class="btn btn-primary" data-modal-trigger="involve-modal">Involúcrate</button>
-                    <a href="route.html" class="btn btn-secondary">Ver el recorrido</a>
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal">S'impliquer</button>
+                    <a href="route.html" class="btn btn-secondary">Voir le parcours</a>
                 </div>
                 <div class="countdown-timer fade-in-up delay-2">
-                    <div class="timer-item"><div id="days" class="timer-value">00</div><div class="timer-label">Días</div></div>
-                    <div class="timer-item"><div id="hours" class="timer-value">00</div><div class="timer-label">Horas</div></div>
-                    <div class="timer-item"><div id="minutes" class="timer-value">00</div><div class="timer-label">Minutos</div></div>
-                    <div class="timer-item"><div id="seconds" class="timer-value">00</div><div class="timer-label">Segundos</div></div>
+                    <div class="timer-item"><div id="days" class="timer-value">00</div><div class="timer-label">Jours</div></div>
+                    <div class="timer-item"><div id="hours" class="timer-value">00</div><div class="timer-label">Heures</div></div>
+                    <div class="timer-item"><div id="minutes" class="timer-value">00</div><div class="timer-label">Minutes</div></div>
+                    <div class="timer-item"><div id="seconds" class="timer-value">00</div><div class="timer-label">Secondes</div></div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section section-surface" id="mission"><div class="container"><h2 class="fade-in-up">Nuestra misión: brindar consuelo, esperanza y apoyo a los niños enfermos y a sus familias.</h2></div></section>
+        <section class="section section-surface" id="mission"><div class="container"><h2 class="fade-in-up">Notre mission : apporter réconfort, espoir et soutien aux enfants malades et à leurs familles.</h2></div></section>
         
         <section class="section" id="causes">
             <div class="container">
-                <h2 class="fade-in-up">En el corazón de nuestra iniciativa</h2>
-                <p class="fade-in-up delay-1" style="max-width: 650px; margin: -2rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Pedaleamos por organizaciones que cambian vidas: centros hospitalarios de excelencia y destacadas asociaciones nacionales.</p>
+                <h2 class="fade-in-up">Au cœur de notre démarche</h2>
+                <p class="fade-in-up delay-1" style="max-width: 650px; margin: -2rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Nous roulons pour des structures qui changent des vies : des centres hospitaliers d'excellence et des associations nationales de premier plan.</p>
                 <div class="charity-grid">
-                    <div class="charity-category fade-in-up delay-2"><h3>Hospitales infantiles</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo"><img src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo"><img src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
-                    <div class="charity-category fade-in-up delay-3"><h3>Asociaciones benéficas</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo"><img src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo"><img src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
+                    <div class="charity-category fade-in-up delay-2"><h3>Hôpitaux pour enfants</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo"><img src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo"><img src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
+                    <div class="charity-category fade-in-up delay-3"><h3>Associations Caritatives</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo"><img src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo"><img src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
                 </div>
             </div>
         </section>
 
         <section class="section section-surface" id="stats">
             <div class="container">
-                <h2 class="fade-in-up">El desafío 2026 en cifras</h2>
+                <h2 class="fade-in-up">Le défi 2026 en chiffres</h2>
                 <div class="stats-grid">
-                    <div class="stat-item fade-in-up"><div class="stat-number" data-target="1500">0</div><div class="stat-label">Kilómetros</div></div>
-                    <div class="stat-item fade-in-up delay-1"><div class="stat-number" data-target="14">0</div><div class="stat-label">Días</div></div>
-                    <div class="stat-item fade-in-up delay-2"><div class="stat-number" data-target="4">0</div><div class="stat-label">Causas</div></div>
-                    <div class="stat-item fade-in-up delay-3"><div class="stat-number" data-target="1">0</div><div class="stat-label">Misión</div></div>
+                    <div class="stat-item fade-in-up"><div class="stat-number" data-target="1500">0</div><div class="stat-label">Kilomètres</div></div>
+                    <div class="stat-item fade-in-up delay-1"><div class="stat-number" data-target="14">0</div><div class="stat-label">Jours</div></div>
+                    <div class="stat-item fade-in-up delay-2"><div class="stat-number" data-target="4">0</div><div class="stat-label">Causes</div></div>
+                    <div class="stat-item fade-in-up delay-3"><div class="stat-number" data-target="1">0</div><div class="stat-label">Mission</div></div>
                 </div>
             </div>
         </section>
 
         <section class="values-container" id="valeurs">
             <div class="values-sticky">
-                <div class="value-step"><div class="value-content"><div class="value-title">We</div><h3 class="value-subtitle">Reunir.</h3><p>Unir a ciclistas, voluntarios y simpatizantes para amplificar nuestro impacto.</p></div></div>
-                <div class="value-step"><div class="value-content"><div class="value-title">Ride</div><h3 class="value-subtitle">Superarse.</h3><p>Transformar una pasión común en un movimiento de resiliencia.</p></div></div>
-                <div class="value-step"><div class="value-content"><div class="value-title">For</div><h3 class="value-subtitle">Cuidar de todos.</h3><p>Cada kilómetro brinda un apoyo concreto a las familias que enfrentan la enfermedad.</p></div></div>
-                <div class="value-step"><div class="value-content"><div class="value-title">Smiles</div><h3 class="value-subtitle">Difundir alegría y optimismo.</h3><p>Una sonrisa es un símbolo de esperanza, recordando que nunca están solos.</p></div></div>
-                <button class="value-next-btn">Siguiente: <span></span></button>
+                <div class="value-step"><div class="value-content"><div class="value-title">We</div><h3 class="value-subtitle">Rassembler.</h3><p>Unir les cyclistes, bénévoles et supporters pour amplifier notre impact.</p></div></div>
+                <div class="value-step"><div class="value-content"><div class="value-title">Ride</div><h3 class="value-subtitle">Se dépasser.</h3><p>Transformer une passion commune en un mouvement de résilience.</p></div></div>
+                <div class="value-step"><div class="value-content"><div class="value-title">For</div><h3 class="value-subtitle">Prendre soin de chacun.</h3><p>Chaque kilomètre apporte un soutien concret aux familles face à la maladie.</p></div></div>
+                <div class="value-step"><div class="value-content"><div class="value-title">Smiles</div><h3 class="value-subtitle">Répandre la joie et l'optimisme.</h3><p>Un sourire est un symbole d'espoir, rappelant qu'ils ne sont jamais seuls.</p></div></div>
+                <button class="value-next-btn">Suivant : <span></span></button>
             </div>
         </section>
 
         <section class="section section-surface" id="team">
             <div class="container">
-                <h2 class="fade-in-up">Este proyecto te necesita</h2>
-                <p class="fade-in-up delay-1" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary);">Yo inicié el movimiento, pero esto es solo la chispa.</p>
-                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 1rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Para que la llama de la esperanza crezca, este desafío debe ser impulsado por un verdadero equipo. Ya sea sobre la bicicleta, al borde de la carretera o detrás de una pantalla, tu energía es esencial para hacer de esta aventura una victoria colectiva.</p>
+                <h2 class="fade-in-up">Ce projet a besoin de vous</h2>
+                <p class="fade-in-up delay-1" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary);">J'ai initié le mouvement, mais ce n'est que l'étincelle.</p>
+                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 1rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Pour que la flamme de l'espoir grandisse, ce défi doit être porté par une véritable équipe. Que vous soyez sur le vélo, sur le bord de la route ou derrière un écran, votre énergie est essentielle pour faire de cette aventure une victoire collective.</p>
                 <div class="team-grid">
                     <div class="team-member fade-in-up" data-modal-trigger="team-modal-ben">
-                        <img src="../assets/ben-morin.webp" alt="Ben Morin, fundador de We Ride For Smiles y ciclista del desafío Londres-Barcelona">
+                        <img src="../assets/ben-morin.webp" alt="Ben Morin, fondateur de We Ride For Smiles et cycliste du défi Londres-Barcelone">
                         <div class="team-member-overlay">
                             <div class="team-member-info">
                                 <h3>Ben Morin</h3>
-                                <span>Fundador & Cicloturista</span>
+                                <span>Fondateur & Cyclotouriste</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Add a team member, and delay
+
+                    <div class="team-member fade-in-up delay-1" data-modal-trigger="team-modal-jane">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Portrait de Jane Doe">
+                        <div class="team-member-overlay">
+                            <div class="team-member-info">
+                                <h3>Jane Doe</h3>
+                                <span>Responsable Logistique</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    -->
+
                     <div class="team-member team-member--join fade-in-up delay-2" data-modal-trigger="involve-modal">
                         <div class="join-card-content">
                             <i class="fa-solid fa-plus"></i>
-                            <h3>Únete a la aventura</h3>
+                            <h3>Rejoignez l'aventure</h3>
                         </div>
                     </div>
                 </div>
@@ -827,72 +841,73 @@
 
         <section class="section" id="faq">
     <div class="container">
-        <h2 class="fade-in-up">Preguntas frecuentes</h2>
+        <h2 class="fade-in-up">Questions fréquentes</h2>
         <div class="faq-container fade-in-up delay-1">
 
             <div class="faq-item">
-                <button class="faq-question">¿Cuáles son las diferentes formas de apoyar el proyecto?</button>
+                <button class="faq-question">Quelles sont les différentes manières de soutenir le projet ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>El éxito del evento depende de una variedad de contribuciones. Puedes apoyar a We Ride For Smiles de varias maneras:</p>
+                        <p>Le succès de l'événement repose sur une variété de contributions. Vous pouvez soutenir We Ride For Smiles de plusieurs façons :</p>
                         <br>
                         <ul>
-                            <li><strong>Participando en el desafío ciclista:</strong> Ya sea en el recorrido completo o en una o varias etapas.</li>
-                            <li><strong>Como voluntario:</strong> En el terreno para la logística o a distancia para tareas de comunicación, traducción u organización.</li>
-                            <li><strong>Participando virtualmente:</strong> Pedaleando desde casa y participando en la recaudación de fondos en línea.</li>
-                            <li><strong>Haciendo un donativo:</strong> Cada contribución financiera apoya directamente a nuestras asociaciones colaboradoras.</li>
-                            <li><strong>Como socio corporativo:</strong> Asocia la imagen de tu empresa a nuestra causa para un impacto mutuamente beneficioso.</li>
+                            <li><strong>En participant au défi cycliste :</strong> Que ce soit pour le parcours intégral ou pour une ou plusieurs étapes.</li>
+                            <li><strong>En devenant bénévole :</strong> Sur le terrain pour la logistique ou à distance pour des missions de communication, traduction ou d'organisation.</li>
+                            <li><strong>En participant virtuellement :</strong> En roulant depuis chez vous et en participant à la collecte de fonds en ligne.</li>
+                            <li><strong>En faisant un don :</strong> Chaque contribution financière soutient directement nos associations partenaires.</li>
+                            <li><strong>En devenant partenaire :</strong> Associez l'image de votre entreprise à notre cause pour un impact mutuellement bénéfique.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">¿Cómo funcionan los donativos y la recaudación de fondos?</button>
+                <button class="faq-question">Comment fonctionnent les dons et la collecte de fonds ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>La recaudación de fondos es el corazón de nuestra misión. Nuestra estructura internacional te permite apoyar la causa de manera específica:</p>
+                        <p>La collecte de fonds est le cœur de notre mission. Notre structure internationale vous permet de soutenir la cause de manière ciblée :</p>
                         <br>
-                        <p>Al hacer un donativo, tendrás la opción de asignarlo a una de las asociaciones beneficiarias con sede en diferentes países. Este mecanismo está diseñado para permitir que los donantes se beneficien de las ventajas fiscales vigentes en su país de residencia, sujeto a elegibilidad. Cada euro recaudado, después de deducir los gastos de funcionamiento, se transfiere íntegramente.</p>
+                        <p>Lors d'un don, vous aurez la possibilité de l'attribuer à une des associations bénéficiaires basées dans différents pays. Ce mécanisme est conçu pour permettre aux donateurs de bénéficier des avantages fiscaux en vigueur dans leur pays de résidence, sous réserve d'éligibilité. Chaque euro collecté, après déduction des frais de fonctionnement, est intégralement reversé.</p>
                     </div>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">¿Existe un objetivo de recaudación de fondos para los participantes?</button>
+                <button class="faq-question">Y a-t-il un objectif de collecte de fonds pour les participants ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>Para el desafío ciclista, no hay un importe mínimo ni máximo de fondos que recaudar. La recaudación de fondos es una forma vital de maximizar el impacto de nuestro proyecto para las organizaciones benéficas que apoyamos, pero el compromiso es el único requisito. La fuerza del evento está en la unión de todos. Dado que la ruta se desarrolla por carreteras públicas, es posible unirse al grupo durante una parte del trayecto.</p>
+                        <p>Pour le défi cycliste, il n'y a ni montant minimum ni maximum de fonds à collecter. La collecte de fonds est un moyen essentiel de maximiser l'impact de notre projet pour les associations que nous soutenons, mais l'engagement est la seule condition requise. La force de l'événement est dans l'union de tous. Étant donné que le parcours se déroule sur des routes publiques, il est possible de se joindre au groupe pour une partie du trajet.</p>
                         <br>
-                        <p>Además, toda ayuda es bienvenida. Contribuir con la comunicación del proyecto es una forma de apoyo igualmente esencial para nuestra misión colectiva de llevar esperanza a los niños enfermos y a sus familias.</p>
+                        <p>De plus, toute aide est la bienvenue. Contribuer en faisant de la communication sur le projet est un soutien tout aussi essentiel à notre mission collective d'apporter de l'espoir aux enfants malades et à leurs familles.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">¿Cuál es el nivel físico y técnico requerido para el desafío?</button>
+                <button class="faq-question">Quel est le niveau physique et technique requis pour le défi ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>El recorrido es exigente y está dirigido a ciclistas experimentados, capaces de encadenar varios días de pedaleo en largas distancias. Además de la resistencia, se espera una autonomía técnica.</p>
+                        <p>Le parcours est exigeant et s'adresse à des cyclistes expérimentés, capables d'enchaîner plusieurs jours de selle sur de longues distances. Au-delà de l'endurance, une autonomie technique est attendue.</p>
                         <br>
-                        <p>Los participantes deben ser capaces de realizar reparaciones básicas (ej: pinchazo, ajuste menor). Un vehículo de asistencia seguirá al grupo por seguridad y para emergencias logísticas, pero no constituye un equipo de mecánicos dedicado.</p>
+                        <p>Les participants doivent être en mesure d'effectuer les réparations de base (ex: crevaison, réglage mineur). Un véhicule d'assistance suivra le groupe pour la sécurité et les urgences logistiques, mais ne constitue pas une équipe de mécaniciens dédiée.</p>
                     </div>
                 </div>
             </div>
             
             <div class="faq-item">
-                <button class="faq-question">¿Es posible participar solo en una parte del recorrido?</button>
+                <button class="faq-question">Est-il possible de ne participer qu'à une partie du parcours ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>Sí, es totalmente posible unirse a nosotros para una o varias etapas, según tu disponibilidad. Esta flexibilidad permite que el mayor número de personas contribuya a la aventura. Te invitamos a contactarnos a través del formulario "Involúcrate" indicando las fechas o los segmentos del recorrido que te interesan.</p>
+                        <p>Oui, il est tout à fait possible de se joindre à nous pour une ou plusieurs étapes, en fonction de vos disponibilités. Cette flexibilité permet au plus grand nombre de contribuer à l'aventure. Nous vous invitons à nous contacter via le formulaire "S'impliquer" en indiquant les dates ou les segments du parcours qui vous intéressent.</p>
                     </div>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Nuestra empresa desea convertirse en socio. ¿Cuáles son las opciones?</button>
+                <button class="faq-question">Notre entreprise souhaite devenir partenaire. Quelles sont les options ?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        <p>Estaremos encantados de colaborar con tu empresa. Ofrecemos varios niveles de patrocinio (material, financiero, logístico) con diferentes contraprestaciones en términos de visibilidad (logo en los maillots, el vehículo, el sitio web, comunicación dedicada en redes sociales, etc.) a cambio de un donativo financiero a las asociaciones apoyadas.</p>
+                        <p>Nous serions ravis de collaborer avec votre entreprise. Nous proposons plusieurs niveaux de partenariat (matériel, financier, logistique) offrant différentes contreparties en termes de visibilité (logo sur les maillots, le véhicule, le site web, communication dédiée sur les réseaux sociaux, etc.) en échange d'un don financier aux associations soutenues.</p>
                     </div>
                 </div>
             </div>
@@ -905,16 +920,16 @@
     <footer id="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-about"><h3>We Ride For Smiles</h3><p>Un movimiento benéfico internacional que utiliza el poder del ciclismo para llevar esperanza a los niños enfermos y sus familias.</p></div>
+                <div class="footer-about"><h3>We Ride For Smiles</h3><p>Un mouvement caritatif international qui utilise le pouvoir du vélo pour apporter de l'espoir aux enfants malades et à leurs familles.</p></div>
                 <div class="footer-newsletter">
-                    <h4>No te pierdas nada de lo que viene</h4>
-                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Recibe nuestras noticias, directamente en tu bandeja de entrada.</p>
-                    <form name="newsletter-es" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="newsletter-es" />
+                    <h4>Ne manquez rien de la suite</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Recevez nos actualités, directement dans votre boîte mail.</p>
+                    <form name="newsletter-fr" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="newsletter-fr" />
                         <div class="input-group">
-                           <input type="email" name="email" placeholder="Tu email" required>
+                           <input type="email" name="email" placeholder="Votre email" required>
                            <button type="submit" class="btn btn-primary form-submit-btn">
-                               <span class="btn-text">Suscribirse</span>
+                               <span class="btn-text">S'inscrire</span>
                                <span class="btn-loader"></span>
                            </button>
                         </div>
@@ -922,7 +937,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-links"><a href="privacy.html">Privacidad</a> &middot; <a href="terms.html">Términos</a></span>
+                <span class="footer-links"><a href="privacy.html">Confidentialité</a> &middot; <a href="terms.html">Conditions</a></span>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -938,15 +953,15 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="team-modal-grid">
                 <div class="team-modal-image">
-                    <img src="../assets/ben-morin.webp" alt="Retrato de Ben Morin">
+                    <img src="../assets/ben-morin.webp" alt="Portrait de Ben Morin">
                 </div>
                 <div class="team-modal-details">
                     <h3>Ben Morin</h3>
-                    <span class="team-modal-role">Fundador & Cicloturista</span>
-                    <p>Apasionado del ciclismo desde siempre, quise darle un sentido más profundo a mis kilómetros. We Ride For Smiles nació de una convicción: la energía de un desafío deportivo puede transformarse en una ola de esperanza.</p>
-                    <p>Este proyecto es un homenaje personal, una promesa de transformar el sudor en sonrisas y de mostrar a las familias afectadas por la enfermedad que no están solas. Cada pedalada es para ellas.</p>
+                    <span class="team-modal-role">Fondateur & Cyclotouriste</span>
+                    <p>Passionné de cyclisme depuis toujours, j'ai voulu donner un sens plus profond à mes kilomètres. We Ride For Smiles est né d'une conviction : l'énergie d'un défi sportif peut se transformer en une vague d'espoir.</p>
+                    <p>Ce projet est un hommage personnel, une promesse de transformer la sueur en sourires et de montrer aux familles touchées par la maladie qu'elles ne sont pas seules. Chaque coup de pédale est pour elles.</p>
                     <div class="team-modal-socials">
-                        <a href="#" target="_blank" aria-label="Sitio web"><i class="fa-solid fa-cloud"></i></a>
+                        <a href="#" target="_blank" aria-label="Site internet"><i class="fa-solid fa-cloud"></i></a>
                         <a href="https://www.youtube.com/benmorinbm" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/benmorinbm" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.strava.com/athletes/benmorin" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
@@ -956,38 +971,60 @@
         </div>
     </div>
 
+    <!-- Overlay team member
+    <div class="modal-overlay" id="team-modal-jane">
+        <div class="modal-content team-modal-content">
+            <button class="modal-close" data-modal-close>&times;</button>
+            <div class="team-modal-grid">
+                <div class="team-modal-image">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Portrait de Jane Doe">
+                </div>
+                <div class="team-modal-details">
+                    <h3>Jane Doe</h3>
+                    <span class="team-modal-role">Responsable Logistique</span>
+                    <p>Experte en organisation et passionnée par les défis humains, j'ai rejoint We Ride For Smiles pour m'assurer que chaque étape du parcours soit une réussite. Mon rôle est de veiller à ce que les cyclistes puissent se concentrer sur l'essentiel : rouler pour les enfants.</p>
+                    <div class="team-modal-socials">
+                        <a href="#" target="_blank" aria-label="Site internet"><i class="fa-solid fa-cloud"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
     <div class="modal-overlay" id="involve-modal">
         <div class="modal-content">
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
-                <h3>¡Conviértete en un motor de esta aventura!</h3>
-                <p class="modal-intro">Cada ayuda, grande o pequeña, en el terreno o a distancia, es una pedalada más por los niños. Descubre cómo puedes marcar la diferencia.</p>
+                <h3>Devenez un moteur de cette aventure !</h3>
+                <p class="modal-intro">Chaque aide, grande ou petite, sur le terrain ou à distance, est un coup de pédale de plus pour les enfants. Découvrez comment vous pouvez faire la différence.</p>
             </div>
-            <form name="get-involved-es-improved" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="get-involved-es-improved" />
+            <form name="get-involved-fr-improved" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="get-involved-fr-improved" />
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstname">Nombre</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Ej: Juan" required>
+                        <label for="firstname">Prénom</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Ex: Jean" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Ej: juan.perez@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required>
                     </div>
                 </div>
 
                 <div class="form-group" style="margin-top: 2.5rem;">
-                    <label>¿Cómo te gustaría apoyarnos?</label>
+                    <label>Comment souhaitez-vous nous soutenir ?</label>
                     <div class="involvement-options">
                         <div class="option-card">
                             <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
                             <label for="role-ride" class="option-label">
                                 <div class="option-label-header">
                                     <i class="fa-solid fa-bicycle"></i>
-                                    <strong>Pedalear</strong>
+                                    <strong>Rouler avec nous</strong>
                                 </div>
-                                <span>Participar en el desafío.</span>
+                                <span>Participer au défi.</span>
                             </label>
                         </div>
                         <div class="option-card">
@@ -995,9 +1032,9 @@
                             <label for="role-event" class="option-label">
                                 <div class="option-label-header">
                                     <i class="fa-solid fa-flag-checkered"></i>
-                                    <strong>Voluntario/a</strong>
+                                    <strong>Bénévole</strong>
                                 </div>
-                                <span>Ayudar en el terreno.</span>
+                                <span>Aider sur le terrain.</span>
                             </label>
                         </div>
                         <div class="option-card">
@@ -1005,9 +1042,9 @@
                             <label for="role-partner" class="option-label">
                                 <div class="option-label-header">
                                     <i class="fa-solid fa-handshake"></i>
-                                    <strong>Ser socio</strong>
+                                    <strong>Devenir partenaire</strong>
                                 </div>
-                                <span>Asociar tu empresa.</span>
+                                <span>Associer votre entreprise.</span>
                             </label>
                         </div>
                         <div class="option-card">
@@ -1015,9 +1052,9 @@
                             <label for="role-donation" class="option-label">
                                 <div class="option-label-header">
                                     <i class="fa-solid fa-hand-holding-dollar"></i>
-                                    <strong>Hacer un donativo</strong>
+                                    <strong>Faire un don</strong>
                                 </div>
-                                <span>Apoyar financieramente.</span>
+                                <span>Soutenir financièrement.</span>
                             </label>
                         </div>
                         <div class="option-card">
@@ -1025,16 +1062,16 @@
                             <label for="role-remote" class="option-label">
                                 <div class="option-label-header">
                                     <i class="fa-solid fa-laptop"></i>
-                                    <strong>Ayuda a distancia</strong>
+                                    <strong>Aider à distance</strong>
                                 </div>
-                                <span>Comunicación, etc.</span>
+                                <span>Communication, etc.</span>
                             </label>
                         </div>
                     </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;">
-                    <span class="btn-text">Enviar mi propuesta</span>
+                    <span class="btn-text">Envoyer ma proposition</span>
                     <span class="btn-loader"></span>
                 </button>
             </form>
@@ -1046,22 +1083,22 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
                 <i class="fa-solid fa-envelope-open-text icon-header"></i>
-                <h3>¡No te pierdas nada de la aventura!</h3>
-                <p class="modal-intro">Únete a nuestra comunidad y recibe las noticias clave del desafío, directamente en tu bandeja de entrada.</p>
+                <h3>Ne manquez rien de l'aventure !</h3>
+                <p class="modal-intro">Rejoignez notre communauté et recevez les actualités clés du défi, directement dans votre boîte mail.</p>
             </div>
-            <form name="newsletter-popup-es-rgpd" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="newsletter-popup-es-rgpd" />
+            <form name="newsletter-popup-fr-rgpd" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="newsletter-popup-fr-rgpd" />
                 <div class="input-group">
-                   <input type="email" name="email" placeholder="Tu mejor email" required>
+                   <input type="email" name="email" placeholder="Votre meilleur email" required>
                    <button type="submit" class="btn btn-primary form-submit-btn">
-                       <span class="btn-text">Me suscribo</span>
+                       <span class="btn-text">Je m'inscris</span>
                        <span class="btn-loader"></span>
                    </button>
                 </div>
                 <label class="custom-checkbox-container">
                     <input type="checkbox" name="consent" id="consent-modal" required>
                     <span class="checkbox-label">
-                        Acepto recibir noticias del proyecto. (<a href="privacy.html" target="_blank">Política de privacidad</a>)
+                        J'accepte de recevoir les actualités du projet. (<a href="privacy.html" target="_blank">Politique de confidentialité</a>)
                     </span>
                 </label>
             </form>
@@ -1069,7 +1106,7 @@
     </div>
 
     <div class="charity-slider-widget">
-        <h4>Asociaciones apoyadas</h4>
+        <h4>Associations soutenues</h4>
         <div class="slider-content"></div>
     </div>
 

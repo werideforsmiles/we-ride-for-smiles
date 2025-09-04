@@ -313,8 +313,8 @@ html.light-mode footer { background-color: #e9ecef; }
 }
 
 .step-content h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.75rem, min(3.5vw, 4vh), 2.5rem);
+    margin-bottom: 1rem;
     font-weight: 900;
     color: var(--color-primary);
 }
@@ -322,7 +322,7 @@ html.light-mode footer { background-color: #e9ecef; }
 .step-content h4 {
     font-size: 1.5rem;
     color: var(--color-text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 /* --- RESPONSIVE POUR LA PAGE ROUTE.HTML --- */

@@ -70,7 +70,6 @@
             border: 1px solid rgba(128, 128, 128, 0.1);
             padding: 1.5rem;
             border-radius: 12px;
-            margin-top: 1rem;
         }
         html.light-mode .step-description {
             border: 1px solid rgba(128, 128, 128, 0.15);
@@ -79,10 +78,10 @@
         
         .step-image {
             width: 100%;
-            max-height: 400px;
+            max-height: clamp(250px, 35vh, 400px);
             object-fit: cover;
             border-radius: 12px;
-            margin-top: 2rem;
+            margin-top: 1rem;
             margin-bottom: 1rem;
         }
         .image-credit {
@@ -117,7 +116,7 @@
                 margin-top: 0;
             }
             .step-content h3 {
-                font-size: 1.75rem; 
+                font-size: clamp(1.75rem, min(3.5vw, 4vh), 2.5rem);
                 margin-bottom: 1rem;
             }
             .step-description {

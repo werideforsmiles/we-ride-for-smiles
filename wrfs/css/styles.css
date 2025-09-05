@@ -51,6 +51,49 @@ html.light-mode .navbar.scrolled { background-color: rgba(255, 255, 255, 0.8); }
 .nav-link-button { background: none; border: none; font-family: inherit; font-size: inherit; color: var(--color-text-primary); font-weight: 500; cursor: pointer; padding: 0; margin: 0 1rem; transition: color 0.3s ease; }
 .nav-link-button:hover { color: var(--color-primary-dark); }
 .nav-controls { display: flex; align-items: center; gap: 1.5rem; z-index: 1001; }
+        /* --- AJOUTS POUR LA NAVIGATION MOBILE --- */
+        .btn-mobile-involved {
+            display: none !important;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        @media (min-width: 992px) {
+            .btn-mobile-involved {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .nav-links-desktop .btn-desktop-involved {
+                display: none !important;
+            }
+            .nav-controls {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                transition: width 0.3s ease;
+            }
+            .nav-controls.scrolled-mobile {
+                transition: width 0.3s ease;
+            }
+            .nav-controls.scrolled-mobile .lang-switcher,
+            .nav-controls.scrolled-mobile .theme-switch {
+                display: none;
+                transform: translateY(-20px);
+                transition: display 0.3s ease, transform 0.3s ease;
+            }
+            .nav-controls.scrolled-mobile .btn-mobile-involved {
+                display: inline-block !important;
+                opacity: 1;
+                transform: translateY(0);
+                left: auto;
+                animation: fadeIn 0.3s ease forwards;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 .lang-switcher { position: relative; }
 .lang-switcher .selected-lang { color: var(--color-text-secondary); font-weight: 700; cursor: pointer; }
 .lang-switcher .lang-dropdown { position: absolute; top: 100%; left: 50%; background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.5rem; margin-top: 0.5rem; list-style: none; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); transition: all 0.3s ease; }

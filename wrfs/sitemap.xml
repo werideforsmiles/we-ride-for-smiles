@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <url>
+        <loc>https://www.werideforsmiles.org/fr/</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/fr/route</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/fr/privacy</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/privacy"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/privacy"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/fr/terms</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/terms"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/terms"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/en/</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/en/route</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/en/privacy</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/privacy"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/privacy"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/en/terms</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/terms"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/terms"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/es/</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/es/route</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/es/privacy</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/privacy"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/privacy"/>
+    </url>
+
+    <url>
+        <loc>https://www.werideforsmiles.org/es/terms</loc>
+        <lastmod>2025-09-03</lastmod>
+        <changefreq>yearly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/terms"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/terms"/>
+    </url>
+
+</urlset>

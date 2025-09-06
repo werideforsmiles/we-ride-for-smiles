@@ -497,6 +497,8 @@
         .charity-slider-widget.scrolled { width: 320px; }
         @media (min-width: 992px) {
             .charity-slider-widget { position: fixed; }
+            .charity-slider-widget .slider-content { height: 160px; }
+            .charity-slider-widget .slide-item img { max-height: 100px; }
         }
         @keyframes slide-in-widget {
             to { opacity: 1; transform: translateY(0); }
@@ -510,11 +512,11 @@
         }
         .charity-slider-widget .slider-content {
             position: relative;
-            height: 160px; 
+            height: 12vh; 
             transition: height 0.4s ease;
         }
         .charity-slider-widget.scrolled .slider-content {
-            height: 50px;
+            height: 4vh;
         }
         .charity-slider-widget .slide-item {
             position: absolute;
@@ -537,12 +539,12 @@
             transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s;
         }
         .charity-slider-widget .slide-item img {
-            max-height: 100px;
+            max-height: 8vh;
             width: auto;
             transition: max-height 0.4s ease;
         }
         .charity-slider-widget.scrolled .slide-item img {
-            max-height: 40px;
+            max-height: 4vh;
         }
         .charity-slider-widget .slide-item span {
             font-weight: 500;

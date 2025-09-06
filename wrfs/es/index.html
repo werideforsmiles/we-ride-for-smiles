@@ -162,7 +162,7 @@
         .nav-mobile-overlay.is-active .btn { opacity: 1; transform: translateY(0); }
         
         /* --- 4. HÉROS --- */
-        .hero { min-height: 100vh; padding-top: 100px; display: flex; align-items: center; position: relative; overflow: hidden; background-color: var(--color-background); }
+        .hero { min-height: 100vh; padding-top: 120px; display: flex; align-items: center; position: relative; overflow: hidden; background-color: var(--color-background); }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background-dark.webp') no-repeat bottom right; background-size: cover; animation: kenburns 30s ease-out infinite; }
         html.light-mode .hero::before { background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background-light.webp') no-repeat bottom right; background-size: cover; }
         @keyframes kenburns { 0% { background-position: 80% 100%; } 50% { background-position: 100% 100%; } 100% { background-position: 80% 100%; } }
@@ -170,8 +170,13 @@
         h1 { font-size: clamp(2rem, min(7vw, 10vh), 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2rem, min(7vw, 10vh), 5rem); }
         .hero-content .lead { font-size: 1.2rem; max-width: 580px; margin: 1.5rem 0 2.5rem 0; color: var(--color-text-secondary); }
         @media (max-width: 767px) {
-            .hero { padding-top: 80px }
             .hero-content .lead { font-size: 0.9rem; }
+        }
+        @media (max-width: 992px) {
+            .hero { padding-top: 100px; }
+        }
+        @media (max-width: 1200px) {
+            .hero { align-items: start; }
         }
         html.light-mode .hero-content .lead { color: var(--color-text-primary); opacity: 0.9; }
         .countdown-timer { display: flex; gap: 1.5rem; margin-top: 2.5rem;margin-bottom: 2.5rem; }
@@ -472,7 +477,7 @@
 
         /* --- 11B. WIDGET ASSOCIATIONS --- */
         .charity-slider-widget {
-            position: fixed;
+            position: absolute;
             bottom: 1.5rem;
             right: 1.5rem;
             width: 600px;
@@ -486,12 +491,12 @@
             opacity: 0;
             transform: translateY(20px);
             animation: slide-in-widget 0.5s ease 2.5s forwards;
-            display: none; /* Caché par défaut, affiché sur desktop */
+            display: block;
             transition: width 0.4s ease, bottom 0.3s ease; 
         }
         .charity-slider-widget.scrolled { width: 320px; }
         @media (min-width: 992px) {
-            .charity-slider-widget { display: block; }
+            .charity-slider-widget { position: fixed; }
         }
         @keyframes slide-in-widget {
             to { opacity: 1; transform: translateY(0); }
@@ -547,6 +552,49 @@
         }
         .charity-slider-widget.scrolled .slide-item span {
             font-size: 1rem;
+        }
+        
+        /* --- 11C. CONTRÔLES DU WIDGET ASSOCIATIONS --- */
+        .widget-controls {
+            position: absolute;
+            top: 0.75rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 1000;
+        }
+
+        .widget-controls button {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem;
+            line-height: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .widget-controls #widget-toggle-size {
+            font-size: 0.9rem;
+        }
+
+        .widget-controls button:hover {
+            color: var(--color-primary);
+            transform: scale(1.1);
+        }
+
+        /* AJOUT : Classe pour cacher le widget lors de la fermeture */
+        .charity-slider-widget.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        /* AJOUT : Transition pour la fermeture en douceur */
+        .charity-slider-widget {
+            /* ... (vos styles existants) ... */
+            transition: width 0.4s ease, bottom 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         }
         
         /* --- 12. RESPONSIVE --- */
@@ -791,7 +839,7 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in-up">EL DESAFÍO DE UNA VIDA. PARA CAMBIAR VIDAS.</h1>
+                <h1 class="fade-in-up">El desafío de una vida. Para cambiar vidas.</h1>
                 <p class="lead fade-in-up delay-2">En junio de 2026, el objetivo será conectar Londres con Barcelona en bicicleta. 1500 km por una sola misión: pedalear por los niños enfermos. Cada pedalada será un desafío, cada donativo una victoria.</p>
                 <div class="cta-buttons fade-in-up delay-3">
                     <button class="btn btn-primary" data-modal-trigger="involve-modal">Involúcrate</button>
@@ -815,8 +863,8 @@
                 <h2 class="fade-in-up">En el corazón de nuestra iniciativa</h2>
                 <p class="fade-in-up delay-1" style="max-width: 650px; margin: -2rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Pedaleamos por organizaciones que cambian vidas: centros hospitalarios de excelencia y destacadas asociaciones nacionales.</p>
                 <div class="charity-grid">
-                    <div class="charity-category fade-in-up delay-2"><h3>Hospitales infantiles</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo"><img src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo"><img src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
-                    <div class="charity-category fade-in-up delay-3"><h3>Asociaciones benéficas</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo"><img src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo"><img src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
+                    <div class="charity-category fade-in-up delay-2"><h3>Hospitales infantiles</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
+                    <div class="charity-category fade-in-up delay-3"><h3>Asociaciones benéficas</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
                 </div>
             </div>
         </section>
@@ -846,20 +894,23 @@
         <section class="section section-surface" id="team">
             <div class="container">
                 <h2 class="fade-in-up">Este proyecto te necesita</h2>
-                <p class="fade-in-up delay-1" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary);">Yo inicié el movimiento, pero esto es solo la chispa.</p>
-                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 1rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Para que la llama de la esperanza crezca, este desafío debe ser impulsado por un verdadero equipo. Ya sea sobre la bicicleta, al borde de la carretera o detrás de una pantalla, tu energía es esencial para hacer de esta aventura una victoria colectiva.</p>
+                <div class="fade-in-up delay-1" style="text-align: center; margin-bottom: 2rem;">
+                  <img loading="lazy" src="../assets/wrfs-team.webp" alt="Fotografía realista generada por IA de ciclistas con maillots 'We Ride For Smiles'." style="border-radius: 15px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                </div>
+                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary);">Yo inicié el movimiento, pero esto es solo la chispa.</p>
+                <p class="fade-in-up delay-3" style="max-width: 650px; margin: 1rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Para que la llama de la esperanza crezca, este desafío debe ser impulsado por un verdadero equipo. Ya sea sobre la bicicleta, al borde de la carretera o detrás de una pantalla, tu energía es esencial para hacer de esta aventura una victoria colectiva.</p>
                 <div class="team-grid">
-                    <div class="team-member fade-in-up" data-modal-trigger="team-modal-ben">
-                        <img src="../assets/ben-morin.webp" alt="Ben Morin, fundador de We Ride For Smiles y ciclista del desafío Londres-Barcelona">
+                    <div class="team-member fade-in-up delay-3" data-modal-trigger="team-modal-ben">
+                        <img loading="lazy" src="../assets/ben-morin.webp" alt="Ben Morin, fundador de We Ride For Smiles y ciclista del desafío Londres-Barcelona">
                         <div class="team-member-overlay">
                             <div class="team-member-info">
                                 <h3>Ben Morin</h3>
-                                <span>Fundador & Cicloturista</span>
+                                <span>Iniciador del proyecto</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="team-member team-member--join fade-in-up delay-2" data-modal-trigger="involve-modal">
+                    <div class="team-member team-member--join fade-in-up delay-3" data-modal-trigger="involve-modal">
                         <div class="join-card-content">
                             <i class="fa-solid fa-plus"></i>
                             <h3>Únete a la aventura</h3>
@@ -982,11 +1033,11 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="team-modal-grid">
                 <div class="team-modal-image">
-                    <img src="../assets/ben-morin.webp" alt="Retrato de Ben Morin">
+                    <img loading="lazy" src="../assets/ben-morin.webp" alt="Retrato de Ben Morin">
                 </div>
                 <div class="team-modal-details">
                     <h3>Ben Morin</h3>
-                    <span class="team-modal-role">Fundador & Cicloturista</span>
+                    <span class="team-modal-role">Iniciador del proyecto</span>
                     <p>Apasionado del ciclismo desde siempre, quise darle un sentido más profundo a mis kilómetros. We Ride For Smiles nació de una convicción: la energía de un desafío deportivo puede transformarse en una ola de esperanza.</p>
                     <p>Este proyecto es un homenaje personal, una promesa de transformar el sudor en sonrisas y de mostrar a las familias afectadas por la enfermedad que no están solas. Cada pedalada es para ellas.</p>
                     <div class="team-modal-socials">
@@ -1114,6 +1165,14 @@
 
     <div class="charity-slider-widget">
         <h4>Asociaciones apoyadas</h4>
+        <div class="widget-controls">
+            <button id="widget-toggle-size" aria-label="Expandir widget">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+            <button id="widget-close" aria-label="Minimizar widget">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
         <div class="slider-content"></div>
     </div>
 
@@ -1294,7 +1353,7 @@
                     slide.href = charity.url;
                     slide.target = '_blank';
                     slide.className = `slide-item ${index === 0 ? 'active' : ''}`;
-                    slide.innerHTML = `<img src="${charity.logo}" alt="${charity.name}">`;
+                    slide.innerHTML = `<img loading="lazy" src="${charity.logo}" alt="${charity.name}">`;
                     sliderContainer.appendChild(slide);
                 });
                 let currentSlide = 0;
@@ -1310,21 +1369,60 @@
 
             const sliderWidget = document.querySelector('.charity-slider-widget');
             const footer = document.getElementById('footer');
-            if (sliderWidget) {
+
+            // AJOUT : Sélection des boutons du widget
+            const widgetToggleBtn = document.getElementById('widget-toggle-size');
+            const widgetCloseBtn = document.getElementById('widget-close');
+            const widgetToggleIcon = widgetToggleBtn?.querySelector('i');
+
+            if (sliderWidget && widgetToggleBtn && widgetCloseBtn && widgetToggleIcon) {
+
+                // AJOUT : Fonction dédiée pour mettre à jour l'icône
+                const updateWidgetIcon = () => {
+                    if (sliderWidget.classList.contains('scrolled')) {
+                        widgetToggleIcon.className = 'fa-solid fa-up-right-and-down-left-from-center';
+                        widgetToggleBtn.setAttribute('aria-label', 'Expandir widget');
+                    } else {
+                        widgetToggleIcon.className = 'fa-solid fa-down-left-and-up-right-to-center';
+                        widgetToggleBtn.setAttribute('aria-label', 'Minimizar widget');
+                    }
+                };
+                
+                // MODIFIÉ : handleWidgetSize met maintenant aussi à jour l'icône
                 const handleWidgetSize = () => {
                     if (window.scrollY > 0) {
                         sliderWidget.classList.add('scrolled');
                     } else {
                         sliderWidget.classList.remove('scrolled');
                     }
+                    updateWidgetIcon(); // On appelle la fonction de mise à jour
                 };
+                
                 window.addEventListener('scroll', handleWidgetSize, { passive: true });
+                
+                // MODIFIÉ : Le clic bascule l'état et met à jour l'icône
+                widgetToggleBtn.addEventListener('click', () => {
+                    sliderWidget.classList.toggle('scrolled');
+                    updateWidgetIcon();
+                });
+
+                // MODIFIÉ : La fermeture arrête l'animation et cache le widget
+                widgetCloseBtn.addEventListener('click', () => {
+                    sliderWidget.style.display = 'none'; // Cache proprement le widget
+                    if (charitySliderInterval) {
+                        clearInterval(charitySliderInterval); // C'est LA clé : on arrête le défilement des logos.
+                    }
+                });
+
+                // AJOUT : On initialise la bonne icône au chargement de la page
+                updateWidgetIcon();
             }
+
             if (sliderWidget && footer) {
                 const handleSliderPosition = () => {
                     const footerRect = footer.getBoundingClientRect();
                     const viewportHeight = window.innerHeight;
-                    const baseOffset = 24; // 1.5rem in pixels
+                    const baseOffset = 24;
 
                     if (footerRect.top < viewportHeight) {
                         sliderWidget.style.bottom = `${viewportHeight - footerRect.top + baseOffset}px`;
@@ -1343,7 +1441,6 @@
                 });
                 footerObserver.observe(footer);
             }
-
             const navControls = document.getElementById('nav-controls');
             window.addEventListener('scroll', () => {
                 if (window.innerWidth <= 991) {

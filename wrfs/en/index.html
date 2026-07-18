@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Ride For Smiles | London-Barcelona Charity Cycle Challenge 2026</title>
-    <meta name="description" content="June 2026. Take part in a 1500 km cycling challenge from London to Barcelona. Join our mission to turn every pedal stroke into hope for sick children.">
-    <link rel="canonical" href="https://www.werideforsmiles.org/en/index.html" />
+    <title>We Ride For Smiles | Paris–Edinburgh Charity Cycle 2027</title>
+    <meta name="description" content="Target: 14 June 2027. Join a ~1,510 km charity ride from Paris to Edinburgh for sick children. Explore the route and alternate concepts on our site.">
+    <link rel="canonical" href="https://www.werideforsmiles.org/en/" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
-    <meta name="copyright" content="© 2025 We Ride For Smiles. Site created by Ben Morin.">
+    <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
     <!--
         Site created by Ben Morin, bemorin.com. All rights reserved.
@@ -16,24 +16,24 @@
         Any partial or total reproduction is prohibited without permission.
     -->
 
-    <meta property="og:title" content="We Ride For Smiles | London-Barcelona Charity Cycle Challenge 2026" />
+    <meta property="og:title" content="We Ride For Smiles | Paris–Edinburgh Charity Cycle 2027" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/en/index.html" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/en/" />
     <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
     <meta property="og:description" content="Take part in a 1500 km challenge to support sick children. Every pedal stroke counts." />
     <meta property="og:site_name" content="We Ride For Smiles" />
     <meta property="og:locale" content="en_GB" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="We Ride For Smiles | London-Barcelona Charity Cycle Challenge 2026">
+    <meta name="twitter:title" content="We Ride For Smiles | Paris–Edinburgh Charity Cycle 2027">
     <meta name="twitter:description" content="Take part in a 1500 km challenge to support sick children. Every pedal stroke counts.">
     <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
 
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
-    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/index.html" />
-    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/index.html" />
-    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/index.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/" />
+    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/" />
+    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/" />
 
     <link rel="stylesheet" href="../css/fa-min.css">
 
@@ -136,6 +136,11 @@
           --font-sans: 'Inter', sans-serif;
           --color-background: #0A0A0A; --color-surface: #191919; --color-text-primary: #FAFAFA;
           --color-text-secondary: #999999; --color-primary: #FFA500; --color-primary-dark: #E59400;
+          --radius-control: 9999px;
+          --radius-panel: 1rem;
+          --control-h: 2.75rem;
+          --focus-ring: 0 0 0 3px rgba(255, 165, 0, 0.22);
+
           --color-border: #333333; --section-padding: 7rem 0; --container-width: 1280px;
         }
         html.light-mode {
@@ -149,7 +154,10 @@
         body.modal-open { overflow: hidden; }
         .container { max-width: var(--container-width); margin: 0 auto; padding: 0 1.5rem; }
         h1, h2, h3 { text-wrap: balance; }
-        p, .lead { text-wrap: pretty; }
+        .section h2, .mission-lead, .mission-title, .modal-content h3,
+        .modal-intro, .hero-content .lead { text-wrap: balance; }
+        .modal-intro, .hero-content .lead, p.lead { text-wrap: balance; }
+        p, .lead { text-wrap: balance; }
         a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--color-primary-dark); }
         a.btn, a.navbar-brand, .charity-logo, .nav-link { text-decoration: none !important; }
@@ -169,12 +177,13 @@
         .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .fade-in-up.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; } .delay-5 { transition-delay: 0.5s; } .delay-6 { transition-delay: 0.6s; }
 
         /* --- 3. NAVIGATION --- */
         .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; z-index: 1000; transition: background-color 0.3s ease; }
         .navbar.scrolled { background-color: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); }
         html.light-mode .navbar.scrolled { background-color: rgba(255, 255, 255, 0.8); }
-        .navbar-content { display: flex; justify-content: space-between; align-items: center; }
+        .navbar-content { display: flex; justify-content: space-between; align-items: center; position: relative; }
         .navbar-brand { font-weight: 900; font-size: 1.8rem; color: var(--color-text-primary); z-index: 1001; }
         .nav-menu { display: flex; align-items: center; gap: 1.5rem; }
         .nav-links-desktop { display: none; }
@@ -192,10 +201,21 @@
             .btn-mobile-involved {
                 display: none !important;
             }
+            .btn-desktop-involved {
+                display: inline-flex !important;
+            }
+            .nav-menu > .nav-link-button {
+                display: inline-block;
+            }
+        }
+        @media (max-width: 991px) {
+            .nav-menu > .nav-link-button {
+                display: none !important;
+            }
         }
 
         @media (max-width: 991px) {
-            .nav-links-desktop .btn-desktop-involved {
+            .btn-desktop-involved {
                 display: none !important;
             }
             .nav-controls {
@@ -226,11 +246,43 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .lang-switcher { position: relative; }
-        .lang-switcher .selected-lang { color: var(--color-text-secondary); font-weight: 700; cursor: pointer; }
-        .lang-switcher .lang-dropdown { position: absolute; top: 100%; left: 50%; background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.5rem; margin-top: 0.5rem; list-style: none; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); transition: all 0.3s ease; }
-        .lang-switcher:hover .lang-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .lang-switcher .lang-dropdown a { display: block; padding: 0.5rem 1rem; color: var(--color-text-primary); }
-        .lang-switcher .lang-dropdown a:hover { color: var(--color-primary); }
+.lang-switcher .selected-lang {
+          display: inline-flex; align-items: center; justify-content: center;
+          color: var(--color-text-secondary); cursor: pointer;
+          padding: 0.25rem; border-radius: 4px;
+          line-height: 0;
+          background: none; border: none; font: inherit;
+        }
+        .lang-switcher .selected-lang:hover { opacity: 0.85; }
+        .lang-flag {
+          display: block;
+          width: 1.35rem; height: 0.9rem;
+          border-radius: 2px;
+          box-shadow: 0 0 0 1px rgba(128,128,128,0.35);
+          object-fit: cover;
+        }
+        .lang-switcher .lang-dropdown {
+          position: absolute; top: 100%; left: 50%;
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: 8px; padding: 0.35rem;
+          margin-top: 0.5rem; list-style: none;
+          opacity: 0; visibility: hidden;
+          transform: translateX(-50%) translateY(10px);
+          transition: all 0.3s ease;
+          min-width: 3rem;
+        }
+        .lang-switcher:hover .lang-dropdown,
+        .lang-switcher:focus-within .lang-dropdown {
+          opacity: 1; visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+        .lang-switcher .lang-dropdown a {
+          display: flex; align-items: center; justify-content: center;
+          padding: 0.45rem 0.55rem; border-radius: 6px;
+        }
+        .lang-switcher .lang-dropdown a:hover { background: rgba(128,128,128,0.12); }
+
         .theme-switch { background: none; border: none; color: var(--color-text-primary); font-size: 1.2rem; cursor: pointer; line-height: 0; }
         .theme-switch svg { width: 24px; height: 24px; transition: transform 0.4s ease; }
         .nav-toggle { display: none; background: none; border: none; color: var(--color-text-primary); font-size: 1.5rem; cursor: pointer; z-index: 1001; }
@@ -257,9 +309,43 @@
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background-dark.webp') no-repeat bottom right; background-size: cover; animation: kenburns 30s ease-out infinite; }
         html.light-mode .hero::before { background: linear-gradient(to right, var(--color-background) 30%, transparent 70%), url('../assets/hero-background-light.webp') no-repeat bottom right; background-size: cover; }
         @keyframes kenburns { 0% { background-position: 80% 100%; } 50% { background-position: 100% 100%; } 100% { background-position: 80% 100%; } }
-        .hero-content { position: relative; z-index: 2; }
-        h1 { font-size: clamp(2rem, min(7vw, 10vh), 5rem); font-weight: 900; letter-spacing: -0.04em; line-height: clamp(2rem, min(7vw, 10vh), 5rem); }
-        .hero-content .lead { font-size: 1.2rem; max-width: 580px; margin: 1.5rem 0 2.5rem 0; color: var(--color-text-secondary); }
+
+        .hero-content {
+          position: relative; z-index: 2;
+          width: 100%;
+          max-width: min(40rem, 100%);
+          margin: 0;
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .hero-content h1 {
+          text-wrap: balance;
+          max-width: 100%;
+          line-height: 1.08;
+          width: 100%;
+        }
+        .hero-content .lead {
+          font-size: 1.2rem;
+          max-width: 100%;
+          width: 100%;
+          margin: 1.5rem 0 1rem 0;
+          color: var(--color-text-secondary);
+          text-wrap: balance;
+        }
+        .hero-tagline {
+          font-size: clamp(1rem, 2.2vw, 1.15rem);
+          font-weight: 600;
+          color: var(--color-text-primary);
+          margin: 0 0 1.75rem 0;
+          max-width: 100%;
+          width: 100%;
+          text-wrap: balance;
+        }
+        .hero-content .cta-buttons { justify-content: flex-start; }
+        .hero-content .countdown-timer { justify-content: flex-start; }
+
         @media (max-width: 767px) {
             .hero-content .lead { font-size: 0.9rem; }
         }
@@ -274,15 +360,70 @@
         .timer-item { text-align: center; }
         .timer-value { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--color-primary); line-height: 1; }
         .timer-label { font-size: 0.9rem; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px; }
-        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-align: center; transition: all 0.3s ease; border: none; cursor: pointer; position: relative; }
-        @media (max-width: 767px) {
-            .btn { font-size: 1rem; }
+        .btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          padding: 0.7rem 1.4rem;
+          border-radius: var(--radius-control);
+          font-weight: 600;
+          font-size: 1rem;
+          text-align: center;
+          transition: transform 0.2s ease, background-color 0.2s ease, filter 0.2s ease;
+          border: none; cursor: pointer; position: relative;
+          line-height: 1.2;
         }
-        .btn:hover { transform: scale(1.05); }
+        @media (max-width: 767px) {
+            .btn { font-size: 0.95rem; }
+        }
+        .btn:hover { transform: scale(1.03); }
         .btn-primary { background: var(--color-primary); color: #0A0A0A; }
         .btn-primary:hover { background: var(--color-primary-dark); }
         .btn-secondary { background-color: transparent; color: var(--color-text-primary); box-shadow: inset 0 0 0 2px var(--color-text-primary); }
         .btn-secondary:hover { background-color: var(--color-text-primary); color: var(--color-background); }
+        /* Header CTA: match nav scale */
+        .btn-desktop-involved,
+        .btn-mobile-involved {
+          font-size: 0.875rem !important;
+          font-weight: 600;
+          padding: 0.5rem 1.15rem !important;
+          letter-spacing: 0.01em;
+        }
+
+        /* Desktop nav tabs: same padding as Involve CTA, subtle bg contrast */
+        @media (min-width: 992px) {
+          .nav-links-desktop .nav-link {
+            margin: 0 0.15rem;
+            padding: 0.5rem 1.15rem;
+            border-radius: var(--radius-control);
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.2;
+            transition: color 0.2s ease, background-color 0.2s ease;
+          }
+          .nav-links-desktop .nav-link:hover {
+            color: var(--color-text-primary);
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+          html.light-mode .nav-links-desktop .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.06);
+          }
+          .nav-menu > .nav-link-button {
+            margin: 0 0.15rem;
+            padding: 0.5rem 1.15rem;
+            border-radius: var(--radius-control);
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.2;
+            transition: color 0.2s ease, background-color 0.2s ease;
+          }
+          .nav-menu > .nav-link-button:hover {
+            color: var(--color-text-primary);
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+          html.light-mode .nav-menu > .nav-link-button:hover {
+            background-color: rgba(0, 0, 0, 0.06);
+          }
+        }
+
         .cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
         .cta-buttons .btn { margin: 0; }
 
@@ -291,18 +432,43 @@
         .section-surface { background-color: var(--color-surface); }
         .section h2 { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(1.8rem, 5vw, 3.5rem); }
         #mission.section h2 { margin-bottom: 0; }
+
+        /* --- Mission split title --- */
+        .mission-block { text-align: center; max-width: 820px; margin: 0 auto; }
+        .mission-title {
+          color: var(--color-primary) !important;
+          font-size: clamp(1.15rem, 2.5vw, 1.35rem) !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          margin: 0 0 1.25rem 0 !important;
+        }
+        .mission-lead {
+          font-size: clamp(1.5rem, 4vw, 2.35rem);
+          font-weight: 700;
+          line-height: 1.35;
+          color: var(--color-text-primary);
+          margin: 0;
+          text-wrap: balance;
+        }
+        .footer-links { color: #999999; font-size: 0.9rem; }
+        .footer-links a { color: #FFA500 !important; text-decoration: none !important; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #E59400 !important; }
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 4rem auto 0 auto; text-align: center; }
         .stat-item .stat-number { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; color: var(--color-primary); line-height: 1; }
         .stat-item .stat-label { color: var(--color-text-secondary); font-weight: 500; margin-top: 0.5rem; }
         
         /* --- 6. CAUSES --- */
         .charity-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; }
-        .charity-category { background-color: #FFF; padding: 2.5rem; border-radius: 12px; }
-        .charity-category h3 { color: var(--color-primary); margin-bottom: 2rem; font-weight: 700; border-bottom: 1px solid #DDDDDD; padding-bottom: 1rem; }
+        .charity-category { background-color: #FFFFFF; padding: 2.5rem; border-radius: 12px; border: 1px solid #E5E5E5; }
+        .charity-category h3 { color: var(--color-primary); margin-bottom: 2rem; font-weight: 700; font-size: clamp(1.35rem, 2.5vw, 1.75rem); border-bottom: 1px solid #DDDDDD; padding-bottom: 1rem; }
         .charity-logo { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem; margin: 0 -1rem 1rem -1rem; border-radius: 8px; transition: background-color 0.3s ease; }
         .charity-logo:hover { background-color: rgba(128, 128, 128, 0.1); }
-        .charity-logo img { max-height: 50px; width: auto }
-        .charity-logo span { font-weight: 500; font-size: 1.1rem; color: #000; }
+        .charity-logo img { max-height: 50px; width: auto; }
+        @media (min-width: 768px) {
+          .charity-logo img { max-height: 68px; }
+        }
+        .charity-logo span { font-weight: 500; font-size: 1.1rem; color: #191919; }
 
         /* --- 7. VALEURS --- */
         .values-container { position: relative; min-height: 400vh; }
@@ -313,11 +479,11 @@
         .value-content .value-title { font-size: clamp(4rem, 15vw, 10rem); line-height: 1; font-weight: 900; color: var(--color-primary); }
         .value-content .value-subtitle { font-size: 1.5rem; font-weight: 700; margin-top: 1rem; color: var(--color-text-primary); }
         .value-content p { font-size: 1.1rem; color: var(--color-text-secondary); margin-top: 1.5rem; }
-        .value-next-btn { position: absolute; bottom: 2.5rem; left: 50%; background: var(--color-primary); color: #0A0A0A; border: none; border-radius: 50px; padding: 1rem 2rem; font-weight: 700; font-size: 1rem; cursor: pointer; opacity: 0; transform: translateX(-50%) translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; visibility: hidden; }
+        .value-next-btn { position: absolute; bottom: 2.5rem; left: 50%; background: var(--color-primary); color: #0A0A0A; border: none; border-radius: var(--radius-control); padding: 1rem 2rem; font-weight: 700; font-size: 1rem; cursor: pointer; opacity: 0; transform: translateX(-50%) translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease; visibility: hidden; }
         .value-next-btn.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); visibility: visible; }
         
         /* --- 8. ÉQUIPE --- */
-        .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 4rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
+        .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 0; max-width: 1100px; margin-left: auto; margin-right: auto; }
 
         .team-member { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 1 / 1.2; box-shadow: 0 10px 20px rgba(0,0,0,0.1); background-color: var(--color-background); flex: 0 1 340px; }
         .team-member img {
@@ -485,7 +651,7 @@
         /* --- 9. FAQ --- */
         .faq-container { max-width: 800px; margin: 4rem auto 0 auto; }
         .faq-item { background-color: var(--color-surface); border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--color-border); overflow: hidden; }
-        .faq-question { padding: 1.75rem 4rem 1.75rem 1.75rem; font-weight: 700; font-size: 1.2rem; cursor: pointer; position: relative; background: none; border: none; width: 100%; text-align: left; color: var(--color-text-primary); transition: background-color 0.3s ease; }
+        .faq-question { padding: 1.75rem 4rem 1.75rem 1.75rem; font-weight: 700; font-size: 1.2rem; cursor: pointer; position: relative; background: none; border: none; width: 100%; text-align: left; color: var(--color-text-primary); transition: background-color 0.3s ease; text-wrap: pretty; }
         .faq-question:hover { background-color: rgba(255, 165, 0, 0.05); }
         .faq-question::after { content: '+'; position: absolute; right: 1.75rem; top: 50%; transform: translateY(-50%); font-size: 2rem; transition: transform 0.3s ease; color: var(--color-primary); }
         .faq-question.active::after { transform: translateY(-50%) rotate(45deg); }
@@ -493,53 +659,283 @@
         .faq-answer-content { padding: 1.75rem; color: var(--color-text-secondary); line-height: 1.6; }
         .faq-answer-content p { margin-bottom: 0; }
         
-        /* --- 10. MODALE --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
+        /* --- 10. MODALE (shadcn-inspired) --- */
+        .modal-overlay {
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,0.65);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          z-index: 2000;
+          display: flex; justify-content: center; align-items: center;
+          padding: 1rem;
+          opacity: 0; visibility: hidden;
+          transition: opacity 0.2s ease, visibility 0.2s;
+        }
         .modal-overlay.is-active { opacity: 1; visibility: visible; }
-        .modal-content { background: var(--color-surface); border-radius: 12px; padding: 2.5rem; width: 90%; max-width: 850px; position: relative; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
-        #involve-modal .modal-content, .team-modal-content { max-height: 90vh; overflow-y: auto; }
-        #involve-modal .modal-content::-webkit-scrollbar, .team-modal-content::-webkit-scrollbar { width: 8px; }
-        #involve-modal .modal-content::-webkit-scrollbar-track, .team-modal-content::-webkit-scrollbar-track { background: var(--color-background); border-radius: 10px; }
-        #involve-modal .modal-content::-webkit-scrollbar-thumb, .team-modal-content::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 10px; border: 2px solid var(--color-background); }
-        #involve-modal .modal-content::-webkit-scrollbar-thumb:hover, .team-modal-content::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
-        .modal-overlay.is-active .modal-content { transform: translateY(0); }
-        .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--color-text-secondary); font-size: 2rem; cursor: pointer; z-index: 10; }
-        .modal-header { text-align: center; margin-bottom: 2.5rem; }
-        .icon-header { color: var(--color-primary); font-size: 3rem; margin-bottom: 1rem; }
-        .modal-content h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .modal-intro { color: var(--color-text-secondary); max-width: 500px; margin: 0 auto; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; }
-        .form-group input[type="text"], .form-group input[type="email"] { width: 100%; padding: 0.8rem; background: var(--color-background); border: 1px solid var(--color-border); color: var(--color-text-primary); border-radius: 6px; }
-        .form-group input::placeholder { color: var(--color-text-secondary); opacity: 0.7; }
-        .form-row { display: flex; flex-direction: column; gap: 1.5rem; }
+        .modal-content {
+          background: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-panel);
+          padding: 2.5rem 2.25rem;
+          width: 100%;
+          max-width: 48rem;
+          position: relative;
+          transform: translateY(12px) scale(0.98);
+          transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+        }
+        #involve-modal .modal-content { max-width: 48rem; max-height: min(90vh, 880px); overflow-y: auto; padding: 2.5rem 2.25rem; }
+        .team-modal-content { max-width: 800px !important; max-height: 90vh; overflow-y: auto; }
+        #involve-modal .modal-content::-webkit-scrollbar,
+        .team-modal-content::-webkit-scrollbar { width: 6px; }
+        #involve-modal .modal-content::-webkit-scrollbar-track,
+        .team-modal-content::-webkit-scrollbar-track { background: transparent; }
+        #involve-modal .modal-content::-webkit-scrollbar-thumb,
+        .team-modal-content::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 999px; }
+        #involve-modal .modal-content::-webkit-scrollbar-thumb:hover,
+        .team-modal-content::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
+        .modal-overlay.is-active .modal-content { transform: translateY(0) scale(1); }
+        .modal-close {
+          position: absolute; top: 0.75rem; right: 0.75rem;
+          width: 2.25rem; height: 2.25rem;
+          display: inline-flex; align-items: center; justify-content: center;
+          background: transparent;
+          border: 1px solid transparent;
+          border-radius: var(--radius-control);
+          color: var(--color-text-secondary);
+          font-size: 1.35rem; line-height: 1;
+          cursor: pointer; z-index: 10;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+        }
+        .modal-close:hover {
+          color: var(--color-text-primary);
+          background: rgba(128,128,128,0.12);
+          border-color: var(--color-border);
+        }
+        .modal-header { text-align: center; margin-bottom: 1.5rem; }
+        .icon-header { display: none; }
+        .modal-header { text-wrap: balance; }
+        .modal-content h3 {
+          font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          margin-bottom: 0.4rem;
+          line-height: 1.3;
+          text-wrap: balance;
+        }
+        .modal-intro {
+          color: var(--color-text-secondary);
+          max-width: 28rem;
+          margin: 0 auto;
+          font-size: 0.925rem;
+          line-height: 1.55;
+          text-wrap: balance;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 0.4rem;
+          font-size: 0.875rem;
+          color: var(--color-text-primary);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"] {
+          width: 100%;
+          height: var(--control-h);
+          padding: 0 1.15rem;
+          background: var(--color-background);
+          border: 1px solid var(--color-border);
+          color: var(--color-text-primary);
+          border-radius: 0.75rem;
+          font-size: 0.95rem;
+          font-family: inherit;
+          transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .form-group input:focus {
+          outline: none;
+          border-color: var(--color-primary);
+          box-shadow: var(--focus-ring);
+        }
+        .form-group input::placeholder { color: var(--color-text-secondary); opacity: 0.65; }
+        .form-row { display: flex; flex-direction: column; gap: 1rem; }
         @media (min-width: 576px) {
             .form-row { flex-direction: row; }
             .form-row .form-group { flex: 1; margin-bottom: 0; }
         }
-        .involvement-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
-        .option-card { position: relative; }
-        .option-card input[type="checkbox"] { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
-        .option-label { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; border: 2px solid var(--color-border); border-radius: 12px; transition: all 0.3s ease; cursor: pointer; height: 100%; }
-        .option-label i { font-size: 2rem; margin-bottom: 0; color: var(--color-primary); transition: transform 0.3s ease; }
-        .option-label-header { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; margin-bottom: 0.2rem; }
-        .option-label strong { font-size: 1.1rem; color: var(--color-text-primary); }
-        .option-label span { font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 0.25rem; }
-        .option-card:hover .option-label { border-color: var(--color-primary); transform: translateY(-5px); }
-        .option-card:hover .option-label i { transform: scale(1.1); }
-        .option-card input:checked + .option-label { border-color: var(--color-primary); background-color: rgba(255, 165, 0, 0.05); box-shadow: 0 0 15px rgba(255, 165, 0, 0.2); }
-        @media (max-width: 576px) {
-          .option-label-header { flex-direction: row; gap: 0.75rem; margin-bottom: 0.75rem; }
-          .involvement-options { grid-template-columns: 1fr; }
+
+
+        .involvement-options {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-top: 0.65rem;
         }
-        .custom-checkbox-container { display: flex; justify-content: center; align-items: center; margin-top: 1.5rem; gap: 0.75rem; cursor: pointer; }
-        .custom-checkbox-container input[type="checkbox"] { position: absolute; opacity: 0; }
-        .custom-checkbox-container .checkbox-label { font-size: 0.9rem; color: var(--color-text-secondary); position: relative; padding-left: 30px; line-height: 22px; }
-        .custom-checkbox-container .checkbox-label::before { content: ''; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border: 2px solid var(--color-border); background-color: var(--color-background); border-radius: 6px; transition: all 0.2s ease; }
-        .custom-checkbox-container .checkbox-label::after { content: ''; position: absolute; left: 8px; top: 4px; width: 5px; height: 10px; border: solid var(--color-background); border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0); transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .custom-checkbox-container input:checked + .checkbox-label::before { background-color: var(--color-primary); border-color: var(--color-primary); }
-        .custom-checkbox-container input:checked + .checkbox-label::after { transform: rotate(45deg) scale(1); }
-        
+        @media (min-width: 640px) {
+          .involvement-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            align-items: stretch;
+          }
+        }
+
+        .option-card { position: relative; height: 100%; display: flex; }
+        .option-card .option-label { flex: 1; width: 100%; height: 100%; box-sizing: border-box; }
+        .option-card input[type="checkbox"] {
+          position: absolute; opacity: 0;
+          inset: 0; width: 100%; height: 100%;
+          cursor: pointer; z-index: 2; margin: 0;
+        }
+        .option-label {
+          display: grid !important;
+          grid-template-columns: 2.35rem minmax(0, 1fr);
+          grid-template-rows: auto;
+          column-gap: 0.85rem;
+          align-items: center;
+          text-align: left;
+          padding: 0.85rem 2.75rem 0.85rem 1rem;
+          border: 1px solid var(--color-border);
+          border-radius: 0.75rem;
+          transition: border-color 0.15s ease, background-color 0.15s ease;
+          cursor: pointer;
+          background: transparent;
+          position: relative;
+        }
+        .option-label > i {
+          grid-column: 1;
+          grid-row: 1;
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 2.35rem;
+          height: 2.35rem;
+          margin: 0;
+          font-size: 1rem;
+          line-height: 1;
+          color: var(--color-primary);
+          background: rgba(255, 165, 0, 0.12) !important;
+          border-radius: 999px;
+        }
+        .option-label-text {
+          grid-column: 2;
+          grid-row: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+          min-width: 0;
+        }
+        .option-label-text strong {
+          font-size: 0.925rem;
+          font-weight: 600;
+          color: var(--color-text-primary);
+          letter-spacing: -0.01em;
+        }
+        .option-label-text .option-desc {
+          font-size: 0.8rem;
+          color: var(--color-text-secondary);
+          line-height: 1.4;
+        }
+        /* Checkmark indicator — absolute so it never collapses into a bar */
+        .option-label::after {
+          content: '';
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1.125rem;
+          height: 1.125rem;
+          min-width: 1.125rem;
+          min-height: 1.125rem;
+          border-radius: 0.3rem;
+          border: 1.5px solid var(--color-border);
+          background: var(--color-background);
+          box-sizing: border-box;
+          pointer-events: none;
+          transition: border-color 0.15s ease, background-color 0.15s ease;
+        }
+        .option-card:hover .option-label {
+          border-color: rgba(255,165,0,0.5);
+          background: rgba(255,165,0,0.04);
+        }
+        .option-card input:checked + .option-label {
+          border-color: var(--color-primary);
+          background-color: rgba(255, 165, 0, 0.08);
+        }
+        .option-card input:checked + .option-label i {
+          color: var(--color-primary);
+        }
+        .option-card input:checked + .option-label::after {
+          border-color: var(--color-primary);
+          background-color: var(--color-primary);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 4.5' stroke='%230A0A0A' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-size: 0.7rem 0.7rem;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+.custom-checkbox-container {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin-top: 1.15rem;
+          gap: 0.75rem;
+          cursor: pointer;
+        }
+        .custom-checkbox-container input[type="checkbox"] {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .custom-checkbox-container .checkbox-label {
+          font-size: 0.8rem;
+          color: var(--color-text-secondary);
+          position: relative;
+          padding-left: 1.85rem;
+          line-height: 1.45;
+          text-wrap: pretty;
+        }
+        .custom-checkbox-container .checkbox-label::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.1rem;
+          width: 1.125rem;
+          height: 1.125rem;
+          border: 1.5px solid var(--color-border);
+          background-color: var(--color-background);
+          border-radius: 0.3rem;
+          box-sizing: border-box;
+          transition: border-color 0.15s ease, background-color 0.15s ease;
+        }
+        .custom-checkbox-container .checkbox-label::after {
+          content: none;
+          display: none;
+        }
+        .custom-checkbox-container input:checked + .checkbox-label::before {
+          background-color: var(--color-primary);
+          border-color: var(--color-primary);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 4.5' stroke='%230A0A0A' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-size: 0.7rem 0.7rem;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .form-submit-btn {
+          border-radius: var(--radius-control) !important;
+          min-height: var(--control-h);
+          height: auto;
+          padding: 0 1.5rem !important;
+          font-size: 0.95rem !important;
+          font-weight: 600;
+          margin-top: 0.5rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .input-group .form-submit-btn { margin-top: 0; }
+        .form-submit-btn:hover { transform: none; filter: brightness(0.97); }
+
         /* --- 10B. ANIMATION DE SOUMISSION DE FORMULAIRE --- */
         .btn-loader { width: 1.2em; height: 1.2em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
         .form-submit-btn.loading .btn-text { display: none; }
@@ -549,15 +945,244 @@
 
         /* --- 11. FOOTER --- */
         footer { padding: 5rem 0 2rem 0; text-align: left; background-color: #101010; border-top: 1px solid var(--color-border); }
-        html.light-mode footer { background-color: #e9ecef; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+        html.light-mode footer { background-color: #101010; }
+        html.light-mode footer .footer-about h3,
+        html.light-mode footer .footer-newsletter h4 { color: #FAFAFA; }
+        html.light-mode footer .footer-about p,
+        html.light-mode footer .footer-newsletter-lead,
+        html.light-mode footer .footer-consent .checkbox-label,
+        html.light-mode footer .footer-copyright,
+        html.light-mode footer .footer-bottom p,
+        html.light-mode footer .footer-links { color: #C8C8C8; }
+        html.light-mode footer .footer-links a { color: #FFA500 !important; }
+        html.light-mode footer .footer-links a:hover { color: #E59400 !important; }
+        html.light-mode footer .input-group { background: transparent !important; border: none !important; }
+        html.light-mode footer .input-group input { color: #FAFAFA !important; background: #0A0A0A !important; border-color: #333333 !important; }
+        html.light-mode footer .footer-socials a { color: #999999; }
+        html.light-mode footer .footer-socials a:hover { color: #FAFAFA; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; margin-bottom: 3rem; align-items: start; }
         .footer-about h3 { font-size: 1.5rem; font-weight: 800; color: var(--color-text-primary); margin-bottom: 1rem; }
-        .footer-about p { color: var(--color-text-secondary); max-width: 350px; }
-        .footer-newsletter h4 { font-size: 1rem; font-weight: 700; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
-        .input-group { display: flex; border: 1px solid var(--color-border); border-radius: 50px; padding: 5px; background-color: var(--color-background); }
-        .input-group input { flex-grow: 1; background: transparent; border: none; color: var(--color-text-primary); padding: 0.75rem 1.5rem; font-size: 1rem; }
+        .footer-about p { color: var(--color-text-secondary); max-width: none; }
+        .input-group {
+          display: flex;
+          align-items: stretch;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-control);
+          padding: 0.25rem;
+          gap: 0.25rem;
+          background-color: var(--color-background);
+          transition: border-color 0.15s ease, box-shadow 0.15s ease;
+          min-height: unset;
+        }
+        .input-group:focus-within {
+          border-color: var(--color-primary);
+          box-shadow: var(--focus-ring);
+        }
+        .input-group input {
+          flex: 1 1 auto;
+          background: transparent;
+          border: none;
+          color: var(--color-text-primary);
+          padding: 0 1.1rem;
+          font-size: 0.95rem;
+          font-family: inherit;
+          min-width: 0;
+          min-height: 2.5rem;
+          line-height: 1.2;
+        }
         .input-group input:focus { outline: none; }
-        .input-group button { flex-shrink: 0; }
+        .input-group button {
+          flex: 0 0 auto;
+          align-self: stretch;
+          height: auto !important;
+          min-height: 2.5rem !important;
+          padding: 0 1.25rem !important;
+          font-size: 0.875rem !important;
+          font-weight: 600;
+          border-radius: var(--radius-control) !important;
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+        }
+        .input-group button:hover { transform: none; }
+
+
+        #newsletter-modal .modal-intro,
+        #newsletter-modal .modal-content h3 {
+          text-wrap: pretty;
+        }
+        #newsletter-modal .input-group {
+          flex-direction: column;
+          gap: 0.75rem;
+          border: none;
+          background: transparent;
+          padding: 0;
+          box-shadow: none;
+        }
+        #newsletter-modal .input-group:focus-within {
+          border: none;
+          box-shadow: none;
+        }
+        #newsletter-modal .input-group input {
+          width: 100%;
+          height: var(--control-h);
+          min-height: var(--control-h);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-control);
+          background: var(--color-background);
+          padding: 0 1.15rem;
+        }
+        #newsletter-modal .input-group input:focus {
+          border-color: var(--color-primary);
+          box-shadow: var(--focus-ring);
+        }
+        #newsletter-modal .input-group button {
+          width: 100%;
+          height: var(--control-h) !important;
+          min-height: var(--control-h) !important;
+        }
+        @media (min-width: 576px) {
+          #newsletter-modal .input-group {
+            flex-direction: row;
+            align-items: stretch;
+            gap: 0.3rem;
+            border: 1px solid var(--color-border);
+            background: var(--color-background);
+            padding: 0.3rem;
+            border-radius: var(--radius-control);
+          }
+          #newsletter-modal .input-group:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: var(--focus-ring);
+          }
+          #newsletter-modal .input-group input {
+            width: auto;
+            flex: 1;
+            border: none;
+            background: transparent;
+            height: auto;
+            min-height: 2.5rem;
+            box-shadow: none;
+          }
+          #newsletter-modal .input-group input:focus {
+            box-shadow: none;
+          }
+          #newsletter-modal .input-group button {
+            width: auto;
+            flex-shrink: 0;
+            height: auto !important;
+            min-height: 2.5rem !important;
+            align-self: stretch;
+          }
+        }
+
+
+        .footer-newsletter h4 {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #FAFAFA;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin-bottom: 0.75rem;
+        }
+        .footer-newsletter-lead {
+          font-size: 0.9rem;
+          line-height: 1.5;
+          color: #C8C8C8;
+          margin: 0 0 1rem 0;
+        }
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+        .footer-newsletter {
+          max-width: none;
+          width: 100%;
+        }
+        footer .footer-consent .checkbox-label a {
+          color: #FFA500 !important;
+          text-decoration: underline;
+          text-underline-offset: 0.15em;
+        }
+        footer .footer-consent .checkbox-label a:hover { color: #E59400 !important; }
+        footer .input-group {
+          display: flex;
+          flex-direction: row;
+          align-items: stretch;
+          gap: 0.5rem;
+          border: none !important;
+          background: transparent !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          min-height: unset;
+        }
+        footer .input-group:focus-within {
+          border: none !important;
+          box-shadow: none !important;
+        }
+        footer .input-group input {
+          flex: 1 1 auto;
+          width: auto;
+          min-width: 0;
+          height: var(--control-h);
+          min-height: var(--control-h);
+          border: 1px solid #666666 !important;
+          border-radius: var(--radius-control);
+          background: #1A1A1A !important;
+          color: #FAFAFA !important;
+          padding: 0 1.15rem;
+        }
+        footer .input-group input::placeholder {
+          color: #9A9A9A;
+          opacity: 1;
+        }
+        footer .input-group input:focus {
+          border-color: var(--color-primary) !important;
+          box-shadow: var(--focus-ring);
+        }
+        footer .input-group button {
+          flex: 0 0 auto;
+          width: auto;
+          height: var(--control-h) !important;
+          min-height: var(--control-h) !important;
+          border-radius: var(--radius-control) !important;
+          padding: 0 1.25rem !important;
+          white-space: nowrap;
+        }
+        footer .footer-consent {
+          margin-top: 0.95rem;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        footer .footer-consent .checkbox-label {
+          color: #C8C8C8;
+          font-size: 0.8rem;
+          line-height: 1.45;
+        }
+        footer .footer-consent .checkbox-label::before {
+          border-color: #666666;
+          background-color: #0A0A0A;
+        }
+        @media (max-width: 640px) {
+          footer .input-group {
+            flex-direction: column !important;
+            gap: 0.65rem;
+          }
+          footer .input-group input,
+          footer .input-group button {
+            width: 100% !important;
+          }
+        }
+
+
         .footer-bottom { border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .footer-bottom p { color: var(--color-text-secondary); font-size: 0.9rem; }
         .footer-copyright { color: var(--color-text-secondary); font-size: 0.9rem; margin: 0; }
@@ -573,8 +1198,8 @@
             right: 1.5rem;
             width: 600px;
             max-width: calc(100% - 3rem);
-            background-color: #FFF;
-            border: 1px solid var(--color-border);
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
             border-radius: 12px;
             padding: 1.25rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -598,7 +1223,7 @@
             font-weight: 700;
             margin: 0 0 1rem 0;
             font-size: 0.9rem;
-            color: var(--color-text-secondary);
+            color: #666666;
             text-align: left;
         }
         .charity-slider-widget .slider-content {
@@ -639,7 +1264,7 @@
         }
         .charity-slider-widget .slide-item span {
             font-weight: 500;
-            color: var(--color-text-primary);
+            color: #191919;
             font-size: 1.2rem;
             transition: font-size 0.4s ease;
         }
@@ -660,7 +1285,7 @@
         .widget-controls button {
             background: none;
             border: none;
-            color: var(--color-text-secondary);
+            color: #666666;
             cursor: pointer;
             font-size: 1.2rem;
             padding: 0.25rem;
@@ -718,27 +1343,32 @@
 
         @media (max-width: 767px) { 
             .modal-content { padding: 2rem 1.5rem; }
+            #involve-modal .modal-content { padding: 2rem 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; } 
             .footer-about p { margin: 0 auto; text-align: center; }
             .footer-bottom { justify-content: center; flex-direction: column; gap: 1.5rem; text-align: center; }
             .footer-copyright { display: flex; flex-direction: column; gap: 0.75rem; }
             .footer-socials a { margin: 0 0.75rem; }
             .value-next-btn { bottom: 1.5rem; padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+        }
+        @media (max-width: 575px) {
             #newsletter-modal .input-group {
-                flex-direction: column;
+                flex-direction: column !important;
                 gap: 0.75rem;
-                border: none;
-                background-color: transparent;
-                padding: 0;
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                box-shadow: none !important;
             }
             #newsletter-modal .input-group input,
             #newsletter-modal .input-group button {
-                width: 100%;
-                border-radius: 50px !important;
+                width: 100% !important;
+                border-radius: var(--radius-control) !important;
             }
             #newsletter-modal .input-group input {
-                border: 1px solid var(--color-border);
-                padding: 1.2rem;
+                border: 1px solid var(--color-border) !important;
+                padding: 0 1.15rem;
+                height: var(--control-h);
             }
         }
         @media (max-width: 480px) {
@@ -753,22 +1383,6 @@
             .timer-value {
                 font-size: clamp(2rem, 10vw, 2.5rem);
             }
-            footer .input-group {
-                flex-direction: column;
-                gap: 0.75rem;
-                border: none;
-                background-color: transparent;
-                padding: 0;
-            }
-            footer .input-group input,
-            footer .input-group button {
-                width: 100%;
-                border-radius: 50px !important;
-            }
-            footer .input-group input {
-                border: 1px solid var(--color-border);
-                padding: 1.2rem;
-            }
             .charity-logo {
                 flex-direction: column;
                 text-align: center;
@@ -778,13 +1392,120 @@
                 margin-right: 0;
             }
         }
-    </style>
+    
+
+        footer .footer-consent {
+          margin-top: 0.95rem;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        footer .footer-consent .checkbox-label,
+        html.light-mode footer .footer-consent .checkbox-label {
+          color: #C8C8C8 !important;
+          font-size: 0.8rem;
+          line-height: 1.45;
+        }
+        footer .footer-consent .checkbox-label::before,
+        html.light-mode footer .footer-consent .checkbox-label::before {
+          border-color: #666666 !important;
+          background-color: #0A0A0A !important;
+        }
+        footer .footer-consent input:checked + .checkbox-label::before,
+        html.light-mode footer .footer-consent input:checked + .checkbox-label::before {
+          background-color: #FFA500 !important;
+          border-color: #FFA500 !important;
+        }
+        footer .footer-consent .checkbox-label a {
+          color: #FFA500 !important;
+          text-decoration: underline;
+          text-underline-offset: 0.15em;
+        }
+
+        footer,
+        html.light-mode footer {
+          background-color: #101010 !important;
+          width: 100%;
+          max-width: none;
+          margin: 0;
+          border-radius: 0;
+        }
+        footer .footer-about h3,
+        html.light-mode footer .footer-about h3 { color: #FAFAFA !important; }
+        footer .footer-about p,
+        html.light-mode footer .footer-about p,
+        footer .footer-newsletter-lead,
+        html.light-mode footer .footer-newsletter-lead { color: #C8C8C8 !important; }
+        footer .footer-newsletter h4,
+        html.light-mode footer .footer-newsletter h4 { color: #FAFAFA !important; }
+        footer .input-group {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: stretch !important;
+          gap: 0.5rem !important;
+          border: none !important;
+          background: transparent !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          min-height: unset !important;
+        }
+        footer .input-group input {
+          flex: 1 1 auto !important;
+          width: auto !important;
+          min-width: 0 !important;
+          height: 2.75rem !important;
+          min-height: 2.75rem !important;
+          border: 1px solid #666666 !important;
+          border-radius: 9999px !important;
+          background: #1A1A1A !important;
+          color: #FAFAFA !important;
+          padding: 0 1.15rem !important;
+        }
+        footer .input-group input::placeholder {
+          color: #9A9A9A !important;
+          opacity: 1 !important;
+        }
+        footer .input-group input:focus {
+          border-color: #FFA500 !important;
+          box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.22) !important;
+          outline: none !important;
+        }
+        footer .input-group button {
+          flex: 0 0 auto !important;
+          width: auto !important;
+          height: 2.75rem !important;
+          min-height: 2.75rem !important;
+          border-radius: 9999px !important;
+          padding: 0 1.25rem !important;
+          white-space: nowrap !important;
+        }
+        @media (max-width: 640px) {
+          footer .input-group { flex-direction: column !important; }
+          footer .input-group input,
+          footer .input-group button { width: 100% !important; }
+        }
+
+        #newsletter-modal .custom-checkbox-container .checkbox-label { text-wrap: pretty; }
+
+        .navbar-content { position: relative; }
+        @media (min-width: 992px) {
+          .nav-links-desktop {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            align-items: center;
+          }
+          .nav-menu { margin-left: auto; }
+        }
+</style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "We Ride For Smiles",
-      "url": "https://www.werideforsmiles.org/en/index.html",
+      "url": "https://www.werideforsmiles.org/en/",
       "logo": "https://www.werideforsmiles.org/assets/wrfs_favicon.webp",
       "description": "An international charity movement that uses the power of cycling to bring hope to sick children and their families.",
       "sameAs": [
@@ -798,33 +1519,33 @@
     {
       "@context": "https://schema.org",
       "@type": "SportsEvent",
-      "name": "We Ride For Smiles: The London-Barcelona Challenge 2026",
-      "startDate": "2026-06-15T09:00:00+02:00",
-      "endDate": "2026-06-28",
-      "description": "A 1500 km charity cycling challenge from London to Barcelona to support sick children and their families.",
+      "name": "We Ride For Smiles: Paris–Edinburgh Challenge 2027",
+      "startDate": "2027-06-14T09:00:00+02:00",
+      "endDate": "2027-06-28",
+      "description": "A ~1,510 km charity cycling challenge from Paris to Edinburgh (target 14 June 2027) to support sick children and their families.",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": [
         {
           "@type": "Place",
-          "name": "Start: London, United Kingdom",
-          "address": "London, UK"
+          "name": "Start: Paris, France",
+          "address": "Paris, FR"
         },
         {
           "@type": "Place",
-          "name": "Finish: Barcelona, Spain",
-          "address": "Barcelona, ES"
+          "name": "Finish: Edinburgh, United Kingdom",
+          "address": "Edinburgh, UK"
         }
       ],
       "organizer": {
         "@type": "Organization",
         "name": "We Ride For Smiles",
-        "url": "https://www.werideforsmiles.org/en/index.html"
+        "url": "https://www.werideforsmiles.org/en/"
       },
       "performer": {
           "@type": "Person",
           "name": "Ben Morin",
-          "url": "https://www.werideforsmiles.org/en/index.html#team"
+          "url": "https://www.werideforsmiles.org/en/#team"
       },
       "image": [
         "https://www.werideforsmiles.org/assets/hero-background.webp",
@@ -832,7 +1553,7 @@
        ],
       "offers": {
         "@type": "Offer",
-        "url": "https://www.werideforsmiles.org/en/index.html#involve-modal",
+        "url": "https://www.werideforsmiles.org/en/#involve-modal",
         "price": "0",
         "priceCurrency": "GBP",
         "availability": "https://schema.org/InStock",
@@ -873,6 +1594,7 @@
       ]
     }
     </script>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="dark-mode">
     <div class="preloader">
@@ -886,24 +1608,23 @@
 
     <nav class="navbar" id="navbar">
         <div class="container navbar-content">
-            <a href="index.html" class="navbar-brand">WRFS</a>
-            <div class="nav-menu">
-                <div class="nav-links-desktop">
+            <a href="index.html" class="navbar-brand"><span class="navbar-brand-mark">WRFS</span><span class="navbar-brand-tagline">We Ride For Smiles</span></a>
+            <div class="nav-links-desktop">
                     <a href="#mission" class="nav-link">Mission</a>
                     <a href="route.html" class="nav-link">The Route</a>
                     <a href="#causes" class="nav-link">The Causes</a>
-                    <a href="#team" class="nav-link">The Team</a>
                     <a href="#faq" class="nav-link">FAQ</a>
-                    <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-                    <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 1rem;">Get Involved</button>
-                </div>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
+                <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 0.5rem;">Get Involved</button>
                 <div class="nav-controls" id="nav-controls">
                     <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Get Involved</button>
                     <div class="lang-switcher">
-                        <span class="selected-lang">EN</span>
-                        <ul class="lang-dropdown">
-                            <li><a href="../fr/index.html">FR</a></li>
-                            <li><a href="../es/index.html">ES</a></li>
+                        <button type="button" class="selected-lang" aria-label="English" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-en-3334"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-en-3334)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
+                        <ul class="lang-dropdown" role="listbox">
+                            <li><a href="../fr/index.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../es/index.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Change theme"></button>
@@ -915,14 +1636,13 @@
     
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
-            <a href="index.html" class="navbar-brand">WRFS</a>
+            <a href="index.html" class="navbar-brand"><span class="navbar-brand-mark">WRFS</span><span class="navbar-brand-tagline">We Ride For Smiles</span></a>
             <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="nav-mobile-links">
             <a href="#mission" class="nav-link">Mission</a>
             <a href="route.html" class="nav-link">The Route</a>
             <a href="#causes" class="nav-link">The Causes</a>
-            <a href="#team" class="nav-link">The Team</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
             <button class="btn btn-primary" data-modal-trigger="involve-modal">Get Involved</button>
@@ -932,11 +1652,12 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in-up">The challenge of a lifetime. To change lives.</h1>
-                <p class="lead fade-in-up delay-2">In June 2026, the goal is to cycle from London to Barcelona. 1500 km for a single mission: to ride for sick children. Every pedal stroke will be a challenge, every donation a victory.</p>
+                <h1 class="fade-in-up">Over 1,500&nbsp;km by bike for sick children</h1>
+                <p class="lead fade-in-up delay-1">On 14 June 2027, we’ll connect Paris to Edinburgh in 15 days. A collective challenge to support sick children and their families, kilometre after kilometre.</p>
+                <p class="hero-tagline fade-in-up delay-2">Every pedal stroke counts. Every donation does too.</p>
                 <div class="cta-buttons fade-in-up delay-3">
                     <button class="btn btn-primary" data-modal-trigger="involve-modal">Get Involved</button>
-                    <a href="route.html" class="btn btn-secondary">See the Route</a>
+                    <a href="route.html" class="btn btn-secondary">See the route</a>
                 </div>
                 <div class="countdown-timer fade-in-up delay-2">
                     <div class="timer-item"><div id="days" class="timer-value">00</div><div class="timer-label">Days</div></div>
@@ -949,7 +1670,12 @@
     </header>
 
     <main>
-        <section class="section section-surface" id="mission"><div class="container"><h2 class="fade-in-up">Our mission: to bring comfort, hope, and support to sick children and their families.</h2></div></section>
+        <section class="section section-surface" id="mission">
+            <div class="container mission-block">
+                <h2 class="fade-in-up mission-title">Our mission</h2>
+                <p class="fade-in-up delay-1 mission-lead">Bring comfort, hope, and support to sick children and their families</p>
+            </div>
+        </section>
         
         <section class="section" id="causes">
             <div class="container">
@@ -964,10 +1690,10 @@
 
         <section class="section section-surface" id="stats">
             <div class="container">
-                <h2 class="fade-in-up">The 2026 Challenge in Numbers</h2>
+                <h2 class="fade-in-up">The 2027 Challenge in Numbers</h2>
                 <div class="stats-grid">
-                    <div class="stat-item fade-in-up"><div class="stat-number" data-target="1500">0</div><div class="stat-label">Kilometers</div></div>
-                    <div class="stat-item fade-in-up delay-1"><div class="stat-number" data-target="14">0</div><div class="stat-label">Days</div></div>
+                    <div class="stat-item fade-in-up"><div class="stat-number" data-target="1510">0</div><div class="stat-label">Kilometers</div></div>
+                    <div class="stat-item fade-in-up delay-1"><div class="stat-number" data-target="15">0</div><div class="stat-label">Days</div></div>
                     <div class="stat-item fade-in-up delay-2"><div class="stat-number" data-target="4">0</div><div class="stat-label">Causes</div></div>
                     <div class="stat-item fade-in-up delay-3"><div class="stat-number" data-target="1">0</div><div class="stat-label">Mission</div></div>
                 </div>
@@ -986,19 +1712,22 @@
 
         <section class="section section-surface" id="team">
             <div class="container">
-                <h2 class="fade-in-up">This Project Needs You</h2>
+                <h2 class="fade-in-up">This challenge won't happen alone</h2>
                 <div class="fade-in-up delay-1" style="text-align: center; margin-bottom: 2rem;">
                   <img loading="lazy" src="../assets/wrfs-team.webp" alt="Realistic AI-generated photograph of cyclists wearing 'We Ride For Smiles' jerseys." style="border-radius: 15px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
                 </div>
-                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary);">I started the movement, but that's just the spark.</p>
-                <p class="fade-in-up delay-3" style="max-width: 650px; margin: 1rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">For the flame of hope to grow, this challenge must be carried by a true team. Whether you're on the bike, on the roadside, or behind a screen, your energy is essential to make this adventure a collective victory.</p>
+                <p class="fade-in-up delay-2" style="max-width: 650px; margin: 0 auto; text-align: center; color: var(--color-text-secondary); text-wrap: balance;">I started the project, but it can only come to life with a team.</p>
+                <p class="fade-in-up delay-3" style="max-width: 650px; margin: 1rem auto 2.5rem auto; text-align: center; color: var(--color-text-secondary); text-wrap: balance;">Riders, volunteers, partners, donors, or simply people who pass the word: everyone can help move the adventure forward. On the road, in the organisation, or remotely, every bit of support brings us closer to the start — and helps us act for sick children and their families.</p>
+                <div class="team-cta fade-in-up delay-3" style="text-align: center; margin-bottom: 3rem;">
+                    <button class="btn btn-primary" data-modal-trigger="involve-modal">Join the adventure</button>
+                </div>
                 <div class="team-grid">
-                    <div class="team-member fade-in-up delay-3" data-modal-trigger="team-modal-ben">
-                        <img loading="lazy" src="../assets/ben-morin.webp" alt="Ben Morin, founder of We Ride For Smiles and cyclist for the London-Barcelona challenge">
+                    <div class="team-member fade-in-up delay-1" data-modal-trigger="team-modal-ben">
+                        <img loading="lazy" src="../assets/ben-morin.webp" alt="Ben Morin, founder of We Ride For Smiles and cyclist for the Paris–Edinburgh challenge">
                         <div class="team-member-overlay">
                             <div class="team-member-info">
                                 <h3>Ben Morin</h3>
-                                <span>Initiator of the project</span>
+                                <span>Founder of We Ride For Smiles</span>
                             </div>
                         </div>
                     </div>
@@ -1006,7 +1735,7 @@
                     <div class="team-member team-member--join fade-in-up delay-3" data-modal-trigger="involve-modal">
                         <div class="join-card-content">
                             <i class="fa-solid fa-plus"></i>
-                            <h3>Join the Adventure</h3>
+                            <h3>Join the adventure</h3>
                         </div>
                     </div>
                 </div>
@@ -1016,9 +1745,9 @@
         <section class="section" id="faq">
     <div class="container">
         <h2 class="fade-in-up">Frequently Asked Questions</h2>
-        <div class="faq-container fade-in-up delay-1">
+        <div class="faq-container">
 
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-1">
                 <button class="faq-question">What are the different ways to support the project?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1035,7 +1764,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-2">
                 <button class="faq-question">How do donations and fundraising work?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1046,7 +1775,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-3">
                 <button class="faq-question">Is there a fundraising target for participants?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1057,7 +1786,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-4">
                 <button class="faq-question">What is the required physical and technical level for the challenge?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1068,7 +1797,7 @@
                 </div>
             </div>
             
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-5">
                 <button class="faq-question">Is it possible to participate in only part of the route?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1077,7 +1806,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in-up delay-6">
                 <button class="faq-question">Our company would like to become a partner. What are the options?</button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
@@ -1094,19 +1823,24 @@
     <footer id="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-about"><h3>We Ride For Smiles</h3><p>An international charity movement that uses the power of cycling to bring hope to sick children and their families.</p></div>
+                <div class="footer-about"><h3>We Ride For Smiles</h3><p>Cycling in service of sick children and their families.</p></div>
                 <div class="footer-newsletter">
-                    <h4>Don't miss a thing</h4>
-                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Receive our latest news, directly in your inbox.</p>
+                    <h4>Follow the adventure</h4>
+                    <p class="footer-newsletter-lead">Get news from the Paris–Edinburgh challenge.</p>
                     <form name="newsletter-en" method="POST" data-netlify="true">
                         <input type="hidden" name="form-name" value="newsletter-en" />
+                        <label class="sr-only" for="footer-email">Email address</label>
                         <div class="input-group">
-                           <input type="email" name="email" placeholder="Your email" required>
+                           <input type="email" id="footer-email" name="email" placeholder="name@example.com" autocomplete="email" required>
                            <button type="submit" class="btn btn-primary form-submit-btn">
-                               <span class="btn-text">Subscribe</span>
+                               <span class="btn-text">Sign me up</span>
                                <span class="btn-loader"></span>
                            </button>
                         </div>
+                        <label class="custom-checkbox-container footer-consent">
+                            <input type="checkbox" name="consent" id="consent-footer" required>
+                            <span class="checkbox-label">I agree to receive project news. Unsubscribe anytime · <a href="privacy.html">Privacy</a></span>
+                        </label>
                     </form>
                 </div>
             </div>
@@ -1127,14 +1861,15 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="team-modal-grid">
                 <div class="team-modal-image">
-                    <img loading="lazy" src="../assets/ben-morin.webp" alt="Ben Morin, founder of We Ride For Smiles and cyclist of the London-Barcelona challenge.">
+                    <img loading="lazy" src="../assets/ben-morin.webp" alt="Ben Morin, founder of We Ride For Smiles and cyclist of the Paris–Edinburgh challenge.">
                 </div>
                 <div class="team-modal-details">
                     <h3>Ben Morin</h3>
-                    <span class="team-modal-role">Initiator of the project</span>
-                    <p>A lifelong cycling enthusiast, I wanted to give deeper meaning to my miles. We Ride For Smiles was born from a conviction: the energy of a sports challenge can be transformed into a wave of hope.</p>
-                    <p>This project is a personal tribute, a promise to turn sweat into smiles and to show families affected by illness that they are not alone. Every pedal stroke is for them.</p>
-                    <div class="team-modal-socials">
+                    <span class="team-modal-role">Founder of We Ride For Smiles</span>
+                    <p>A cycling enthusiast, I created We Ride For Smiles with the desire to put that passion at the service of a cause that truly matters.</p>
+                    <p>This project was born from a simple conviction: a sporting challenge can bring people together, raise awareness, and provide concrete support to sick children and their families.</p>
+                    <p>The Paris–Edinburgh route is a personal adventure, but above all a collective project. My goal is to rally riders, volunteers, partners, and donors around one mission: moving forward together for those facing the ordeal of illness.</p>
+<div class="team-modal-socials">
                         <a href="#" target="_blank" aria-label="Website"><i class="fa-solid fa-cloud"></i></a>
                         <a href="https://www.youtube.com/benmorinbm" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/benmorinbm" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1166,60 +1901,71 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: 2.5rem;">
+                <div class="form-group" style="margin-top: 1.25rem;">
                     <label>How would you like to support us?</label>
                     <div class="involvement-options">
                         <div class="option-card">
                             <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
                             <label for="role-ride" class="option-label">
-                                <div class="option-label-header">
-                                    <i class="fa-solid fa-bicycle"></i>
+                                <i class="fa-solid fa-bicycle"></i>
+                                <span class="option-label-text">
                                     <strong>Ride with us</strong>
-                                </div>
-                                <span>Join the challenge.</span>
+                                    <span class="option-desc">Join the challenge.</span>
+                                </span>
                             </label>
                         </div>
                         <div class="option-card">
                             <input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event">
                             <label for="role-event" class="option-label">
-                                <div class="option-label-header">
-                                    <i class="fa-solid fa-flag-checkered"></i>
+                                <i class="fa-solid fa-flag-checkered"></i>
+                                <span class="option-label-text">
                                     <strong>Volunteer</strong>
-                                </div>
-                                <span>Help on the ground.</span>
+                                    <span class="option-desc">Help on the ground.</span>
+                                </span>
                             </label>
                         </div>
                         <div class="option-card">
-                            <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
-                            <label for="role-partner" class="option-label">
-                                <div class="option-label-header">
-                                    <i class="fa-solid fa-handshake"></i>
-                                    <strong>Become a Partner</strong>
-                                </div>
-                                <span>Associate your company.</span>
+                            <input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador">
+                            <label for="role-ambassador" class="option-label">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <span class="option-label-text">
+                                    <strong>Ambassador</strong>
+                                    <span class="option-desc">Help spread the word.</span>
+                                </span>
                             </label>
                         </div>
                         <div class="option-card">
                             <input type="checkbox" name="involvement_donation" value="donation" id="role-donation">
                             <label for="role-donation" class="option-label">
-                                <div class="option-label-header">
-                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                                <span class="option-label-text">
                                     <strong>Make a Donation</strong>
-                                </div>
-                                <span>Provide financial support.</span>
+                                    <span class="option-desc">Provide financial support.</span>
+                                </span>
                             </label>
                         </div>
                         <div class="option-card">
                             <input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote">
                             <label for="role-remote" class="option-label">
-                                <div class="option-label-header">
-                                    <i class="fa-solid fa-laptop"></i>
+                                <i class="fa-solid fa-laptop"></i>
+                                <span class="option-label-text">
                                     <strong>Help Remotely</strong>
-                                </div>
-                                <span>Communication, etc.</span>
+                                    <span class="option-desc">Communication, etc.</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="option-card">
+                            <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
+                            <label for="role-partner" class="option-label">
+                                <i class="fa-solid fa-handshake"></i>
+                                <span class="option-label-text">
+                                    <strong>Become a Partner</strong>
+                                    <span class="option-desc">Associate your company.</span>
+                                </span>
                             </label>
                         </div>
                     </div>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;">
@@ -1243,15 +1989,13 @@
                 <div class="input-group">
                    <input type="email" name="email" placeholder="Your best email" required>
                    <button type="submit" class="btn btn-primary form-submit-btn">
-                       <span class="btn-text">I'm in</span>
+                       <span class="btn-text">Sign me up</span>
                        <span class="btn-loader"></span>
                    </button>
                 </div>
                 <label class="custom-checkbox-container">
                     <input type="checkbox" name="consent" id="consent-modal" required>
-                    <span class="checkbox-label">
-                        I agree to receive news about the project. (<a href="privacy.html" target="_blank">Privacy Policy</a>)
-                    </span>
+                    <span class="checkbox-label">I want to receive We Ride For Smiles news by email. I can unsubscribe at any time. <a href="privacy.html" target="_blank">Privacy Policy</a></span>
                 </label>
             </form>
         </div>
@@ -1273,7 +2017,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const copyrightYearEl = document.getElementById('copyright-year');
-            if (copyrightYearEl) copyrightYearEl.textContent = new Date().getFullYear();
+            const year = new Date().getFullYear();
+            if (copyrightYearEl) copyrightYearEl.textContent = year;
+            document.querySelectorAll('[data-year]').forEach(el => { el.textContent = year; });
+            const copyMeta = document.querySelector('meta[name="copyright"]');
+            if (copyMeta) copyMeta.setAttribute('content', `© ${year} We Ride For Smiles. All rights reserved.`);
             const preloader = document.querySelector('.preloader');
             
             window.addEventListener('load', () => {
@@ -1305,7 +2053,7 @@
                 });
             }
 
-            const targetDate = new Date('June 15, 2026 09:00:00').getTime();
+            const targetDate = new Date('June 14, 2027 09:00:00').getTime();
             const timerInterval = setInterval(() => {
                 const now = new Date().getTime();
                 const distance = targetDate - now;

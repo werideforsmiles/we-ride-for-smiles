@@ -1,11 +1,12 @@
-# Redirection de la page d'accueil selon la langue du navigateur
-/   /fr/index.html   302   Language=fr
-/   /es/index.html   302   Language=es
-/   /en/index.html   302
+# Canonical: strip .html from the address bar
+/:lang/index.html    /:lang/          301!
+/:lang/:page.html    /:lang/:page     301!
 
-# Pour toute page non trouvée, rediriger vers la racine
-/* /   302
+# Serve clean URLs (rewrite to real files)
+/:lang/              /:lang/index.html  200
+/:lang/:page         /:lang/:page.html  200
 
-# Règle pour forcer les URLs "propres" (sans .html)
-/:lang/index.html   /:lang/   301!
-/:lang/:page.html   /:lang/:page    301!
+# Root → language by browser preference
+/   /fr/   302   Language=fr
+/   /es/   302   Language=es
+/   /en/   302

@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="es" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paris–Edinburgh 2027 Route — We Ride For Smiles</title>
-    <meta name="description" content="Target edition: 14 June 2027. Explore the ~1,510 km charity cycling route from Paris to Edinburgh, stage by stage, on our interactive map.">
+    <title>Londres–Barcelona (recorrido potencial) — We Ride For Smiles</title>
+    <meta name="description" content="Concepto alternativo: la antigua ruta solidaria Londres–Barcelona (~1.500 km). No programada — conservada como referencia junto a la edición objetivo París–Edimburgo 2027.">
 
-    <link rel="canonical" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="canonical" href="https://www.werideforsmiles.org/es/route-potential" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
-    <meta property="og:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles" />
+    <meta property="og:title" content="Londres–Barcelona (recorrido potencial) — We Ride For Smiles" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/en/route" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/es/route-potential" />
     <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
-    <meta property="og:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families." />
+    <meta property="og:description" content="Concepto alternativo Londres–Barcelona. No programado — itinerario de archivo." />
     <meta property="og:site_name" content="We Ride For Smiles" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="es_ES" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles">
-    <meta name="twitter:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families.">
+    <meta name="twitter:title" content="Londres–Barcelona (recorrido potencial) — We Ride For Smiles">
+    <meta name="twitter:description" content="Concepto alternativo Londres–Barcelona. No programado — itinerario de archivo.">
     <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
 
-    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route" />
-    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route" />
-    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route-potential" />
+    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route-potential" />
+    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route-potential" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/route-potential" />
     
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>    
@@ -176,15 +176,6 @@
             line-height: 1.35;
             text-wrap: pretty;
         }
-        .step-content--intro .step-heading-text h3 {
-            font-size: clamp(1.75rem, 4vw, 2.6rem);
-        }
-        .step-description p + p { margin-top: 0.85rem; }
-        .step-closing {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: var(--color-text-primary);
-        }
 
         
         .step-description {
@@ -220,7 +211,7 @@
                 margin-top: 40px;
             }
             .step-content:first-child { margin-top: 0; }
-            .step-heading-text h3 { font-size: clamp(1.35rem, min(3.5vw, 4vh), 1.85rem); }
+            .step-content h3 { font-size: clamp(1.75rem, min(3.5vw, 4vh), 2.5rem); margin-bottom: 1rem; }
             .step-description { padding: 1rem; }
             .step-image, .image-credit { display: none; }
         }
@@ -230,10 +221,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Paris–Edinburgh 2027 — We Ride For Smiles route",
-      "url": "https://www.werideforsmiles.org/en/route",
-      "description": "Interactive map of the target 2027 charity cycling route from Paris to Edinburgh.",
-      "isPartOf": { "@type": "WebSite", "name": "We Ride For Smiles", "url": "https://www.werideforsmiles.org/en/" }
+      "name": "Recorrido potencial Londres–Barcelona — We Ride For Smiles",
+      "url": "https://www.werideforsmiles.org/es/route-potential",
+      "description": "Mapa interactivo del recorrido solidario 2027 de París a Edimburgo.",
+      "isPartOf": { "@type": "WebSite", "name": "We Ride For Smiles", "url": "https://www.werideforsmiles.org/es/" }
     }
     </script>
     <script type="application/ld+json">
@@ -241,56 +232,62 @@
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.werideforsmiles.org/en/"
+        "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.werideforsmiles.org/es/"
       },{
-        "@type": "ListItem", "position": 2, "name": "The Route"
+        "@type": "ListItem", "position": 2, "name": "El recorrido"
       }]
     }
     </script>
 </head>
 
-<body class="route-body dark-mode">
+<body class="route-body dark-mode has-route-banner">
 
     <nav class="navbar" id="navbar">
         <div class="container navbar-content">
             <a href="index.html" class="navbar-brand"><span class="navbar-brand-mark">WRFS</span><span class="navbar-brand-tagline">We Ride For Smiles</span></a>
             <div class="nav-links-desktop">
-                    <a href="index.html#mission" class="nav-link">Mission</a>
-                    <a href="route.html" class="nav-link">The Route</a>
-                    <a href="index.html#causes" class="nav-link">Beneficiaries</a>
+                    <a href="index.html#mission" class="nav-link">Misión</a>
+                    <a href="route.html" class="nav-link">Recorrido</a>
+                    <a href="index.html#causes" class="nav-link">Causas</a>
                     <a href="index.html#faq" class="nav-link">FAQ</a>
             </div>
             <div class="nav-menu">
                 <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-                <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 0.5rem;">Get Involved</button>
+                <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 0.5rem;">Participar</button>
                 <div class="nav-controls" id="nav-controls">
-                    <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Get Involved</button>
+                    <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Participar</button>
                                         <div class="lang-switcher">
-                        <button type="button" class="selected-lang" aria-label="English" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-en-9069"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-en-9069)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
+                        <button type="button" class="selected-lang" aria-label="Español" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></button>
                         <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../fr/route.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
-                            <li><a href="../es/route.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
+                            <li><a href="../fr/route-potential.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../en/route-potential.html" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-es-7036"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-es-7036)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
                         </ul>
                     </div>
-                    <button class="theme-switch" id="theme-toggle" aria-label="Change theme"></button>
+                    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
                 </div>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
+
+    <div class="route-edition-banner route-edition-banner--archive">
+        <div class="container">
+            <p><strong>Recorrido potencial · no programado</strong> — Antiguo concepto Londres–Barcelona (~1.500 km). <a href="route.html" class="route-alt-link">Ver la edición objetivo París–Edimburgo 2027</a></p>
+        </div>
+    </div>
     
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
             <a href="index.html" class="navbar-brand"><span class="navbar-brand-mark">WRFS</span><span class="navbar-brand-tagline">We Ride For Smiles</span></a>
-            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+            <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="nav-mobile-links">
-            <a href="index.html#mission" class="nav-link">Mission</a>
-            <a href="route.html" class="nav-link">The Route</a>
-            <a href="index.html#causes" class="nav-link">Beneficiaries</a>
+            <a href="index.html#mission" class="nav-link">Misión</a>
+            <a href="route.html" class="nav-link">Recorrido</a>
+            <a href="index.html#causes" class="nav-link">Causas</a>
             <a href="index.html#faq" class="nav-link">FAQ</a>
             <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-            <button class="btn btn-primary" data-modal-trigger="involve-modal">Get Involved</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">Participar</button>
         </div>
     </div>
 
@@ -299,238 +296,236 @@
         
         <div class="story-container">
             
-            <div class="step-content is-active step-content--intro" id="step-0">
+            <div class="step-content is-active" id="step-0">
                 <div class="step-heading">
                     <div class="step-heading-text">
-                        <h3>The 2027 route</h3>
-                        <h4>Paris → Edinburgh · Departure planned for 14 June 2027</h4>
+                        <h3>La gran salida</h3>
+                        <h4>Londres · itinerario potencial (no programado)</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Over 1,500 km by bike, across France and the United Kingdom, to support sick children and their families.</p>
-                    <p>The route shown is provisional. Stages and distances may evolve depending on traffic conditions, logistics, and the partners who join the adventure.</p>
+                    <p>Este mapa conserva un concepto alternativo que no se recorrerá como edición principal. Sigue siendo inspiración — y la huella de la escala del desafío que queremos asumir por los niños a los que apoyamos.</p>
                 </div>
-                <img loading="lazy" src="../assets/paris.webp" alt="Paris" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@idmytro" target="_blank" rel="noopener">Dimitri Iakymuk</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="Londres" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-1">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">1</span>
                     <div class="step-heading-text">
-                        <h3>Paris → Rouen</h3>
-                        <h4>125 km</h4>
+                        <h3>Londres → Southampton</h3>
+                        <h4>130 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The challenge begins in the heart of Paris. This first day will take us to Rouen along the Seine valley, with more than 1,500 kilometres still ahead.</p>
+                    <p>Primer día por las carreteras del sur de Inglaterra, hasta el puerto de Southampton — puerta de entrada al continente.</p>
                 </div>
-                <img loading="lazy" src="../assets/rouen.webp" alt="Rouen" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank" rel="noopener">Barry Talley</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Southampton" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-2">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">2</span>
                     <div class="step-heading-text">
-                        <h3>Rouen → Le Havre</h3>
-                        <h4>95 km</h4>
+                        <h3>Le Havre → Rouen</h3>
+                        <h4>90 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Toward the Normandy coast and Le Havre — the last French stage before crossing the Channel.</p>
+                    <p>Llegada a Normandía: una etapa costera y luego fluvial hacia Rouen y su catedral.</p>
                 </div>
-                <img loading="lazy" src="../assets/le-havre.webp" alt="Le Havre" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@pfgapais" target="_blank" rel="noopener">Paul-François Gapais</a> on <a href="https://unsplash.com/photos/XpYOGc2ivNw" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Rouen" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-3">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">3</span>
                     <div class="step-heading-text">
-                        <h3>Le Havre → Portsmouth → Southampton</h3>
-                        <h4>Sea crossing, then about 30 km by bike</h4>
+                        <h3>Rouen → París</h3>
+                        <h4>135 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>After the crossing to Portsmouth, we will ride on to Southampton. A shorter day on the bike, but essential to make the transition from France to England.</p>
+                    <p>Subida hacia la capital: el Sena como hilo conductor hasta París.</p>
                 </div>
-                <img loading="lazy" src="../assets/southampton.webp" alt="Southampton" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@karamanh" target="_blank" rel="noopener">Hasan Karaman</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="París" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-4">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">4</span>
                     <div class="step-heading-text">
-                        <h3>Southampton → London</h3>
-                        <h4>135 km</h4>
+                        <h3>París → Orléans</h3>
+                        <h4>130 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A long day toward the British capital, from the roads of southern England into the heart of London.</p>
+                    <p>Hacia el Valle del Loira: un día largo para llegar a Orléans.</p>
                 </div>
-                <img loading="lazy" src="../assets/london.webp" alt="London" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@bendavisual" target="_blank" rel="noopener">Benjamin Davies</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-5">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">5</span>
                     <div class="step-heading-text">
-                        <h3>Rest day · London</h3>
-                        <h4>Recovery and meetings</h4>
+                        <h3>Descanso en Orléans</h3>
+                        <h4>Día de recuperación</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A first day to recover, maintain the bikes, and meet partners and supporters of the project.</p>
+                    <p>Una pausa merecida para recargar fuerzas antes de afrontar el centro de Francia.</p>
                 </div>
-                <img loading="lazy" src="../assets/london-2.webp" alt="London" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@samueldixon" target="_blank" rel="noopener">Samuel Dixon</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-6">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">6</span>
                     <div class="step-heading-text">
-                        <h3>London → Oxford</h3>
-                        <h4>105 km</h4>
+                        <h3>Orléans → Châteauroux</h3>
+                        <h4>150 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>We will leave London for Oxford and begin our progress toward the west of England.</p>
+                    <p>Hacia el Berry: una etapa larga en el corazón de Francia.</p>
                 </div>
-                <img loading="lazy" src="../assets/oxford.webp" alt="Oxford" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@benseymour" target="_blank" rel="noopener">Ben Seymour</a> on <a href="https://unsplash.com/photos/nqBUTBsDQNM" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Campo" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-7">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">7</span>
                     <div class="step-heading-text">
-                        <h3>Oxford → Bath</h3>
-                        <h4>110 km</h4>
+                        <h3>Châteauroux → Limoges</h3>
+                        <h4>140 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A rolling stage through the English countryside and the Cotswolds, to the city of Bath.</p>
+                    <p>Hacia el Lemosín y su relieve, paso a paso hacia el sur.</p>
                 </div>
-                <img loading="lazy" src="../assets/bath.webp" alt="Bath" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@elenajiang" target="_blank" rel="noopener">Elena Jiang</a> on <a href="https://unsplash.com/photos/CghG3tQudIU" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1121&auto=format&fit=crop" alt="Carretera" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-8">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">8</span>
                     <div class="step-heading-text">
-                        <h3>Bath → Cardiff</h3>
+                        <h3>Limoges → Brive</h3>
                         <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Heading for Wales, crossing the Severn estuary before reaching Cardiff.</p>
+                    <p>Un día más corto para encadenar hacia Brive-la-Gaillarde.</p>
                 </div>
-                <img loading="lazy" src="../assets/cardiff.webp" alt="Cardiff" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@tfloydmews" target="_blank" rel="noopener">Taylor Floyd Mews</a> on <a href="https://unsplash.com/photos/5CY9gTo0rJk" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1170&auto=format&fit=crop" alt="Paisaje" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-9">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">9</span>
                     <div class="step-heading-text">
-                        <h3>Cardiff → Birmingham</h3>
-                        <h4>170 km</h4>
+                        <h3>Brive → Toulouse</h3>
+                        <h4>220 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>One of the longest days of the route. We leave Wales for Birmingham, in the heart of the Midlands.</p>
+                    <p>El día más largo: inmersión hacia la Ciudad Rosa y el suroeste.</p>
                 </div>
-                <img loading="lazy" src="../assets/birmingham.webp" alt="Birmingham" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@gabrielmccallin" target="_blank" rel="noopener">Gabriel McCallin</a> on <a href="https://unsplash.com/photos/bOGL5uq52X8" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-10">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">10</span>
                     <div class="step-heading-text">
-                        <h3>Rest day · Birmingham</h3>
-                        <h4>Recovery and logistics</h4>
+                        <h3>Descanso en Toulouse</h3>
+                        <h4>Día de recuperación</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A second pause for the team to recover, service the gear, and prepare for the final part of the challenge.</p>
+                    <p>Segundo y último día de descanso — tiempo para disfrutar del suroeste antes del tramo final.</p>
                 </div>
-                <img loading="lazy" src="../assets/birmingham-2.webp" alt="Birmingham" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@lulublack" target="_blank" rel="noopener">Lulu Black</a> on <a href="https://unsplash.com/photos/tsTQuqKr4fk" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
+                <p class="image-credit">Foto de <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-11">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">11</span>
                     <div class="step-heading-text">
-                        <h3>Birmingham → Manchester</h3>
-                        <h4>145 km</h4>
+                        <h3>Toulouse → Carcassonne</h3>
+                        <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The road resumes toward north-west England, all the way to Manchester.</p>
+                    <p>Por el Canal du Midi hacia la ciudad medieval de Carcassonne.</p>
                 </div>
-                <img loading="lazy" src="../assets/manchester.webp" alt="Manchester" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@mangopearuk" target="_blank" rel="noopener">Mangopear creative</a> on <a href="https://unsplash.com/photos/kQ7u8Kgkzlo" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=1170&auto=format&fit=crop" alt="Carcassonne" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-12">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">12</span>
                     <div class="step-heading-text">
-                        <h3>Manchester → York</h3>
-                        <h4>115 km</h4>
+                        <h3>Carcassonne → Perpignan</h3>
+                        <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A demanding stage across northern England, toward the historic city of York.</p>
+                    <p>Hacia el Mediterráneo y Perpiñán — la última etapa francesa.</p>
                 </div>
-                <img loading="lazy" src="../assets/york.webp" alt="York" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@jeffreyzhang_920" target="_blank" rel="noopener">Jeffrey Zhang</a> on <a href="https://unsplash.com/photos/feXU_rx_Sto" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Mediterráneo" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-13">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">13</span>
                     <div class="step-heading-text">
-                        <h3>York → Newcastle</h3>
-                        <h4>155 km</h4>
+                        <h3>Perpiñán → Gerona</h3>
+                        <h4>115 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>We continue north to Newcastle — the last major stage before the Scottish border.</p>
+                    <p>Entrada en Cataluña: las carreteras se tensan hacia Gerona.</p>
                 </div>
-                <img loading="lazy" src="../assets/newcastle.webp" alt="Newcastle" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@morank" target="_blank" rel="noopener">Karl Moran</a> on <a href="https://unsplash.com/photos/URDWhRXLu7o" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=1170&auto=format&fit=crop" alt="Cataluña" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-14">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">14</span>
                     <div class="step-heading-text">
-                        <h3>Newcastle → Edinburgh</h3>
-                        <h4>225 km · Longest stage</h4>
+                        <h3>Gerona → Barcelona</h3>
+                        <h4>105 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The final day on the bike will also be the longest. More than 200 kilometres along the east coast will separate us from the finish in Edinburgh.</p>
-                    <p class="step-closing">After more than 1,500 kilometres, every participant, partner, and donor will have helped carry the project to its destination.</p>
+                    <p>Llegada a Barcelona: el último pedalazo de un concepto que forjó la ambición del proyecto.</p>
                 </div>
-                <img loading="lazy" src="../assets/edinburgh.webp" alt="Edinburgh" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@fourcolourblack" target="_blank" rel="noopener">Adam Wilson</a> on <a href="https://unsplash.com/photos/ktDODr-3tvY" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Barcelona" class="step-image">
+                <p class="image-credit">Foto en <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
-            <nav class="route-step-nav" aria-label="Stage navigation">
-                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev" aria-label="Previous stage">
+            <nav class="route-step-nav" aria-label="Navegación de etapas">
+                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev" aria-label="Etapa anterior">
                     <span class="route-step-nav__chevron" aria-hidden="true">←</span>
                     <span class="route-step-nav__label"></span>
                 </button>
-                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next" aria-label="Next stage">
+                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next" aria-label="Etapa siguiente">
                     <span class="route-step-nav__label"></span>
                     <span class="route-step-nav__chevron" aria-hidden="true">→</span>
                 </button>
@@ -543,69 +538,69 @@
         <div class="modal-content">
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
-                <h3>Become a driving force of this adventure!</h3>
-                <p class="modal-intro">Every bit of help, big or small, on the ground or from a distance, is one more pedal stroke for the children. Find out how you can make a difference.</p>
+                <h3>¡Conviértete en un motor de esta aventura!</h3>
+                <p class="modal-intro">Cada ayuda, grande o pequeña, en el terreno o a distancia, es una pedalada más para los niños. Descubre cómo puedes marcar la diferencia.</p>
             </div>
-            <form name="get-involved-en-improved" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="get-involved-en-improved" />
+            <form name="get-involved-es-improved" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="get-involved-es-improved" />
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstname-involve">First Name</label>
-                        <input type="text" id="firstname-involve" name="firstname" placeholder="E.g., John" required>
+                        <label for="firstname-involve">Nombre</label>
+                        <input type="text" id="firstname-involve" name="firstname" placeholder="Ej: Juan" required>
                     </div>
                     <div class="form-group">
                         <label for="email-involve">Email</label>
-                        <input type="email" id="email-involve" name="email" placeholder="E.g., john.doe@email.com" required>
+                        <input type="email" id="email-involve" name="email" placeholder="Ej: juan.perez@email.com" required>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top: 2.5rem;">
-                    <label>How would you like to support us?</label>
+                    <label>¿Cómo te gustaría apoyarnos?</label>
                     <div class="involvement-options">
                         <div class="option-card"><input type="checkbox" name="involvement_ride" value="ride" id="role-ride"><label for="role-ride" class="option-label">
                             <i class="fa-solid fa-bicycle"></i>
                             <span class="option-label-text">
-                                <strong>Ride with us</strong>
-                                <span class="option-desc">Participate in the challenge.</span>
+                                <strong>Pedalear con nosotros</strong>
+                                <span class="option-desc">Participar en el desafío.</span>
                             </span>
                         </label></div>
                         <div class="option-card"><input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event"><label for="role-event" class="option-label">
                             <i class="fa-solid fa-flag-checkered"></i>
                             <span class="option-label-text">
-                                <strong>Volunteer</strong>
-                                <span class="option-desc">Help on the ground.</span>
+                                <strong>Voluntario/a</strong>
+                                <span class="option-desc">Ayudar en el terreno.</span>
                             </span>
                         </label></div>
                         <div class="option-card"><input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador"><label for="role-ambassador" class="option-label">
                             <i class="fa-solid fa-bullhorn"></i>
                             <span class="option-label-text">
-                                <strong>Ambassador</strong>
-                                <span class="option-desc">Help spread the word.</span>
+                                <strong>Embajador</strong>
+                                <span class="option-desc">Difundir el proyecto.</span>
                             </span>
                         </label></div>
                         <div class="option-card"><input type="checkbox" name="involvement_donation" value="donation" id="role-donation"><label for="role-donation" class="option-label">
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                             <span class="option-label-text">
-                                <strong>Make a donation</strong>
-                                <span class="option-desc">Support financially.</span>
+                                <strong>Hacer una donación</strong>
+                                <span class="option-desc">Apoyar financieramente.</span>
                             </span>
                         </label></div>
                         <div class="option-card"><input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote"><label for="role-remote" class="option-label">
                             <i class="fa-solid fa-laptop"></i>
                             <span class="option-label-text">
-                                <strong>Help remotely</strong>
-                                <span class="option-desc">Communication, etc.</span>
+                                <strong>Ayudar a distancia</strong>
+                                <span class="option-desc">Comunicación, etc.</span>
                             </span>
                         </label></div>
                         <div class="option-card"><input type="checkbox" name="involvement_partner" value="partner" id="role-partner"><label for="role-partner" class="option-label">
                             <i class="fa-solid fa-handshake"></i>
                             <span class="option-label-text">
-                                <strong>Become a partner</strong>
-                                <span class="option-desc">Associate your company.</span>
+                                <strong>Convertirse en socio</strong>
+                                <span class="option-desc">Asociar tu empresa.</span>
                             </span>
                         </label></div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">Send my proposal</span><span class="btn-loader"></span></button>
+                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">Enviar mi propuesta</span><span class="btn-loader"></span></button>
             </form>
         </div>
     </div>
@@ -615,18 +610,18 @@
             <button class="modal-close" data-modal-close>&times;</button>
             <div class="modal-header">
                 <i class="fa-solid fa-envelope-open-text icon-header"></i>
-                <h3>Don't miss any of the adventure!</h3>
-                <p class="modal-intro">Join our community and receive key updates on the challenge, directly in your inbox.</p>
+                <h3>¡No te pierdas nada de la aventura!</h3>
+                <p class="modal-intro">Únete a nuestra comunidad y recibe las noticias clave del desafío, directamente en tu correo.</p>
             </div>
-            <form name="newsletter-popup-en-rgpd" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="newsletter-popup-en-rgpd" />
+            <form name="newsletter-popup-es-rgpd" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="newsletter-popup-es-rgpd" />
                 <div class="input-group">
-                   <input type="email" name="email" placeholder="Your best email" required>
-                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">I'm subscribing</span><span class="btn-loader"></span></button>
+                   <input type="email" name="email" placeholder="Tu mejor email" required>
+                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">Me inscribo</span><span class="btn-loader"></span></button>
                 </div>
                 <label class="custom-checkbox-container">
                     <input type="checkbox" name="consent" id="consent-modal" required>
-                    <span class="checkbox-label">I agree to receive news about the project. <a href="privacy.html" target="_blank">Privacy Policy</a></span>
+                    <span class="checkbox-label">Acepto recibir las noticias del proyecto. <a href="privacy.html" target="_blank">Política de privacidad</a></span>
                 </label>
             </form>
         </div>
@@ -680,7 +675,7 @@
             const sunIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
             const moonIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
             
-            const map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([53.2, -1.8], 6);
+            const map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([47.0, 2.0], 5);
             const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20
             });
@@ -698,7 +693,7 @@
             };
 
             const setTheme = (theme) => {
-                htmlEl.className = theme + '-mode route-body';
+                htmlEl.className = theme + '-mode route-body has-route-banner';
                 localStorage.setItem('theme', theme);
                 if (themeToggle) themeToggle.innerHTML = theme === 'dark' ? sunIconSVG : moonIconSVG;
                 applyMapTheme();
@@ -707,29 +702,29 @@
             themeToggle?.addEventListener('click', () => setTheme(htmlEl.classList.contains('dark-mode') ? 'light' : 'dark'));
             
             const stepsData = [
-                { id: 'step-0', coords: [48.8566, 2.3522], zoom: 11 },
-                { id: 'step-1', coords: [49.4431, 1.0993], zoom: 12 },
-                { id: 'step-2', coords: [49.4944, 0.1079], zoom: 12 },
-                { id: 'step-3', coords: [50.8198, -1.0880], zoom: 11 },
-                { id: 'step-4', coords: [51.5074, -0.1278], zoom: 11 },
-                { id: 'step-5', coords: [51.5074, -0.1278], zoom: 12 },
-                { id: 'step-6', coords: [51.7520, -1.2577], zoom: 12 },
-                { id: 'step-7', coords: [51.3758, -2.3599], zoom: 12 },
-                { id: 'step-8', coords: [51.4816, -3.1791], zoom: 12 },
-                { id: 'step-9', coords: [52.4862, -1.8904], zoom: 11 },
-                { id: 'step-10', coords: [52.4862, -1.8904], zoom: 12 },
-                { id: 'step-11', coords: [53.4808, -2.2426], zoom: 11 },
-                { id: 'step-12', coords: [53.9600, -1.0873], zoom: 12 },
-                { id: 'step-13', coords: [54.9783, -1.6178], zoom: 11 },
-                { id: 'step-14', coords: [55.9533, -3.1883], zoom: 11 },
+                { id: 'step-0', coords: [51.5074, -0.1278], zoom: 12 },
+                { id: 'step-1', coords: [50.9097, -1.4044], zoom: 12 },
+                { id: 'step-2', coords: [49.4432, 1.0999], zoom: 12 },
+                { id: 'step-3', coords: [48.8566, 2.3522], zoom: 11 },
+                { id: 'step-4', coords: [47.9029, 1.9093], zoom: 12 },
+                { id: 'step-5', coords: [47.9029, 1.9093], zoom: 13 },
+                { id: 'step-6', coords: [46.8103, 1.6912], zoom: 12 },
+                { id: 'step-7', coords: [45.8336, 1.2611], zoom: 12 },
+                { id: 'step-8', coords: [45.1586, 1.5332], zoom: 12 },
+                { id: 'step-9', coords: [43.6047, 1.4442], zoom: 12 },
+                { id: 'step-10', coords: [43.6047, 1.4442], zoom: 13 },
+                { id: 'step-11', coords: [43.2130, 2.3491], zoom: 12 },
+                { id: 'step-12', coords: [42.6887, 2.8948], zoom: 12 },
+                { id: 'step-13', coords: [41.9831, 2.8249], zoom: 12 },
+                { id: 'step-14', coords: [41.3851, 2.1734], zoom: 12 },
             ];
 
             const latlngs = stepsData.map(s => s.coords);
-            L.polyline(latlngs, { color: '#FFA500', weight: 4, opacity: 0.82 }).addTo(map);
+            const routeLine = L.polyline(latlngs, { color: '#FFA500', weight: 4, opacity: 0.82 }).addTo(map);
 
             const allElements = document.querySelectorAll('.step-content');
 
-            const stepLabelWords = { start: 'Start', day: 'Day' };
+            const stepLabelWords = { start: 'Salida', day: 'Día' };
             const getStepLabel = (el, index) => {
                 if (index === 0) return stepLabelWords.start;
                 const num = el.querySelector('.step-number')?.textContent?.trim();

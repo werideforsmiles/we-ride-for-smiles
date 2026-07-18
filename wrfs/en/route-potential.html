@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paris–Edinburgh 2027 Route — We Ride For Smiles</title>
-    <meta name="description" content="Target edition: 14 June 2027. Explore the ~1,510 km charity cycling route from Paris to Edinburgh, stage by stage, on our interactive map.">
+    <title>London–Barcelona (potential route) — We Ride For Smiles</title>
+    <meta name="description" content="Alternative concept: the former London–Barcelona charity route (~1,500 km). Not scheduled — kept as a reference alongside the Paris–Edinburgh 2027 target edition.">
 
-    <link rel="canonical" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="canonical" href="https://www.werideforsmiles.org/en/route-potential" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
-    <meta property="og:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles" />
+    <meta property="og:title" content="London–Barcelona (potential route) — We Ride For Smiles" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/en/route" />
+    <meta property="og:url" content="https://www.werideforsmiles.org/en/route-potential" />
     <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
-    <meta property="og:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families." />
+    <meta property="og:description" content="Alternative London–Barcelona concept. Not scheduled — archive itinerary." />
     <meta property="og:site_name" content="We Ride For Smiles" />
     <meta property="og:locale" content="en_GB" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles">
-    <meta name="twitter:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families.">
+    <meta name="twitter:title" content="London–Barcelona (potential route) — We Ride For Smiles">
+    <meta name="twitter:description" content="Alternative London–Barcelona concept. Not scheduled — archive itinerary.">
     <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
 
-    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route" />
-    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route" />
-    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route-potential" />
+    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route-potential" />
+    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route-potential" />
+    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/route-potential" />
     
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>    
@@ -176,15 +176,6 @@
             line-height: 1.35;
             text-wrap: pretty;
         }
-        .step-content--intro .step-heading-text h3 {
-            font-size: clamp(1.75rem, 4vw, 2.6rem);
-        }
-        .step-description p + p { margin-top: 0.85rem; }
-        .step-closing {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: var(--color-text-primary);
-        }
 
         
         .step-description {
@@ -220,7 +211,7 @@
                 margin-top: 40px;
             }
             .step-content:first-child { margin-top: 0; }
-            .step-heading-text h3 { font-size: clamp(1.35rem, min(3.5vw, 4vh), 1.85rem); }
+            .step-content h3 { font-size: clamp(1.75rem, min(3.5vw, 4vh), 2.5rem); margin-bottom: 1rem; }
             .step-description { padding: 1rem; }
             .step-image, .image-credit { display: none; }
         }
@@ -230,8 +221,8 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Paris–Edinburgh 2027 — We Ride For Smiles route",
-      "url": "https://www.werideforsmiles.org/en/route",
+      "name": "London–Barcelona potential route — We Ride For Smiles",
+      "url": "https://www.werideforsmiles.org/en/route-potential",
       "description": "Interactive map of the target 2027 charity cycling route from Paris to Edinburgh.",
       "isPartOf": { "@type": "WebSite", "name": "We Ride For Smiles", "url": "https://www.werideforsmiles.org/en/" }
     }
@@ -249,7 +240,7 @@
     </script>
 </head>
 
-<body class="route-body dark-mode">
+<body class="route-body dark-mode has-route-banner">
 
     <nav class="navbar" id="navbar">
         <div class="container navbar-content">
@@ -268,8 +259,8 @@
                                         <div class="lang-switcher">
                         <button type="button" class="selected-lang" aria-label="English" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-en-9069"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-en-9069)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
                         <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../fr/route.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
-                            <li><a href="../es/route.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
+                            <li><a href="../fr/route-potential.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../es/route-potential.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Change theme"></button>
@@ -278,6 +269,12 @@
             </div>
         </div>
     </nav>
+
+    <div class="route-edition-banner route-edition-banner--archive">
+        <div class="container">
+            <p><strong>Potential route · not scheduled</strong> — Former London–Barcelona concept (~1,500 km). <a href="route.html" class="route-alt-link">See the Paris–Edinburgh 2027 target edition</a></p>
+        </div>
+    </div>
     
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
@@ -299,230 +296,228 @@
         
         <div class="story-container">
             
-            <div class="step-content is-active step-content--intro" id="step-0">
+            <div class="step-content is-active" id="step-0">
                 <div class="step-heading">
                     <div class="step-heading-text">
-                        <h3>The 2027 route</h3>
-                        <h4>Paris → Edinburgh · Departure planned for 14 June 2027</h4>
+                        <h3>The Grand Départ</h3>
+                        <h4>London · potential itinerary (not scheduled)</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Over 1,500 km by bike, across France and the United Kingdom, to support sick children and their families.</p>
-                    <p>The route shown is provisional. Stages and distances may evolve depending on traffic conditions, logistics, and the partners who join the adventure.</p>
+                    <p>This map preserves an alternative concept that will not be ridden as the main edition. It remains inspiration — and a record of the scale of the challenge we want to take on for the children we support.</p>
                 </div>
-                <img loading="lazy" src="../assets/paris.webp" alt="Paris" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@idmytro" target="_blank" rel="noopener">Dimitri Iakymuk</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="London" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-1">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">1</span>
                     <div class="step-heading-text">
-                        <h3>Paris → Rouen</h3>
-                        <h4>125 km</h4>
+                        <h3>London → Southampton</h3>
+                        <h4>130 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The challenge begins in the heart of Paris. This first day will take us to Rouen along the Seine valley, with more than 1,500 kilometres still ahead.</p>
+                    <p>First day on the roads of southern England, to the port of Southampton — the gateway to the continent.</p>
                 </div>
-                <img loading="lazy" src="../assets/rouen.webp" alt="Rouen" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank" rel="noopener">Barry Talley</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Southampton" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-2">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">2</span>
                     <div class="step-heading-text">
-                        <h3>Rouen → Le Havre</h3>
-                        <h4>95 km</h4>
+                        <h3>Le Havre → Rouen</h3>
+                        <h4>90 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Toward the Normandy coast and Le Havre — the last French stage before crossing the Channel.</p>
+                    <p>Landing in Normandy: a coastal then river stage toward Rouen and its cathedral.</p>
                 </div>
-                <img loading="lazy" src="../assets/le-havre.webp" alt="Le Havre" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@pfgapais" target="_blank" rel="noopener">Paul-François Gapais</a> on <a href="https://unsplash.com/photos/XpYOGc2ivNw" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Rouen" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-3">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">3</span>
                     <div class="step-heading-text">
-                        <h3>Le Havre → Portsmouth → Southampton</h3>
-                        <h4>Sea crossing, then about 30 km by bike</h4>
+                        <h3>Rouen → Paris</h3>
+                        <h4>135 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>After the crossing to Portsmouth, we will ride on to Southampton. A shorter day on the bike, but essential to make the transition from France to England.</p>
+                    <p>Up toward the capital: the Seine as a thread all the way to Paris.</p>
                 </div>
-                <img loading="lazy" src="../assets/southampton.webp" alt="Southampton" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@karamanh" target="_blank" rel="noopener">Hasan Karaman</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="Paris" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-4">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">4</span>
                     <div class="step-heading-text">
-                        <h3>Southampton → London</h3>
-                        <h4>135 km</h4>
+                        <h3>Paris → Orléans</h3>
+                        <h4>130 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A long day toward the British capital, from the roads of southern England into the heart of London.</p>
+                    <p>Toward the Loire Valley: a long day to reach Orléans.</p>
                 </div>
-                <img loading="lazy" src="../assets/london.webp" alt="London" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@bendavisual" target="_blank" rel="noopener">Benjamin Davies</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-5">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">5</span>
                     <div class="step-heading-text">
-                        <h3>Rest day · London</h3>
-                        <h4>Recovery and meetings</h4>
+                        <h3>Rest in Orléans</h3>
+                        <h4>Recovery day</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A first day to recover, maintain the bikes, and meet partners and supporters of the project.</p>
+                    <p>A well-earned pause to recharge before tackling the centre of France.</p>
                 </div>
-                <img loading="lazy" src="../assets/london-2.webp" alt="London" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@samueldixon" target="_blank" rel="noopener">Samuel Dixon</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-6">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">6</span>
                     <div class="step-heading-text">
-                        <h3>London → Oxford</h3>
-                        <h4>105 km</h4>
+                        <h3>Orléans → Châteauroux</h3>
+                        <h4>150 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>We will leave London for Oxford and begin our progress toward the west of England.</p>
+                    <p>Into Berry country: a long stage through the heart of France.</p>
                 </div>
-                <img loading="lazy" src="../assets/oxford.webp" alt="Oxford" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@benseymour" target="_blank" rel="noopener">Ben Seymour</a> on <a href="https://unsplash.com/photos/nqBUTBsDQNM" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Countryside" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-7">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">7</span>
                     <div class="step-heading-text">
-                        <h3>Oxford → Bath</h3>
-                        <h4>110 km</h4>
+                        <h3>Châteauroux → Limoges</h3>
+                        <h4>140 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A rolling stage through the English countryside and the Cotswolds, to the city of Bath.</p>
+                    <p>Toward Limousin and its rolling terrain, step by step south.</p>
                 </div>
-                <img loading="lazy" src="../assets/bath.webp" alt="Bath" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@elenajiang" target="_blank" rel="noopener">Elena Jiang</a> on <a href="https://unsplash.com/photos/CghG3tQudIU" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1121&auto=format&fit=crop" alt="Road" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-8">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">8</span>
                     <div class="step-heading-text">
-                        <h3>Bath → Cardiff</h3>
+                        <h3>Limoges → Brive</h3>
                         <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>Heading for Wales, crossing the Severn estuary before reaching Cardiff.</p>
+                    <p>A shorter day linking on toward Brive-la-Gaillarde.</p>
                 </div>
-                <img loading="lazy" src="../assets/cardiff.webp" alt="Cardiff" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@tfloydmews" target="_blank" rel="noopener">Taylor Floyd Mews</a> on <a href="https://unsplash.com/photos/5CY9gTo0rJk" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1170&auto=format&fit=crop" alt="Landscape" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-9">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">9</span>
                     <div class="step-heading-text">
-                        <h3>Cardiff → Birmingham</h3>
-                        <h4>170 km</h4>
+                        <h3>Brive → Toulouse</h3>
+                        <h4>220 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>One of the longest days of the route. We leave Wales for Birmingham, in the heart of the Midlands.</p>
+                    <p>The longest day: a deep dive toward the Pink City and the south-west.</p>
                 </div>
-                <img loading="lazy" src="../assets/birmingham.webp" alt="Birmingham" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@gabrielmccallin" target="_blank" rel="noopener">Gabriel McCallin</a> on <a href="https://unsplash.com/photos/bOGL5uq52X8" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-10">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">10</span>
                     <div class="step-heading-text">
-                        <h3>Rest day · Birmingham</h3>
-                        <h4>Recovery and logistics</h4>
+                        <h3>Rest in Toulouse</h3>
+                        <h4>Recovery day</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A second pause for the team to recover, service the gear, and prepare for the final part of the challenge.</p>
+                    <p>Second and final rest day — time to enjoy the south-west before the final stretch.</p>
                 </div>
-                <img loading="lazy" src="../assets/birmingham-2.webp" alt="Birmingham" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@lulublack" target="_blank" rel="noopener">Lulu Black</a> on <a href="https://unsplash.com/photos/tsTQuqKr4fk" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-11">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">11</span>
                     <div class="step-heading-text">
-                        <h3>Birmingham → Manchester</h3>
-                        <h4>145 km</h4>
+                        <h3>Toulouse → Carcassonne</h3>
+                        <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The road resumes toward north-west England, all the way to Manchester.</p>
+                    <p>Along the Canal du Midi toward the medieval city of Carcassonne.</p>
                 </div>
-                <img loading="lazy" src="../assets/manchester.webp" alt="Manchester" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@mangopearuk" target="_blank" rel="noopener">Mangopear creative</a> on <a href="https://unsplash.com/photos/kQ7u8Kgkzlo" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=1170&auto=format&fit=crop" alt="Carcassonne" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-12">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">12</span>
                     <div class="step-heading-text">
-                        <h3>Manchester → York</h3>
-                        <h4>115 km</h4>
+                        <h3>Carcassonne → Perpignan</h3>
+                        <h4>100 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>A demanding stage across northern England, toward the historic city of York.</p>
+                    <p>Toward the Mediterranean and Perpignan — the last French stage.</p>
                 </div>
-                <img loading="lazy" src="../assets/york.webp" alt="York" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@jeffreyzhang_920" target="_blank" rel="noopener">Jeffrey Zhang</a> on <a href="https://unsplash.com/photos/feXU_rx_Sto" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Mediterranean" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-13">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">13</span>
                     <div class="step-heading-text">
-                        <h3>York → Newcastle</h3>
-                        <h4>155 km</h4>
+                        <h3>Perpignan → Girona</h3>
+                        <h4>115 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>We continue north to Newcastle — the last major stage before the Scottish border.</p>
+                    <p>Into Catalonia: the roads tighten toward Girona.</p>
                 </div>
-                <img loading="lazy" src="../assets/newcastle.webp" alt="Newcastle" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@morank" target="_blank" rel="noopener">Karl Moran</a> on <a href="https://unsplash.com/photos/URDWhRXLu7o" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=1170&auto=format&fit=crop" alt="Catalonia" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-14">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">14</span>
                     <div class="step-heading-text">
-                        <h3>Newcastle → Edinburgh</h3>
-                        <h4>225 km · Longest stage</h4>
+                        <h3>Girona → Barcelona</h3>
+                        <h4>105 km</h4>
                     </div>
                 </div>
                 <div class="step-description">
-                    <p>The final day on the bike will also be the longest. More than 200 kilometres along the east coast will separate us from the finish in Edinburgh.</p>
-                    <p class="step-closing">After more than 1,500 kilometres, every participant, partner, and donor will have helped carry the project to its destination.</p>
+                    <p>Arrival in Barcelona: the last pedal stroke of a concept that shaped the project’s ambition.</p>
                 </div>
-                <img loading="lazy" src="../assets/edinburgh.webp" alt="Edinburgh" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@fourcolourblack" target="_blank" rel="noopener">Adam Wilson</a> on <a href="https://unsplash.com/photos/ktDODr-3tvY" target="_blank" rel="noopener">Unsplash</a></p>
+                <img loading="lazy" src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Barcelona" class="step-image">
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
             </div>
 
             <nav class="route-step-nav" aria-label="Stage navigation">
@@ -680,7 +675,7 @@
             const sunIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
             const moonIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
             
-            const map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([53.2, -1.8], 6);
+            const map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([47.0, 2.0], 5);
             const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20
             });
@@ -698,7 +693,7 @@
             };
 
             const setTheme = (theme) => {
-                htmlEl.className = theme + '-mode route-body';
+                htmlEl.className = theme + '-mode route-body has-route-banner';
                 localStorage.setItem('theme', theme);
                 if (themeToggle) themeToggle.innerHTML = theme === 'dark' ? sunIconSVG : moonIconSVG;
                 applyMapTheme();
@@ -707,21 +702,21 @@
             themeToggle?.addEventListener('click', () => setTheme(htmlEl.classList.contains('dark-mode') ? 'light' : 'dark'));
             
             const stepsData = [
-                { id: 'step-0', coords: [48.8566, 2.3522], zoom: 11 },
-                { id: 'step-1', coords: [49.4431, 1.0993], zoom: 12 },
-                { id: 'step-2', coords: [49.4944, 0.1079], zoom: 12 },
-                { id: 'step-3', coords: [50.8198, -1.0880], zoom: 11 },
-                { id: 'step-4', coords: [51.5074, -0.1278], zoom: 11 },
-                { id: 'step-5', coords: [51.5074, -0.1278], zoom: 12 },
-                { id: 'step-6', coords: [51.7520, -1.2577], zoom: 12 },
-                { id: 'step-7', coords: [51.3758, -2.3599], zoom: 12 },
-                { id: 'step-8', coords: [51.4816, -3.1791], zoom: 12 },
-                { id: 'step-9', coords: [52.4862, -1.8904], zoom: 11 },
-                { id: 'step-10', coords: [52.4862, -1.8904], zoom: 12 },
-                { id: 'step-11', coords: [53.4808, -2.2426], zoom: 11 },
-                { id: 'step-12', coords: [53.9600, -1.0873], zoom: 12 },
-                { id: 'step-13', coords: [54.9783, -1.6178], zoom: 11 },
-                { id: 'step-14', coords: [55.9533, -3.1883], zoom: 11 },
+                { id: 'step-0', coords: [51.5074, -0.1278], zoom: 12 },
+                { id: 'step-1', coords: [50.9097, -1.4044], zoom: 12 },
+                { id: 'step-2', coords: [49.4432, 1.0999], zoom: 12 },
+                { id: 'step-3', coords: [48.8566, 2.3522], zoom: 11 },
+                { id: 'step-4', coords: [47.9029, 1.9093], zoom: 12 },
+                { id: 'step-5', coords: [47.9029, 1.9093], zoom: 13 },
+                { id: 'step-6', coords: [46.8103, 1.6912], zoom: 12 },
+                { id: 'step-7', coords: [45.8336, 1.2611], zoom: 12 },
+                { id: 'step-8', coords: [45.1586, 1.5332], zoom: 12 },
+                { id: 'step-9', coords: [43.6047, 1.4442], zoom: 12 },
+                { id: 'step-10', coords: [43.6047, 1.4442], zoom: 13 },
+                { id: 'step-11', coords: [43.2130, 2.3491], zoom: 12 },
+                { id: 'step-12', coords: [42.6887, 2.8948], zoom: 12 },
+                { id: 'step-13', coords: [41.9831, 2.8249], zoom: 12 },
+                { id: 'step-14', coords: [41.3851, 2.1734], zoom: 12 },
             ];
 
             const latlngs = stepsData.map(s => s.coords);

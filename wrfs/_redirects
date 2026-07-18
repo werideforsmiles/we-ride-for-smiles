@@ -1,12 +1,23 @@
-# Canonical: strip .html from the address bar
-/:lang/index.html    /:lang/          301!
-/:lang/:page.html    /:lang/:page     301!
-
-# Serve clean URLs (rewrite to real files)
-/:lang/              /:lang/index.html  200
-/:lang/:page         /:lang/:page.html  200
-
 # Root → language by browser preference
 /   /fr/   302   Language=fr
 /   /es/   302   Language=es
 /   /en/   302
+
+# Canonical: strip index.html only (do NOT use /:lang/:page — it breaks /assets and /css)
+/fr/index.html   /fr/   301!
+/en/index.html   /en/   301!
+/es/index.html   /es/   301!
+
+# Optional pretty URLs for known pages (explicit — safe for assets)
+/fr/route.html              /fr/route              301!
+/en/route.html              /en/route              301!
+/es/route.html              /es/route              301!
+/fr/privacy.html            /fr/privacy            301!
+/en/privacy.html            /en/privacy            301!
+/es/privacy.html            /es/privacy            301!
+/fr/terms.html              /fr/terms              301!
+/en/terms.html              /en/terms              301!
+/es/terms.html              /es/terms              301!
+/fr/route-potential.html    /fr/route-potential    301!
+/en/route-potential.html    /en/route-potential    301!
+/es/route-potential.html    /es/route-potential    301!

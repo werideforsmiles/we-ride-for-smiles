@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · We Ride For Smiles</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/wrfs_favicon.webp" type="image/png">
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --text: #FAFAFA;
+      --muted: #A1A1A1;
+      --orange: #FFA500;
+      --track: #262626;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 165, 0, 0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255, 165, 0, 0.05), transparent);
+    }
+    .wrap {
+      width: min(28rem, 100%);
+      text-align: center;
+    }
+    .brand {
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 2.75rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .brand span {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .code {
+      font-size: clamp(4.5rem, 18vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+      text-wrap: balance;
+    }
+    p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      margin-bottom: 2rem;
+      text-wrap: pretty;
+    }
+    .progress {
+      height: 3px;
+      background: var(--track);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--orange);
+      border-radius: inherit;
+      transform-origin: left;
+      animation: fill 5s linear forwards;
+    }
+    @keyframes fill {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .meta strong { color: var(--text); font-weight: 700; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    a.btn:hover { transform: scale(1.03); }
+    a.btn-primary {
+      background: var(--orange);
+      color: #0A0A0A;
+    }
+    a.btn-primary:hover { filter: brightness(0.97); }
+    a.btn-ghost {
+      color: var(--text);
+      box-shadow: inset 0 0 0 1.5px #333;
+    }
+    a.btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--orange); }
+    @media (prefers-reduced-motion: reduce) {
+      .progress-bar { animation: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="brand" href="/">WRFS<span>We Ride For Smiles</span></a>
+    <div class="code" aria-hidden="true">404</div>
+    <h1 id="title">Page introuvable</h1>
+    <p id="copy">Cette page n’existe pas ou a été déplacée. Redirection vers l’accueil dans un instant.</p>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="bar-wrap">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+    <p class="meta"><span id="countdown-label">Retour dans</span> <strong id="secs">5</strong>&nbsp;s</p>
+    <div class="actions">
+      <a class="btn btn-primary" id="home" href="/">Accueil</a>
+      <a class="btn btn-ghost" id="cancel" href="#">Rester ici</a>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var lang = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+      if (lang !== 'fr' && lang !== 'en' && lang !== 'es') lang = 'fr';
+      var home = '/' + lang + '/';
+      var i18n = {
+        fr: {
+          title: 'Page introuvable',
+          copy: 'Cette page n’existe pas ou a été déplacée. Redirection vers l’accueil dans un instant.',
+          countdown: 'Retour dans',
+          home: 'Accueil',
+          cancel: 'Rester ici'
+        },
+        en: {
+          title: 'Page not found',
+          copy: 'This page doesn’t exist or has moved. Taking you back home in a moment.',
+          countdown: 'Redirecting in',
+          home: 'Home',
+          cancel: 'Stay here'
+        },
+        es: {
+          title: 'Página no encontrada',
+          copy: 'Esta página no existe o se ha movido. Te llevamos al inicio en un momento.',
+          countdown: 'Redirección en',
+          home: 'Inicio',
+          cancel: 'Quedarme aquí'
+        }
+      };
+      var t = i18n[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('copy').textContent = t.copy;
+      document.getElementById('countdown-label').textContent = t.countdown;
+      document.getElementById('home').textContent = t.home;
+      document.getElementById('home').href = home;
+      document.getElementById('cancel').textContent = t.cancel;
+
+      var left = 5;
+      var secs = document.getElementById('secs');
+      var barWrap = document.getElementById('bar-wrap');
+      var cancelled = false;
+      var timer = setInterval(function () {
+        if (cancelled) return;
+        left -= 1;
+        secs.textContent = String(Math.max(left, 0));
+        barWrap.setAttribute('aria-valuenow', String(5 - left));
+        if (left <= 0) {
+          clearInterval(timer);
+          window.location.replace(home);
+        }
+      }, 1000);
+
+      document.getElementById('cancel').addEventListener('click', function (e) {
+        e.preventDefault();
+        cancelled = true;
+        clearInterval(timer);
+        document.getElementById('bar').style.animation = 'none';
+        document.getElementById('bar').style.width = '0%';
+        document.querySelector('.meta').textContent = lang === 'en'
+          ? 'Redirect cancelled.'
+          : lang === 'es'
+            ? 'Redirección cancelada.'
+            : 'Redirection annulée.';
+      });
+    })();
+  </script>
+</body>
+</html>

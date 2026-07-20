@@ -816,7 +816,43 @@
             });
 
             document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
+                const involvementBoxes = form.querySelectorAll('input[name^="involvement_"]');
+                if (involvementBoxes.length) {
+                    involvementBoxes.forEach(cb => cb.addEventListener('change', () => {
+                        if (Array.from(involvementBoxes).some(c => c.checked)) {
+                            form.querySelector('.involve-options-error')?.remove();
+                        }
+                    }));
+                }
                 form.addEventListener('submit', (e) => {
+                    if (involvementBoxes.length) {
+                        const anyChecked = Array.from(involvementBoxes).some(cb => cb.checked);
+                        if (!anyChecked) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const lang = (document.documentElement.lang || 'fr').slice(0, 2);
+                            const msg = lang === 'en'
+                                ? 'Please select at least one way to contribute.'
+                                : lang === 'es'
+                                    ? 'Selecciona al menos una forma de contribuir.'
+                                    : 'Veuillez sélectionner au moins une façon de contribuer.';
+                            let err = form.querySelector('.involve-options-error');
+                            if (!err) {
+                                err = document.createElement('p');
+                                err.className = 'involve-options-error';
+                                err.setAttribute('role', 'alert');
+                                err.style.cssText = 'color:#e74c3c;font-size:0.9rem;margin:0.75rem 0 0;text-wrap:pretty;';
+                                const opts = form.querySelector('.involvement-options');
+                                if (opts) opts.insertAdjacentElement('afterend', err);
+                                else form.querySelector('.form-submit-btn')?.insertAdjacentElement('beforebegin', err);
+                            }
+                            err.textContent = msg;
+                            const submitBtn = form.querySelector('.form-submit-btn');
+                            if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
+                            return;
+                        }
+                        form.querySelector('.involve-options-error')?.remove();
+                    }
                     const submitBtn = form.querySelector('.form-submit-btn');
                     if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
                 });

@@ -1218,8 +1218,10 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/intro.js" defer></script>
     <script src="../js/modals.js" defer></script>
+    <script src="../js/a11y.js" defer></script>
 </head>
 <body class="dark-mode">
+    <a class="skip-link" href="#main">Saltar al contenido</a>
     <div class="preloader" aria-hidden="true">
         <div class="preloader-curtain"></div>
         <div class="preloader-logo-container">
@@ -1246,10 +1248,10 @@
                 <div class="nav-controls" id="nav-controls">
                     <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Participar</button>
                     <div class="lang-switcher">
-                        <button type="button" class="selected-lang" aria-label="Español" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></button>
-                        <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../fr/index.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
-                            <li><a href="../en/index.html" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-es-3334"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-es-3334)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
+                        <button type="button" class="selected-lang" aria-label="Idioma: Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></button>
+                        <ul class="lang-dropdown">
+                            <li><a href="../fr/index.html" lang="fr" hreflang="fr" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../en/index.html" lang="en" hreflang="en" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-es-3334"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-es-3334)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
@@ -1294,7 +1296,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <section class="section section-surface" id="mission">
             <div class="container mission-block">
                 <h2 class="fade-in-up mission-title">Nuestra misión</h2>
@@ -1307,8 +1309,8 @@
                 <h2 class="fade-in-up">En el corazón de nuestra iniciativa</h2>
                 <p class="fade-in-up delay-1" style="max-width: 650px; margin: -2rem auto 4rem auto; text-align: center; color: var(--color-text-secondary);">Pedaleamos por organizaciones que cambian vidas: centros hospitalarios de excelencia y destacadas asociaciones nacionales.</p>
                 <div class="charity-grid">
-                    <div class="charity-category fade-in-up delay-2"><h3>Hospitales infantiles</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
-                    <div class="charity-category fade-in-up delay-3"><h3>Asociaciones benéficas</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo"><img loading="lazy" src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
+                    <div class="charity-category fade-in-up delay-2"><h3>Hospitales infantiles</h3><a href="https://www.gosh.org" target="_blank" class="charity-logo" rel="noopener"><img loading="lazy" src="../assets/gosh-logo.svg" alt="GOSH"></a><a href="https://www.gustaveroussy.fr" target="_blank" class="charity-logo" rel="noopener"><img loading="lazy" src="../assets/gustave-roussy-logo.webp" alt="Gustave Roussy"></a></div>
+                    <div class="charity-category fade-in-up delay-3"><h3>Asociaciones benéficas</h3><a href="https://www.sourirealavie.fr" target="_blank" class="charity-logo" rel="noopener"><img loading="lazy" src="../assets/sourirealavie-logo.svg" alt="Sourire à la Vie"></a><a href="https://www.teenagecancertrust.org" target="_blank" class="charity-logo" rel="noopener"><img loading="lazy" src="../assets/tct-logo.svg" alt="Teenage Cancer Trust"></a></div>
                 </div>
             </div>
         </section>
@@ -1478,9 +1480,9 @@
             <div class="footer-bottom">
                 <span class="footer-links"><a href="privacy.html">Privacidad</a> &middot; <a href="terms.html">Términos</a></span>
                 <div class="footer-socials">
-                    <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+                    <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava" rel="noopener"><i class="fab fa-strava"></i></a>
                 </div>
                 <p>&copy; <span id="copyright-year"></span> We Ride For Smiles</p>
             </div>
@@ -1693,7 +1695,7 @@
         </div>
     </dialog>
 
-    <div class="charity-slider-widget">
+    <aside class="charity-slider-widget" aria-label="Asociaciones apoyadas">
         <h4>Asociaciones apoyadas</h4>
         <div class="widget-controls">
             <button id="widget-toggle-size" aria-label="Expandir widget">
@@ -1704,7 +1706,7 @@
             </button>
         </div>
         <div class="slider-content"></div>
-    </div>
+    </aside>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1851,6 +1853,7 @@
                     const slide = document.createElement('a');
                     slide.href = charity.url;
                     slide.target = '_blank';
+                    slide.rel = 'noopener';
                     slide.className = `slide-item ${index === 0 ? 'active' : ''}`;
                     slide.innerHTML = `<img loading="lazy" src="${charity.logo}" alt="${charity.name}">`;
                     sliderContainer.appendChild(slide);

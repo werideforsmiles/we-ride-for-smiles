@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="../css/fa-min.css">
     <link href="../css/styles.css" rel="stylesheet" />
     <style id="route-text-pretty">
-.route-edition-banner p, .step-description p, .story-container p, .story-container h3, .story-container h4 { text-wrap: pretty; }
+.route-edition-banner p, .step-description p, .story-container p, .story-container h2, .story-container h3 { text-wrap: pretty; }
 .navbar-content { position: relative; }
 @media (min-width: 992px) {
   .nav-links-desktop {
@@ -139,7 +139,7 @@
             justify-content: center;
             padding: 2rem;
             transition: opacity 0.5s ease-in-out;
-            opacity: 0.4;
+            opacity: 0.85;
         }
         .step-content.is-active { opacity: 1; }
 
@@ -159,7 +159,7 @@
             padding-top: 0.1rem;
         }
         .step-heading-text { min-width: 0; flex: 1; }
-        .step-heading-text h3 {
+        .step-heading-text h2 {
             font-size: clamp(1.45rem, 3.5vw, 2.15rem);
             font-weight: 800;
             margin: 0 0 0.4rem 0;
@@ -167,7 +167,7 @@
             letter-spacing: -0.02em;
             text-wrap: pretty;
         }
-        .step-heading-text h4 {
+        .step-heading-text h3 {
             font-size: clamp(0.95rem, 2vw, 1.1rem);
             font-weight: 600;
             color: var(--color-text-secondary);
@@ -238,9 +238,11 @@
     }
     </script>
     <script src="../js/modals.js" defer></script>
+    <script src="../js/a11y.js" defer></script>
 </head>
 
 <body class="route-body dark-mode has-route-banner">
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <nav class="navbar" id="navbar">
         <div class="container navbar-content">
@@ -257,10 +259,10 @@
                 <div class="nav-controls" id="nav-controls">
                     <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Get Involved</button>
                                         <div class="lang-switcher">
-                        <button type="button" class="selected-lang" aria-label="English" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-en-9069"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-en-9069)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
-                        <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../fr/route-potential.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
-                            <li><a href="../es/route-potential.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
+                        <button type="button" class="selected-lang" aria-label="Language: English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-en-9069"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-en-9069)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></button>
+                        <ul class="lang-dropdown">
+                            <li><a href="../fr/route-potential.html" lang="fr" hreflang="fr" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../es/route-potential.html" lang="es" hreflang="es" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Change theme"></button>
@@ -270,11 +272,11 @@
         </div>
     </nav>
 
-    <div class="route-edition-banner route-edition-banner--archive">
+    <aside class="route-edition-banner route-edition-banner--archive" aria-label="Archived edition">
         <div class="container">
             <p><strong>Potential route · not scheduled</strong> — Former London–Barcelona concept (~1,500 km). <a href="route.html" class="route-alt-link">See the Paris–Edinburgh 2027 target edition</a></p>
         </div>
-    </div>
+    </aside>
     
     <div class="nav-mobile-overlay" id="nav-mobile-overlay">
         <div class="nav-mobile-header">
@@ -291,7 +293,8 @@
         </div>
     </div>
 
-    <div class="route-container">
+    <main class="route-container" id="main">
+        <h1 class="sr-only">London–Barcelona (potential route)</h1>
         <div id="map"></div>
         
         <div class="story-container">
@@ -299,240 +302,242 @@
             <div class="step-content is-active" id="step-0">
                 <div class="step-heading">
                     <div class="step-heading-text">
-                        <h3>The Grand Départ</h3>
-                        <h4>London · potential itinerary (not scheduled)</h4>
+                        <h2>The Grand Départ</h2>
+                        <h3>London · potential itinerary (not scheduled)</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>This map preserves an alternative concept that will not be ridden as the main edition. It remains inspiration — and a record of the scale of the challenge we want to take on for the children we support.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop" alt="London" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@bendavisual" target="_blank">Benjamin Davies</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@bendavisual" target="_blank" rel="noopener">Benjamin Davies</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-1">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">1</span>
                     <div class="step-heading-text">
-                        <h3>London → Southampton</h3>
-                        <h4>130 km</h4>
+                        <h2>London → Southampton</h2>
+                        <h3>130 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>First day on the roads of southern England, to the port of Southampton — the gateway to the continent.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1586701749774-bea84f498dd2?q=80&w=1548&auto=format&fit=crop" alt="Southampton" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@karamanh" target="_blank">Hasan Karaman</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@karamanh" target="_blank" rel="noopener">Hasan Karaman</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-2">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">2</span>
                     <div class="step-heading-text">
-                        <h3>Le Havre → Rouen</h3>
-                        <h4>90 km</h4>
+                        <h2>Le Havre → Rouen</h2>
+                        <h3>90 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Landing in Normandy: a coastal then river stage toward Rouen and its cathedral.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1713711152826-3abb533ce8a6?q=80&w=1176&auto=format&fit=crop" alt="Rouen" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank">Barry Talley</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@barrydtalleyduke3" target="_blank" rel="noopener">Barry Talley</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-3">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">3</span>
                     <div class="step-heading-text">
-                        <h3>Rouen → Paris</h3>
-                        <h4>135 km</h4>
+                        <h2>Rouen → Paris</h2>
+                        <h3>135 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Up toward the capital: the Seine as a thread all the way to Paris.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1575544333501-4ab6479b5bcc?q=80&w=1168&auto=format&fit=crop" alt="Paris" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@idmytro" target="_blank">Dimitri Iakymuk</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@idmytro" target="_blank" rel="noopener">Dimitri Iakymuk</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-4">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">4</span>
                     <div class="step-heading-text">
-                        <h3>Paris → Orléans</h3>
-                        <h4>130 km</h4>
+                        <h2>Paris → Orléans</h2>
+                        <h3>130 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Toward the Loire Valley: a long day to reach Orléans.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank" rel="noopener">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-5">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">5</span>
                     <div class="step-heading-text">
-                        <h3>Rest in Orléans</h3>
-                        <h4>Recovery day</h4>
+                        <h2>Rest in Orléans</h2>
+                        <h3>Recovery day</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>A well-earned pause to recharge before tackling the centre of France.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1652002235810-9d6f452d4e9e?q=80&w=1333&auto=format&fit=crop" alt="Orléans" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@andre_tch" target="_blank" rel="noopener">Andre Chipurenko</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-6">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">6</span>
                     <div class="step-heading-text">
-                        <h3>Orléans → Châteauroux</h3>
-                        <h4>150 km</h4>
+                        <h2>Orléans → Châteauroux</h2>
+                        <h3>150 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Into Berry country: a long stage through the heart of France.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Countryside" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-7">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">7</span>
                     <div class="step-heading-text">
-                        <h3>Châteauroux → Limoges</h3>
-                        <h4>140 km</h4>
+                        <h2>Châteauroux → Limoges</h2>
+                        <h3>140 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Toward Limousin and its rolling terrain, step by step south.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1121&auto=format&fit=crop" alt="Road" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-8">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">8</span>
                     <div class="step-heading-text">
-                        <h3>Limoges → Brive</h3>
-                        <h4>100 km</h4>
+                        <h2>Limoges → Brive</h2>
+                        <h3>100 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>A shorter day linking on toward Brive-la-Gaillarde.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1170&auto=format&fit=crop" alt="Landscape" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-9">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">9</span>
                     <div class="step-heading-text">
-                        <h3>Brive → Toulouse</h3>
-                        <h4>220 km</h4>
+                        <h2>Brive → Toulouse</h2>
+                        <h3>220 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>The longest day: a deep dive toward the Pink City and the south-west.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank" rel="noopener">DAT VO</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-10">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">10</span>
                     <div class="step-heading-text">
-                        <h3>Rest in Toulouse</h3>
-                        <h4>Recovery day</h4>
+                        <h2>Rest in Toulouse</h2>
+                        <h3>Recovery day</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Second and final rest day — time to enjoy the south-west before the final stretch.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1667515340913-dbdad9c3d7d7?q=80&w=1470&auto=format&fit=crop" alt="Toulouse" class="step-image">
-                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank">DAT VO</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo by <a href="https://unsplash.com/@hoangdat302" target="_blank" rel="noopener">DAT VO</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-11">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">11</span>
                     <div class="step-heading-text">
-                        <h3>Toulouse → Carcassonne</h3>
-                        <h4>100 km</h4>
+                        <h2>Toulouse → Carcassonne</h2>
+                        <h3>100 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Along the Canal du Midi toward the medieval city of Carcassonne.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=1170&auto=format&fit=crop" alt="Carcassonne" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-12">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">12</span>
                     <div class="step-heading-text">
-                        <h3>Carcassonne → Perpignan</h3>
-                        <h4>100 km</h4>
+                        <h2>Carcassonne → Perpignan</h2>
+                        <h3>100 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Toward the Mediterranean and Perpignan — the last French stage.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop" alt="Mediterranean" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-13">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">13</span>
                     <div class="step-heading-text">
-                        <h3>Perpignan → Girona</h3>
-                        <h4>115 km</h4>
+                        <h2>Perpignan → Girona</h2>
+                        <h3>115 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Into Catalonia: the roads tighten toward Girona.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=1170&auto=format&fit=crop" alt="Catalonia" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <div class="step-content" id="step-14">
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">14</span>
                     <div class="step-heading-text">
-                        <h3>Girona → Barcelona</h3>
-                        <h4>105 km</h4>
+                        <h2>Girona → Barcelona</h2>
+                        <h3>105 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
                     <p>Arrival in Barcelona: the last pedal stroke of a concept that shaped the project’s ambition.</p>
                 </div>
                 <img loading="lazy" src="https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1170&auto=format&fit=crop" alt="Barcelona" class="step-image">
-                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                <p class="image-credit">Photo on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
             </div>
 
             <nav class="route-step-nav" aria-label="Stage navigation">
-                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev" aria-label="Previous stage">
+                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev">
+                    <span class="sr-only">Previous stage: </span>
                     <span class="route-step-nav__chevron" aria-hidden="true">←</span>
                     <span class="route-step-nav__label"></span>
                 </button>
-                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next" aria-label="Next stage">
+                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next">
+                    <span class="sr-only">Next stage: </span>
                     <span class="route-step-nav__label"></span>
                     <span class="route-step-nav__chevron" aria-hidden="true">→</span>
                 </button>
             </nav>
 
         </div>
-    </div>
+    </main>
 
     <dialog class="modal modal--involve" id="involve-modal" aria-labelledby="involve-modal-title">
         <div class="modal-panel" tabindex="-1" autofocus>
@@ -774,7 +779,7 @@
                 if (index === 0) return stepLabelWords.start;
                 const num = el.querySelector('.step-number')?.textContent?.trim();
                 if (num) return `${stepLabelWords.day} ${num}`;
-                return el.querySelector('h3')?.textContent?.trim() || '';
+                return el.querySelector('h2')?.textContent?.trim() || '';
             };
             const prevBtn = document.getElementById('route-step-prev');
             const nextBtn = document.getElementById('route-step-next');

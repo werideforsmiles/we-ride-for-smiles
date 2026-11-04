@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="../css/fa-min.css">
     <link href="../css/styles.css" rel="stylesheet" />
     <style id="route-text-pretty">
-.route-edition-banner p, .step-description p, .story-container p, .story-container h3, .story-container h4 { text-wrap: pretty; }
+.route-edition-banner p, .step-description p, .story-container p, .story-container h2, .story-container h3 { text-wrap: pretty; }
 .navbar-content { position: relative; }
 @media (min-width: 992px) {
   .nav-links-desktop {
@@ -139,7 +139,7 @@
             justify-content: center;
             padding: 2rem;
             transition: opacity 0.5s ease-in-out;
-            opacity: 0.4;
+            opacity: 0.85;
         }
         .step-content.is-active { opacity: 1; }
 
@@ -159,7 +159,7 @@
             padding-top: 0.1rem;
         }
         .step-heading-text { min-width: 0; flex: 1; }
-        .step-heading-text h3 {
+        .step-heading-text h2 {
             font-size: clamp(1.45rem, 3.5vw, 2.15rem);
             font-weight: 800;
             margin: 0 0 0.4rem 0;
@@ -167,7 +167,7 @@
             letter-spacing: -0.02em;
             text-wrap: pretty;
         }
-        .step-heading-text h4 {
+        .step-heading-text h3 {
             font-size: clamp(0.95rem, 2vw, 1.1rem);
             font-weight: 600;
             color: var(--color-text-secondary);
@@ -175,7 +175,7 @@
             line-height: 1.35;
             text-wrap: pretty;
         }
-        .step-content--intro .step-heading-text h3 {
+        .step-content--intro .step-heading-text h2 {
             font-size: clamp(1.75rem, 4vw, 2.6rem);
         }
         .step-description p + p { margin-top: 0.85rem; }
@@ -219,7 +219,7 @@
                 margin-top: 40px;
             }
             .step-content:first-child { margin-top: 0; }
-            .step-heading-text h3 { font-size: clamp(1.35rem, min(3.5vw, 4vh), 1.85rem); }
+            .step-heading-text h2 { font-size: clamp(1.35rem, min(3.5vw, 4vh), 1.85rem); }
             .step-description { padding: 1rem; }
             .step-image, .image-credit { display: none; }
         }
@@ -247,9 +247,11 @@
     }
     </script>
     <script src="../js/modals.js" defer></script>
+    <script src="../js/a11y.js" defer></script>
 </head>
 
 <body class="route-body dark-mode">
+    <a class="skip-link" href="#main">Saltar al contenido</a>
 
     <nav class="navbar" id="navbar">
         <div class="container navbar-content">
@@ -266,10 +268,10 @@
                 <div class="nav-controls" id="nav-controls">
                     <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Participar</button>
                                         <div class="lang-switcher">
-                        <button type="button" class="selected-lang" aria-label="Español" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></button>
-                        <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../fr/route.html" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
-                            <li><a href="../en/route.html" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-es-7036"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-es-7036)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
+                        <button type="button" class="selected-lang" aria-label="Idioma: Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></button>
+                        <ul class="lang-dropdown">
+                            <li><a href="../fr/route.html" lang="fr" hreflang="fr" aria-label="Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></a></li>
+                            <li><a href="../en/route.html" lang="en" hreflang="en" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-es-7036"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-es-7036)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema"></button>
@@ -294,7 +296,8 @@
         </div>
     </div>
 
-    <div class="route-container">
+    <main class="route-container" id="main">
+        <h1 class="sr-only">Ruta París–Edimburgo 2027</h1>
         <div id="map"></div>
         
         <div class="story-container">
@@ -302,8 +305,8 @@
             <div class="step-content is-active step-content--intro" id="step-0">
                 <div class="step-heading">
                     <div class="step-heading-text">
-                        <h3>El recorrido 2027</h3>
-                        <h4>París → Edimburgo · Salida prevista el 14 de junio de 2027</h4>
+                        <h2>El recorrido 2027</h2>
+                        <h3>París → Edimburgo · Salida prevista el 14 de junio de 2027</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -318,8 +321,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">1</span>
                     <div class="step-heading-text">
-                        <h3>París → Rouen</h3>
-                        <h4>125 km</h4>
+                        <h2>París → Rouen</h2>
+                        <h3>125 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -333,8 +336,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">2</span>
                     <div class="step-heading-text">
-                        <h3>Rouen → Le Havre</h3>
-                        <h4>95 km</h4>
+                        <h2>Rouen → Le Havre</h2>
+                        <h3>95 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -348,8 +351,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">3</span>
                     <div class="step-heading-text">
-                        <h3>Le Havre → Portsmouth → Southampton</h3>
-                        <h4>Travesía marítima y luego unos 30 km en bici</h4>
+                        <h2>Le Havre → Portsmouth → Southampton</h2>
+                        <h3>Travesía marítima y luego unos 30 km en bici</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -363,8 +366,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">4</span>
                     <div class="step-heading-text">
-                        <h3>Southampton → Londres</h3>
-                        <h4>135 km</h4>
+                        <h2>Southampton → Londres</h2>
+                        <h3>135 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -378,8 +381,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">5</span>
                     <div class="step-heading-text">
-                        <h3>Día de descanso · Londres</h3>
-                        <h4>Recuperación y encuentros</h4>
+                        <h2>Día de descanso · Londres</h2>
+                        <h3>Recuperación y encuentros</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -393,8 +396,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">6</span>
                     <div class="step-heading-text">
-                        <h3>Londres → Oxford</h3>
-                        <h4>105 km</h4>
+                        <h2>Londres → Oxford</h2>
+                        <h3>105 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -408,8 +411,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">7</span>
                     <div class="step-heading-text">
-                        <h3>Oxford → Bath</h3>
-                        <h4>110 km</h4>
+                        <h2>Oxford → Bath</h2>
+                        <h3>110 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -423,8 +426,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">8</span>
                     <div class="step-heading-text">
-                        <h3>Bath → Cardiff</h3>
-                        <h4>100 km</h4>
+                        <h2>Bath → Cardiff</h2>
+                        <h3>100 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -438,8 +441,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">9</span>
                     <div class="step-heading-text">
-                        <h3>Cardiff → Birmingham</h3>
-                        <h4>170 km</h4>
+                        <h2>Cardiff → Birmingham</h2>
+                        <h3>170 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -453,8 +456,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">10</span>
                     <div class="step-heading-text">
-                        <h3>Día de descanso · Birmingham</h3>
-                        <h4>Recuperación y logística</h4>
+                        <h2>Día de descanso · Birmingham</h2>
+                        <h3>Recuperación y logística</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -468,8 +471,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">11</span>
                     <div class="step-heading-text">
-                        <h3>Birmingham → Manchester</h3>
-                        <h4>145 km</h4>
+                        <h2>Birmingham → Manchester</h2>
+                        <h3>145 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -483,8 +486,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">12</span>
                     <div class="step-heading-text">
-                        <h3>Manchester → York</h3>
-                        <h4>115 km</h4>
+                        <h2>Manchester → York</h2>
+                        <h3>115 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -498,8 +501,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">13</span>
                     <div class="step-heading-text">
-                        <h3>York → Newcastle</h3>
-                        <h4>155 km</h4>
+                        <h2>York → Newcastle</h2>
+                        <h3>155 km</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -513,8 +516,8 @@
                 <div class="step-heading">
                     <span class="step-number" aria-hidden="true">14</span>
                     <div class="step-heading-text">
-                        <h3>Newcastle → Edimburgo</h3>
-                        <h4>225 km · Etapa más larga</h4>
+                        <h2>Newcastle → Edimburgo</h2>
+                        <h3>225 km · Etapa más larga</h3>
                     </div>
                 </div>
                 <div class="step-description">
@@ -526,18 +529,20 @@
             </div>
 
             <nav class="route-step-nav" aria-label="Navegación de etapas">
-                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev" aria-label="Etapa anterior">
+                <button type="button" class="route-step-nav__btn route-step-nav__prev" id="route-step-prev">
+                    <span class="sr-only">Etapa anterior: </span>
                     <span class="route-step-nav__chevron" aria-hidden="true">←</span>
                     <span class="route-step-nav__label"></span>
                 </button>
-                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next" aria-label="Etapa siguiente">
+                <button type="button" class="route-step-nav__btn route-step-nav__next" id="route-step-next">
+                    <span class="sr-only">Etapa siguiente: </span>
                     <span class="route-step-nav__label"></span>
                     <span class="route-step-nav__chevron" aria-hidden="true">→</span>
                 </button>
             </nav>
 
         </div>
-    </div>
+    </main>
 
     <dialog class="modal modal--involve" id="involve-modal" aria-labelledby="involve-modal-title">
         <div class="modal-panel" tabindex="-1" autofocus>
@@ -779,7 +784,7 @@
                 if (index === 0) return stepLabelWords.start;
                 const num = el.querySelector('.step-number')?.textContent?.trim();
                 if (num) return `${stepLabelWords.day} ${num}`;
-                return el.querySelector('h3')?.textContent?.trim() || '';
+                return el.querySelector('h2')?.textContent?.trim() || '';
             };
             const prevBtn = document.getElementById('route-step-prev');
             const nextBtn = document.getElementById('route-step-next');

@@ -135,7 +135,7 @@
     <div class="code" aria-hidden="true">404</div>
     <h1 id="title">Page introuvable</h1>
     <p id="copy">Cette page n’existe pas ou a été déplacée. Redirection vers l’accueil dans un instant.</p>
-    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="bar-wrap">
+    <div class="progress" role="progressbar" aria-label="Redirection" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="bar-wrap">
       <div class="progress-bar" id="bar"></div>
     </div>
     <p class="meta"><span id="countdown-label">Retour dans</span> <strong id="secs">5</strong>&nbsp;s</p>
@@ -177,6 +177,7 @@
       document.getElementById('title').textContent = t.title;
       document.getElementById('copy').textContent = t.copy;
       document.getElementById('countdown-label').textContent = t.countdown;
+      document.getElementById('bar-wrap').setAttribute('aria-label', t.countdown);
       document.getElementById('home').textContent = t.home;
       document.getElementById('home').href = home;
       document.getElementById('cancel').textContent = t.cancel;

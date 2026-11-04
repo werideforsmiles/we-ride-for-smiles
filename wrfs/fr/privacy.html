@@ -453,8 +453,10 @@
 </style>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/modals.js" defer></script>
+    <script src="../js/a11y.js" defer></script>
 </head>
 <body class="dark-mode">
+    <a class="skip-link" href="#main">Aller au contenu</a>
 
     <nav class="navbar scrolled" id="navbar">
         <div class="container navbar-content">
@@ -471,10 +473,10 @@
                 <div class="nav-controls" id="nav-controls">
                     <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Rejoindre</button>
                                         <div class="lang-switcher">
-                        <button type="button" class="selected-lang" aria-label="Français" aria-haspopup="listbox"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></button>
-                        <ul class="lang-dropdown" role="listbox">
-                            <li><a href="../en/index.html" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-fr-2369"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-fr-2369)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
-                            <li><a href="../es/index.html" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
+                        <button type="button" class="selected-lang" aria-label="Langue : Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></button>
+                        <ul class="lang-dropdown">
+                            <li><a href="../en/index.html" lang="en" hreflang="en" aria-label="English"><svg class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="uk-fr-2369"><path d="M0,0v30h60V0z"/></clipPath><g clip-path="url(#uk-fr-2369)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg></a></li>
+                            <li><a href="../es/index.html" lang="es" hreflang="es" aria-label="Español"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#C60B1E"/><rect y="0.5" width="3" height="1" fill="#FFC400"/></svg></a></li>
                         </ul>
                     </div>
                     <button class="theme-switch" id="theme-toggle" aria-label="Changer de thème"></button>
@@ -499,7 +501,7 @@
         </div>
     </div>
 
-    <main>
+    <main id="main">
         <header class="section legal-header">
             <div class="container">
                 <h1>Politique de Confidentialité</h1>
@@ -609,9 +611,9 @@
             <div class="footer-bottom">
                 <span class="footer-links"><a href="privacy.html">Confidentialité</a> &middot; <a href="terms.html">Conditions</a></span>
                 <div class="footer-socials">
-                    <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+                    <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.strava.com/clubs/werideforsmiles" target="_blank" aria-label="Strava" rel="noopener"><i class="fab fa-strava"></i></a>
                 </div>
                 <p>&copy; <span id="copyright-year"></span> We Ride For Smiles</p>
             </div>

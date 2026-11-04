@@ -1,0 +1,10 @@
+# En-têtes de sécurité, appliqués par Netlify à toutes les pages.
+# À chaque nouveau service tiers, l'ajouter à la Content-Security-Policy ET à la politique de confidentialité.
+# unpkg.com et tiles.openfreemap.org : carte des pages parcours. images.unsplash.com : photos de route-potential.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://tiles.openfreemap.org; worker-src blob:; child-src blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin

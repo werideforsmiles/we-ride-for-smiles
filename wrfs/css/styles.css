@@ -476,6 +476,7 @@ html.light-mode .sponsor-logo img { filter: grayscale(100%) opacity(0.7); }
 body.modal-open { overflow: hidden; padding-right: var(--scrollbar-width, 0px); }
 body.modal-open .navbar { padding-right: var(--scrollbar-width, 0px); }
 
+.modal, .footer-newsletter-success { --modal-ease: cubic-bezier(0.16, 1, 0.3, 1); }
 .modal {
   --modal-ink: #141414;
   --modal-ink-soft: #52525B;
@@ -486,7 +487,6 @@ body.modal-open .navbar { padding-right: var(--scrollbar-width, 0px); }
   --modal-accent-ink: #A85B00;
   --modal-accent-tint: #FFF3DC;
   --modal-error: #C2281D;
-  --modal-ease: cubic-bezier(0.16, 1, 0.3, 1);
   position: fixed;
   inset: 0;
   width: 100%;
@@ -749,7 +749,7 @@ body.modal-open .navbar { padding-right: var(--scrollbar-width, 0px); }
 .modal-success { display: flex; flex: 1; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 24rem; padding: 2.5rem; outline: none; overflow-y: auto; animation: modal-success-in 0.5s var(--modal-ease); }
 .modal-success[hidden] { display: none; }
 .modal-smile { flex: none; width: 4.5rem; height: 4.5rem; margin-bottom: 1.25rem; animation: modal-check 0.5s var(--modal-ease); }
-.modal-smile-face { fill: var(--modal-accent); }
+.modal-smile-face { fill: var(--color-primary); }
 .modal-smile-eye { fill: #0A0A0A; }
 .modal-smile-mouth { fill: none; stroke: #0A0A0A; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: modal-draw 0.7s 0.2s var(--modal-ease) forwards; }
 .modal-success-text { margin-top: 0.625rem; font-size: 1rem; line-height: 1.55; color: var(--modal-ink-soft); text-wrap: pretty; }
@@ -810,6 +810,15 @@ body.modal-open .navbar { padding-right: var(--scrollbar-width, 0px); }
   .modal-success-actions .modal-cta, .modal-secondary { flex: 1 1 100%; }
 }
 
+/* Confirmation de la newsletter du pied de page (toujours sombre, dans les deux thèmes) */
+.footer-newsletter:has(.footer-newsletter-success:not([hidden])) .footer-newsletter-lead { display: none; }
+.footer-newsletter-success { display: flex; align-items: center; gap: 0.875rem; color: #FAFAFA; text-align: left; outline: none; animation: modal-success-in 0.5s var(--modal-ease); }
+.footer-newsletter-success[hidden] { display: none; }
+.footer-newsletter-success .modal-smile { width: 2.75rem; height: 2.75rem; margin: 0; }
+.footer-newsletter-success strong { display: block; font-size: 1rem; font-weight: 700; }
+.footer-newsletter-success p { margin-top: 0.15rem; font-size: 0.875rem; line-height: 1.4; color: #C8C8C8; text-wrap: pretty; }
+footer .modal-error { color: #FF9C8F; }
+
 @keyframes modal-fade-in { from { opacity: 0; } }
 @keyframes modal-fade-out { to { opacity: 0; } }
 @keyframes modal-in { from { opacity: 0; transform: translateY(18px) scale(0.975); } }
@@ -822,7 +831,7 @@ body.modal-open .navbar { padding-right: var(--scrollbar-width, 0px); }
 @keyframes modal-draw { to { stroke-dashoffset: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal::backdrop, .modal-panel, .modal-media img, .modal-success, .modal-smile,
+  .modal::backdrop, .modal-panel, .modal-media img, .modal-success, .modal-smile, .footer-newsletter-success,
   .modal.is-closing::backdrop, .modal.is-closing .modal-panel,
   .modal-option input:checked, .modal-consent input:checked { animation: none; }
   .modal-smile-mouth { animation: none; stroke-dashoffset: 0; }

@@ -187,20 +187,46 @@
     };
 
     /* --- Envoi --- */
-    const showSuccess = (form) => {
-        const success = form.parentElement.querySelector('.modal-success');
-        const title = success.querySelector('[data-modal-thanks]');
-        const firstname = form.elements.firstname?.value.trim();
-        if (title && firstname) title.textContent = t.thanks(firstname);
+    const sendForm = async (form, { button, loadingClass, onSent, onOffline }) => {
+        markNewsletterSeen();
+        button.disabled = true;
+        button.classList.add(loadingClass);
+
+        let failed = false;
+        try {
+            // Même adresse et même encodage que le POST natif, que Netlify traite déjà.
+            const response = await fetch(location.pathname, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(form)).toString(),
+            });
+            failed = !response.ok;
+        } catch (error) {
+            failed = true;
+        }
+
+        // En ligne, le POST natif garde une chance de transmettre le contact.
+        if (failed && navigator.onLine !== false) {
+            form.submit();
+            return;
+        }
+
+        button.disabled = false;
+        button.classList.remove(loadingClass);
+        if (failed) onOffline();
+        else onSent();
+    };
+
+    const showSuccess = (form, success) => {
         form.hidden = true;
         success.hidden = false;
         success.focus({ preventScroll: true });
-        markNewsletterSeen();
     };
 
     document.querySelectorAll('dialog.modal form').forEach((form) => {
         const button = form.querySelector('.modal-cta');
         const actions = form.querySelector('.modal-actions');
+        const success = form.parentElement.querySelector('.modal-success');
         // La validation native reste active si ce script ne se charge pas.
         form.noValidate = true;
 
@@ -216,7 +242,7 @@
         const options = form.querySelector('.modal-options');
         options?.addEventListener('change', () => clearError(options));
 
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (button.disabled) return;
 
@@ -230,27 +256,17 @@
                 return;
             }
 
-            button.disabled = true;
-            button.classList.add('is-loading');
-            try {
-                // Même adresse et même encodage que le POST natif, que Netlify traite déjà.
-                const response = await fetch(location.pathname, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(new FormData(form)).toString(),
-                });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                showSuccess(form);
-            } catch (error) {
-                if (navigator.onLine === false) {
-                    showError({ host: actions, message: t.offline });
-                } else {
-                    form.submit();
-                    return;
-                }
-            }
-            button.disabled = false;
-            button.classList.remove('is-loading');
+            sendForm(form, {
+                button,
+                loadingClass: 'is-loading',
+                onSent: () => {
+                    const title = success.querySelector('[data-modal-thanks]');
+                    const firstname = form.elements.firstname?.value.trim();
+                    if (title && firstname) title.textContent = t.thanks(firstname);
+                    showSuccess(form, success);
+                },
+                onOffline: () => showError({ host: actions, message: t.offline }),
+            });
         });
     });
 
@@ -270,22 +286,28 @@
         });
     });
 
-    /* --- Formulaires hors modal (pied de page) : POST classique, retour possible --- */
+    /* --- Newsletter du pied de page : quand « submit » arrive, la validation native est déjà passée --- */
     document.querySelectorAll('form[name]').forEach((form) => {
         if (form.closest('dialog.modal')) return;
-        form.addEventListener('submit', () => {
-            markNewsletterSeen();
-            const button = form.querySelector('.form-submit-btn');
-            if (button) {
-                button.classList.add('loading');
-                button.disabled = true;
-            }
+        const button = form.querySelector('.form-submit-btn');
+        const success = form.parentElement.querySelector('.footer-newsletter-success');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (button.disabled) return;
+            errorIn(form)?.remove();
+            sendForm(form, {
+                button,
+                loadingClass: 'loading',
+                onSent: () => showSuccess(form, success),
+                onOffline: () => showError({ host: form, message: t.offline }),
+            });
         });
     });
-    // Après un retour arrière, le navigateur restaure la page telle quelle : le bouton ne doit pas rester en chargement.
+
+    // Après un POST natif puis un retour arrière, le navigateur restaure la page telle quelle : le bouton doit redevenir utilisable.
     window.addEventListener('pageshow', () => {
-        document.querySelectorAll('.form-submit-btn.loading').forEach((button) => {
-            button.classList.remove('loading');
+        document.querySelectorAll('.form-submit-btn.loading, .modal-cta.is-loading').forEach((button) => {
+            button.classList.remove('loading', 'is-loading');
             button.disabled = false;
         });
     });

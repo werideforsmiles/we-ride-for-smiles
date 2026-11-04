@@ -19,6 +19,7 @@ const request = async (path, options = {}) => {
         ...options,
         headers: { Authorization: `Bearer ${TOKEN}` },
     });
+    if (response.status === 401) throw new Error('Jeton Netlify refusé ou expiré : renouveler le secret NETLIFY_AUTH_TOKEN.');
     if (!response.ok) throw new Error(`${options.method || 'GET'} ${path.split('?')[0]} : HTTP ${response.status}`);
     return response.status === 204 ? null : response.json();
 };

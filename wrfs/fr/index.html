@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Avant le premier rendu : thème enregistré, et intro une seule fois par session (rejouée au rechargement).
+        (function () {
+            var root = document.documentElement;
+            try {
+                root.className = (localStorage.getItem('theme') || 'dark') + '-mode';
+                var nav = performance.getEntriesByType('navigation')[0];
+                var isNewVisit = !sessionStorage.getItem('wrfs-intro-seen') || (nav && nav.type === 'reload');
+                if (isNewVisit && !location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    root.dataset.intro = 'playing';
+                    sessionStorage.setItem('wrfs-intro-seen', '1');
+                    // Filet de sécurité si js/intro.js ne se charge pas : la page ne reste jamais masquée.
+                    setTimeout(function () { delete root.dataset.intro; }, 6000);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>We Ride For Smiles | Défi cycliste Paris–Édimbourg 2027</title>
     <meta name="description" content="Cible : le 14 juin 2027. Rejoignez un parcours caritatif d’environ 1 510 km de Paris à Édimbourg pour les enfants malades. Découvrez le tracé et les concepts alternatifs sur le site.">
-    <link rel="canonical" href="https://www.werideforsmiles.org/fr/" />
+    <link rel="canonical" href="https://werideforsmiles.org/fr/" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
@@ -18,8 +35,8 @@
 
     <meta property="og:title" content="We Ride For Smiles | Défi cycliste Paris–Édimbourg 2027" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/fr/" />
-    <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
+    <meta property="og:url" content="https://werideforsmiles.org/fr/" />
+    <meta property="og:image" content="https://werideforsmiles.org/assets/hero-background.webp" />
     <meta property="og:description" content="Environ 1 510 km de Paris à Édimbourg (cible 14 juin 2027) pour les enfants malades. Chaque coup de pédale compte." />
     <meta property="og:site_name" content="We Ride For Smiles" />
     <meta property="og:locale" content="fr_FR" />
@@ -27,13 +44,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="We Ride For Smiles | Défi cycliste Paris–Édimbourg 2027">
     <meta name="twitter:description" content="Environ 1 510 km de Paris à Édimbourg (cible 14 juin 2027) pour les enfants malades. Chaque coup de pédale compte.">
-    <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
+    <meta name="twitter:image" content="https://werideforsmiles.org/assets/hero-background.webp">
 
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
-    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/" />
-    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/" />
-    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/fr/" />
+    <link rel="alternate" hreflang="fr" href="https://werideforsmiles.org/fr/" />
+    <link rel="alternate" hreflang="en" href="https://werideforsmiles.org/en/" />
+    <link rel="alternate" hreflang="es" href="https://werideforsmiles.org/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://werideforsmiles.org/fr/" />
 
     <link rel="stylesheet" href="../css/fa-min.css">
 
@@ -151,12 +168,10 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--color-background); color: var(--color-text-primary); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background-color 0.4s ease, color 0.4s ease; }
         body.mobile-nav-open { overflow: hidden; }
-        body.modal-open { overflow: hidden; }
         .container { max-width: var(--container-width); margin: 0 auto; padding: 0 1.5rem; }
         h1, h2, h3 { text-wrap: balance; }
-        .section h2, .mission-lead, .mission-title, .modal-content h3,
-        .modal-intro, .hero-content .lead { text-wrap: balance; }
-        .modal-intro, .hero-content .lead, p.lead { text-wrap: balance; }
+        .section h2, .mission-lead, .mission-title, .hero-content .lead { text-wrap: balance; }
+        .hero-content .lead, p.lead { text-wrap: balance; }
         p, .lead { text-wrap: balance; }
         a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--color-primary-dark); }
@@ -164,16 +179,6 @@
         .fa, .fas, .fab, .fa-solid { font-style: normal; }
 
         /* --- 2. LAYOUT & ANIMATIONS --- */
-        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-background); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease 0.2s, visibility 0.5s ease 0.2s; }
-        .preloader.fade-out { opacity: 0; visibility: hidden; }
-        .preloader-logo-container { font-family: var(--font-sans); font-weight: 900; font-size: clamp(1.5rem, 8vw, 4rem); color: var(--color-primary); display: flex; flex-wrap: wrap; justify-content: center; white-space: nowrap; transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
-        .preloader .word { display: inline-flex; margin: 0 0.25em; transition: margin 1s cubic-bezier(0.86, 0, 0.07, 1); }
-        .preloader .char { display: inline-block; overflow: hidden; }
-        .preloader .lower { transition: max-width 1s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.5s ease; max-width: 2em; opacity: 1; }
-        .preloader.start-animation .lower { max-width: 0; opacity: 0; }
-        .preloader.start-animation .word { margin: 0; }
-        .preloader.start-animation .preloader-logo-container { transform: scale(1.1); }
-        .preloader.disappear-up .preloader-logo-container { transform: translateY(-50px) scale(1.1); opacity: 0; }
         .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .fade-in-up.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
@@ -536,43 +541,6 @@
             color: var(--color-primary);
             font-weight: 500;
         }
-        .team-modal-content { padding: 0 !important; max-width: 800px; }
-        .team-modal-grid { display: grid; grid-template-columns: 1fr; }
-        .team-modal-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        .team-modal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-        }
-        .team-modal-details { padding: 2.5rem; }
-        .team-modal-details h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0 0 0.25rem 0;
-        }
-        .team-modal-role {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-        }
-        .team-modal-details p { color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1rem; }
-        .team-modal-socials { margin-top: 2rem; display: flex; gap: 1.5rem; }
-        .team-modal-socials a {
-            color: var(--color-text-secondary);
-            font-size: 1.8rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            position: relative;
-        }
-        .team-modal-socials a:hover { color: var(--color-primary); transform: translateY(-3px); }
         /* --- Styles pour la carte "Rejoindre l'équipe" --- */
         .team-member--join {
             background-color: transparent;
@@ -615,58 +583,12 @@
         }
 
         /* Style de la bulle du tooltip (::after) */
-        .team-modal-socials a::after {
-            content: attr(aria-label); /* Récupère le texte de l'aria-label ! */
-            position: absolute;
-            bottom: 150%; /* Positionne le tooltip au-dessus de l'icône */
-            left: 50%;
-            transform: translateX(-50%);
-
-            /* Apparence */
-            background-color: var(--color-surface);
-            color: var(--color-text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            white-space: nowrap; /* Empêche le texte de passer à la ligne */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-            /* État initial (caché) */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
 
         /* Style de la petite flèche du tooltip (::before) */
-        .team-modal-socials a::before {
-            content: '';
-            position: absolute;
-            bottom: 150%;
-            left: 50%;
-            transform: translateX(-50%) translateY(16px); /* Décale la flèche sous la bulle */
-
-            /* Création du triangle avec les bordures */
-            border: 8px solid transparent;
-            border-top-color: var(--color-surface);
-
-            /* État initial (caché) */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
 
         /* --- Comportement au survol --- */
 
         /* Uniquement pour les appareils qui peuvent survoler (pas les mobiles) */
-        @media (hover: hover) and (min-width: 768px) {
-            .team-modal-socials a:hover::before,
-            .team-modal-socials a:hover::after {
-                opacity: 1;
-                visibility: visible;
-                bottom: 140%; /* Effet de "pop" vers le haut */
-            }
-        }
 
         /* --- 9. FAQ --- */
         .faq-container { max-width: 800px; margin: 4rem auto 0 auto; }
@@ -679,220 +601,8 @@
         .faq-answer-content { padding: 1.75rem; color: var(--color-text-secondary); line-height: 1.6; }
         .faq-answer-content p { margin-bottom: 0; }
         
-        /* --- 10. MODALE (shadcn-inspired) --- */
-        .modal-overlay {
-          position: fixed; inset: 0;
-          background: rgba(0,0,0,0.65);
-          backdrop-filter: blur(6px);
-          -webkit-backdrop-filter: blur(6px);
-          z-index: 2000;
-          display: flex; justify-content: center; align-items: center;
-          padding: 1rem;
-          opacity: 0; visibility: hidden;
-          transition: opacity 0.2s ease, visibility 0.2s;
-        }
-        .modal-overlay.is-active { opacity: 1; visibility: visible; }
-        .modal-content {
-          background: var(--color-surface);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-panel);
-          padding: 2.5rem 2.25rem;
-          width: 100%;
-          max-width: 48rem;
-          position: relative;
-          transform: translateY(12px) scale(0.98);
-          transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-          box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-        }
-        #involve-modal .modal-content { max-width: 48rem; max-height: min(90vh, 880px); overflow-y: auto; padding: 2.5rem 2.25rem; }
-        .team-modal-content { max-width: 800px !important; max-height: 90vh; overflow-y: auto; }
-        #involve-modal .modal-content::-webkit-scrollbar,
-        .team-modal-content::-webkit-scrollbar { width: 6px; }
-        #involve-modal .modal-content::-webkit-scrollbar-track,
-        .team-modal-content::-webkit-scrollbar-track { background: transparent; }
-        #involve-modal .modal-content::-webkit-scrollbar-thumb,
-        .team-modal-content::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 999px; }
-        #involve-modal .modal-content::-webkit-scrollbar-thumb:hover,
-        .team-modal-content::-webkit-scrollbar-thumb:hover { background-color: var(--color-primary); }
-        .modal-overlay.is-active .modal-content { transform: translateY(0) scale(1); }
-        .modal-close {
-          position: absolute; top: 0.75rem; right: 0.75rem;
-          width: 2.25rem; height: 2.25rem;
-          display: inline-flex; align-items: center; justify-content: center;
-          background: transparent;
-          border: 1px solid transparent;
-          border-radius: var(--radius-control);
-          color: var(--color-text-secondary);
-          font-size: 1.35rem; line-height: 1;
-          cursor: pointer; z-index: 10;
-          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
-        }
-        .modal-close:hover {
-          color: var(--color-text-primary);
-          background: rgba(128,128,128,0.12);
-          border-color: var(--color-border);
-        }
-        .modal-header { text-align: center; margin-bottom: 1.5rem; }
-        .icon-header { display: none; }
-        .modal-header { text-wrap: balance; }
-        .modal-content h3 {
-          font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-          font-weight: 700;
-          letter-spacing: -0.02em;
-          margin-bottom: 0.4rem;
-          line-height: 1.3;
-          text-wrap: balance;
-        }
-        .modal-intro {
-          color: var(--color-text-secondary);
-          max-width: 28rem;
-          margin: 0 auto;
-          font-size: 0.925rem;
-          line-height: 1.55;
-          text-wrap: balance;
-        }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label {
-          display: block;
-          font-weight: 500;
-          margin-bottom: 0.4rem;
-          font-size: 0.875rem;
-          color: var(--color-text-primary);
-        }
-        .form-group input[type="text"],
-        .form-group input[type="email"] {
-          width: 100%;
-          height: var(--control-h);
-          padding: 0 1.15rem;
-          background: var(--color-background);
-          border: 1px solid var(--color-border);
-          color: var(--color-text-primary);
-          border-radius: 0.75rem;
-          font-size: 0.95rem;
-          font-family: inherit;
-          transition: border-color 0.15s ease, box-shadow 0.15s ease;
-        }
-        .form-group input:focus {
-          outline: none;
-          border-color: var(--color-primary);
-          box-shadow: var(--focus-ring);
-        }
-        .form-group input::placeholder { color: var(--color-text-secondary); opacity: 0.65; }
-        .form-row { display: flex; flex-direction: column; gap: 1rem; }
-        @media (min-width: 576px) {
-            .form-row { flex-direction: row; }
-            .form-row .form-group { flex: 1; margin-bottom: 0; }
-        }
-
-
-        .involvement-options {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          margin-top: 0.65rem;
-        }
-        @media (min-width: 640px) {
-          .involvement-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            align-items: stretch;
-          }
-        }
-
-        .option-card { position: relative; height: 100%; display: flex; }
-        .option-card .option-label { flex: 1; width: 100%; height: 100%; box-sizing: border-box; }
-        .option-card input[type="checkbox"] {
-          position: absolute; opacity: 0;
-          inset: 0; width: 100%; height: 100%;
-          cursor: pointer; z-index: 2; margin: 0;
-        }
-        .option-label {
-          display: grid !important;
-          grid-template-columns: 2.35rem minmax(0, 1fr);
-          grid-template-rows: auto;
-          column-gap: 0.85rem;
-          align-items: center;
-          text-align: left;
-          padding: 0.85rem 2.75rem 0.85rem 1rem;
-          border: 1px solid var(--color-border);
-          border-radius: 0.75rem;
-          transition: border-color 0.15s ease, background-color 0.15s ease;
-          cursor: pointer;
-          background: transparent;
-          position: relative;
-        }
-        .option-label > i {
-          grid-column: 1;
-          grid-row: 1;
-          display: inline-flex !important;
-          align-items: center;
-          justify-content: center;
-          width: 2.35rem;
-          height: 2.35rem;
-          margin: 0;
-          font-size: 1rem;
-          line-height: 1;
-          color: var(--color-primary);
-          background: rgba(255, 165, 0, 0.12) !important;
-          border-radius: 999px;
-        }
-        .option-label-text {
-          grid-column: 2;
-          grid-row: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 0.15rem;
-          min-width: 0;
-        }
-        .option-label-text strong {
-          font-size: 0.925rem;
-          font-weight: 600;
-          color: var(--color-text-primary);
-          letter-spacing: -0.01em;
-        }
-        .option-label-text .option-desc {
-          font-size: 0.8rem;
-          color: var(--color-text-secondary);
-          line-height: 1.4;
-        }
+        
         /* Checkmark indicator — absolute so it never collapses into a bar */
-        .option-label::after {
-          content: '';
-          position: absolute;
-          right: 1rem;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 1.125rem;
-          height: 1.125rem;
-          min-width: 1.125rem;
-          min-height: 1.125rem;
-          border-radius: 0.3rem;
-          border: 1.5px solid var(--color-border);
-          background: var(--color-background);
-          box-sizing: border-box;
-          pointer-events: none;
-          transition: border-color 0.15s ease, background-color 0.15s ease;
-        }
-        .option-card:hover .option-label {
-          border-color: rgba(255,165,0,0.5);
-          background: rgba(255,165,0,0.04);
-        }
-        .option-card input:checked + .option-label {
-          border-color: var(--color-primary);
-          background-color: rgba(255, 165, 0, 0.08);
-        }
-        .option-card input:checked + .option-label i {
-          color: var(--color-primary);
-        }
-        .option-card input:checked + .option-label::after {
-          border-color: var(--color-primary);
-          background-color: var(--color-primary);
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 4.5' stroke='%230A0A0A' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-          background-size: 0.7rem 0.7rem;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
 .custom-checkbox-container {
           display: flex;
           justify-content: flex-start;
@@ -1025,76 +735,6 @@
           justify-content: center;
         }
         .input-group button:hover { transform: none; }
-
-
-        #newsletter-modal .modal-intro,
-        #newsletter-modal .modal-content h3 {
-          text-wrap: pretty;
-        }
-        #newsletter-modal .input-group {
-          flex-direction: column;
-          gap: 0.75rem;
-          border: none;
-          background: transparent;
-          padding: 0;
-          box-shadow: none;
-        }
-        #newsletter-modal .input-group:focus-within {
-          border: none;
-          box-shadow: none;
-        }
-        #newsletter-modal .input-group input {
-          width: 100%;
-          height: var(--control-h);
-          min-height: var(--control-h);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-control);
-          background: var(--color-background);
-          padding: 0 1.15rem;
-        }
-        #newsletter-modal .input-group input:focus {
-          border-color: var(--color-primary);
-          box-shadow: var(--focus-ring);
-        }
-        #newsletter-modal .input-group button {
-          width: 100%;
-          height: var(--control-h) !important;
-          min-height: var(--control-h) !important;
-        }
-        @media (min-width: 576px) {
-          #newsletter-modal .input-group {
-            flex-direction: row;
-            align-items: stretch;
-            gap: 0.3rem;
-            border: 1px solid var(--color-border);
-            background: var(--color-background);
-            padding: 0.3rem;
-            border-radius: var(--radius-control);
-          }
-          #newsletter-modal .input-group:focus-within {
-            border-color: var(--color-primary);
-            box-shadow: var(--focus-ring);
-          }
-          #newsletter-modal .input-group input {
-            width: auto;
-            flex: 1;
-            border: none;
-            background: transparent;
-            height: auto;
-            min-height: 2.5rem;
-            box-shadow: none;
-          }
-          #newsletter-modal .input-group input:focus {
-            box-shadow: none;
-          }
-          #newsletter-modal .input-group button {
-            width: auto;
-            flex-shrink: 0;
-            height: auto !important;
-            min-height: 2.5rem !important;
-            align-self: stretch;
-          }
-        }
 
 
         .footer-newsletter h4 {
@@ -1344,52 +984,15 @@
         @media (min-width: 768px) { 
             .stats-grid { grid-template-columns: repeat(4, 1fr); } 
             .charity-grid { grid-template-columns: 1fr 1fr; }
-            .team-modal-grid { grid-template-columns: 280px 1fr; text-align: left; }
-            .team-modal-image {
-                height: auto;
-                border-top-left-radius: 12px;
-                border-bottom-left-radius: 12px;
-                border-top-right-radius: 0;
-            }
-            .team-modal-content {
-                max-height: 90vh; 
-                overflow: hidden;
-            }
-            .team-modal-details {
-                max-height: 90vh;
-                overflow-y: auto;
-            }
         }
 
-        @media (max-width: 767px) { 
-            .modal-content { padding: 2rem 1.5rem; }
-            #involve-modal .modal-content { padding: 2rem 1.5rem; }
+        @media (max-width: 767px) {
             .footer-grid { grid-template-columns: 1fr; text-align: center; } 
             .footer-about p { margin: 0 auto; text-align: center; }
             .footer-bottom { justify-content: center; flex-direction: column; gap: 1.5rem; text-align: center; }
             .footer-copyright { display: flex; flex-direction: column; gap: 0.75rem; }
             .footer-socials a { margin: 0 0.75rem; }
             .value-next-btn { bottom: 1.5rem; padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-        }
-        @media (max-width: 575px) {
-            #newsletter-modal .input-group {
-                flex-direction: column !important;
-                gap: 0.75rem;
-                border: none !important;
-                background: transparent !important;
-                padding: 0 !important;
-                box-shadow: none !important;
-            }
-            #newsletter-modal .input-group input,
-            #newsletter-modal .input-group button {
-                width: 100% !important;
-                border-radius: var(--radius-control) !important;
-            }
-            #newsletter-modal .input-group input {
-                border: 1px solid var(--color-border) !important;
-                padding: 0 1.15rem;
-                height: var(--control-h);
-            }
         }
         @media (max-width: 480px) {
             .countdown-timer {
@@ -1505,8 +1108,6 @@
           footer .input-group button { width: 100% !important; }
         }
 
-        #newsletter-modal .custom-checkbox-container .checkbox-label { text-wrap: pretty; }
-
         .navbar-content { position: relative; }
         @media (min-width: 992px) {
           .nav-links-desktop {
@@ -1525,8 +1126,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "We Ride For Smiles",
-      "url": "https://www.werideforsmiles.org/fr/",
-      "logo": "https://www.werideforsmiles.org/assets/wrfs_favicon.webp",
+      "url": "https://werideforsmiles.org/fr/",
+      "logo": "https://werideforsmiles.org/assets/wrfs_favicon.webp",
       "description": "Un mouvement caritatif international qui utilise le pouvoir du vélo pour apporter de l'espoir aux enfants malades et à leurs familles.",
       "sameAs": [
         "https://www.instagram.com/werideforsmiles/",
@@ -1560,20 +1161,20 @@
       "organizer": {
         "@type": "Organization",
         "name": "We Ride For Smiles",
-        "url": "https://www.werideforsmiles.org/fr/"
+        "url": "https://werideforsmiles.org/fr/"
       },
       "performer": {
           "@type": "Person",
           "name": "Ben Morin",
-          "url": "https://www.werideforsmiles.org/fr/#team"
+          "url": "https://werideforsmiles.org/fr/#team"
       },
       "image": [
-        "https://www.werideforsmiles.org/assets/hero-background.webp",
-        "https://www.werideforsmiles.org/assets/ben-morin.webp"
+        "https://werideforsmiles.org/assets/hero-background.webp",
+        "https://werideforsmiles.org/assets/ben-morin.webp"
        ],
       "offers": {
         "@type": "Offer",
-        "url": "https://www.werideforsmiles.org/fr/#involve-modal",
+        "url": "https://werideforsmiles.org/fr/#involve-modal",
         "price": "0",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
@@ -1608,22 +1209,26 @@
           "name": "Y a-t-il un objectif de collecte de fonds pour les participants ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, la participation au défi cycliste est conditionnée par un engagement à collecter un montant minimum de fonds pour garantir un impact financier significatif pour les associations que nous soutenons. Les détails sont fournis lors de l'inscription."
+            "text": "Pour le défi cycliste, il n'y a ni montant minimum ni maximum de fonds à collecter. La collecte de fonds est un moyen essentiel de maximiser l'impact de notre projet pour les associations que nous soutenons, mais l'engagement est la seule condition requise. La force de l'événement est dans l'union de tous. Étant donné que le parcours se déroule sur des routes publiques, il est possible de se joindre au groupe pour une partie du trajet."
           }
         }
       ]
     }
     </script>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/intro.js" defer></script>
+    <script src="../js/modals.js" defer></script>
 </head>
 <body class="dark-mode">
-    <div class="preloader">
+    <div class="preloader" aria-hidden="true">
+        <div class="preloader-curtain"></div>
         <div class="preloader-logo-container">
             <span class="word w"><span class="char capital">W</span><span class="char lower">e</span></span>
             <span class="word r"><span class="char capital">R</span><span class="char lower">i</span><span class="char lower">d</span><span class="char lower">e</span></span>
             <span class="word f"><span class="char capital">F</span><span class="char lower">o</span><span class="char lower">r</span></span>
             <span class="word s"><span class="char capital">S</span><span class="char lower">m</span><span class="char lower">i</span><span class="char lower">l</span><span class="char lower">e</span><span class="char lower">s</span></span>
         </div>
+        <svg class="preloader-road"><path></path></svg>
     </div>
 
     <nav class="navbar" id="navbar">
@@ -1876,6 +1481,13 @@
                             <span class="checkbox-label">J'accepte de recevoir les nouvelles du projet. Désinscription à tout moment · <a href="privacy.html">Confidentialité</a></span>
                         </label>
                     </form>
+                    <div class="footer-newsletter-success" tabindex="-1" role="status" hidden>
+                        <svg class="modal-smile" viewBox="0 0 72 72" aria-hidden="true"><circle class="modal-smile-face" cx="36" cy="36" r="36"/><circle class="modal-smile-eye" cx="25" cy="29" r="3.5"/><circle class="modal-smile-eye" cx="47" cy="29" r="3.5"/><path class="modal-smile-mouth" pathLength="1" d="M21 42c3.5 7 9 10.5 15 10.5S47.5 49 51 42"/></svg>
+                        <div>
+                            <strong>C’est noté !</strong>
+                            <p>Vous recevrez les prochaines actualités du défi par email.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1890,172 +1502,243 @@
         </div>
     </footer>
 
-    <div class="modal-overlay" id="team-modal-ben">
-        <div class="modal-content team-modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="team-modal-grid">
-                <div class="team-modal-image">
-                    <img loading="lazy" src="../assets/ben-morin.webp" alt="Portrait de Ben Morin">
-                </div>
-                <div class="team-modal-details">
-                    <h3>Ben Morin</h3>
-                    <span class="team-modal-role">Fondateur de We Ride For Smiles</span>
-                    <p>Passionné de cyclisme, j'ai créé We Ride For Smiles avec l'envie de mettre cette passion au service d'une cause qui compte vraiment.</p>
-                    <p>Ce projet est né d'une conviction simple : un défi sportif peut rassembler, sensibiliser et apporter un soutien concret aux enfants malades et à leurs familles.</p>
-                    <p>Le parcours Paris–Édimbourg est une aventure personnelle, mais surtout un projet collectif. Mon objectif est de fédérer des cyclistes, des bénévoles, des partenaires et des donateurs autour d'une même mission : avancer ensemble pour ceux qui traversent l'épreuve de la maladie.</p>
-<div class="team-modal-socials">
-                        <a href="#" target="_blank" aria-label="Site internet"><i class="fa-solid fa-cloud"></i></a>
-                        <a href="https://www.youtube.com/benmorinbm" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/benmorinbm" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.strava.com/athletes/benmorin" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+    <dialog class="modal modal--team" id="team-modal-ben" aria-labelledby="team-modal-ben-title">
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="../assets/ben-morin.webp" alt="Portrait de Ben Morin" decoding="async" fetchpriority="low">
+            </div>
+            <div class="modal-main">
+                <div class="modal-scroll">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="team-modal-ben-title">Ben Morin</h2>
+                        <p class="modal-role">Fondateur de We Ride For Smiles</p>
                     </div>
+                    <div class="modal-bio">
+                            <p>Passionné de cyclisme, j’ai créé We Ride For Smiles avec l’envie de mettre cette passion au service d’une cause qui compte vraiment.</p>
+                            <p>Ce projet est né d’une conviction simple : un défi sportif peut rassembler, sensibiliser et apporter un soutien concret aux enfants malades et à leurs familles.</p>
+                            <p>Le parcours Paris–Édimbourg est une aventure personnelle, mais surtout un projet collectif. Mon objectif est de fédérer des cyclistes, des bénévoles, des partenaires et des donateurs autour d’une même mission : avancer ensemble pour ceux qui traversent l’épreuve de la maladie.</p>
+                    </div>
+                    <div class="modal-socials">
+                            <a href="https://bemorin.com" target="_blank" rel="noopener" aria-label="Site internet"><i class="fa-solid fa-cloud" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/benmorinbm" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/benmorinbm" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.strava.com/athletes/benmorin" target="_blank" rel="noopener" aria-label="Strava"><i class="fab fa-strava" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="modal-cta" data-modal-trigger="involve-modal">
+                        <span>Rejoindre l’aventure</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- Overlay team member
-    <div class="modal-overlay" id="team-modal-jane">
-        <div class="modal-content team-modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="team-modal-grid">
-                <div class="team-modal-image">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Portrait de Jane Doe">
-                </div>
-                <div class="team-modal-details">
-                    <h3>Jane Doe</h3>
-                    <span class="team-modal-role">Responsable Logistique</span>
-                    <p>Experte en organisation et passionnée par les défis humains, j'ai rejoint We Ride For Smiles pour m'assurer que chaque étape du parcours soit une réussite. Mon rôle est de veiller à ce que les cyclistes puissent se concentrer sur l'essentiel : rouler pour les enfants.</p>
-                    <div class="team-modal-socials">
-                        <a href="#" target="_blank" aria-label="Site internet"><i class="fa-solid fa-cloud"></i></a>
-                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <dialog class="modal modal--team" id="team-modal-jane" aria-labelledby="team-modal-jane-title">
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Portrait de Jane Doe" decoding="async" fetchpriority="low">
+            </div>
+            <div class="modal-main">
+                <div class="modal-scroll">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="team-modal-jane-title">Jane Doe</h2>
+                        <p class="modal-role">Responsable Logistique</p>
                     </div>
+                    <div class="modal-bio">
+                            <p>Experte en organisation et passionnée par les défis humains, j'ai rejoint We Ride For Smiles pour m'assurer que chaque étape du parcours soit une réussite. Mon rôle est de veiller à ce que les cyclistes puissent se concentrer sur l'essentiel : rouler pour les enfants.</p>
+                    </div>
+                    <div class="modal-socials">
+                            <a href="#" target="_blank" rel="noopener" aria-label="Site internet"><i class="fa-solid fa-cloud" aria-hidden="true"></i></a>
+                            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="modal-cta" data-modal-trigger="involve-modal">
+                        <span>Rejoindre l’aventure</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </dialog>
     -->
 
-    <div class="modal-overlay" id="involve-modal">
-        <div class="modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="modal-header">
-                <h3>Devenez un moteur de cette aventure !</h3>
-                <p class="modal-intro">Chaque aide, grande ou petite, sur le terrain ou à distance, est un coup de pédale de plus pour les enfants. Découvrez comment vous pouvez faire la différence.</p>
+    <dialog class="modal modal--involve" id="involve-modal" aria-labelledby="involve-modal-title">
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="../assets/edinburgh.webp" alt="" decoding="async" fetchpriority="low">
+                <div class="modal-media-caption">
+                    <p class="modal-countdown" data-modal-countdown hidden></p>
+                    <p class="modal-media-title">Paris–Édimbourg</p>
+                    <p class="modal-media-text">Environ 1 510 km à vélo pour les enfants malades et leurs familles.</p>
+                </div>
             </div>
-            <form name="get-involved-fr-improved" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="get-involved-fr-improved" />
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstname">Prénom</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Ex: Jean" required>
+            <div class="modal-main">
+                <form class="modal-form" name="get-involved-fr-improved" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="get-involved-fr-improved" />
+                    <div class="modal-scroll">
+                        <div class="modal-header">
+                            <p class="modal-countdown modal-countdown--inline" data-modal-countdown hidden></p>
+                            <h2 class="modal-title" id="involve-modal-title">Devenez un moteur de cette aventure !</h2>
+                            <p class="modal-intro">Chaque aide, grande ou petite, est un coup de pédale de plus pour les enfants.</p>
+                        </div>
+                        <fieldset class="modal-options">
+                            <legend class="modal-legend">Comment aimeriez-vous nous soutenir ? <small>Plusieurs choix possibles</small></legend>
+                            <div class="modal-option-grid">
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-bicycle" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Rouler avec nous</strong>
+                                            <small>Participer au défi.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Bénévole</strong>
+                                            <small>Aider sur le terrain.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Ambassadeur</strong>
+                                            <small>Faire connaître le projet.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_donation" value="donation" id="role-donation">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Faire un don</strong>
+                                            <small>Soutenir financièrement.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Aider à distance</strong>
+                                            <small>Communication, etc.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Devenir partenaire</strong>
+                                            <small>Associer votre entreprise.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
+                        <div class="modal-fields">
+                            <div class="modal-field">
+                                <label for="involve-firstname">Prénom</label>
+                                <input type="text" id="involve-firstname" name="firstname" placeholder="Ex : Jean" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" required>
+                            </div>
+                            <div class="modal-field">
+                                <label for="involve-email">Email</label>
+                                <input type="email" id="involve-email" name="email" placeholder="Ex : jean.dupont@email.com" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="send" required>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required>
+                    <div class="modal-actions">
+                        <button type="submit" class="modal-cta">
+                            <span>Je rejoins l’aventure</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            <span class="modal-cta-loader"></span>
+                        </button>
+                        <p class="modal-note">Sans engagement : on vous recontacte pour en parler. <a href="privacy.html" target="_blank" rel="noopener">Politique de confidentialité</a></p>
+                    </div>
+                </form>
+                <div class="modal-success" tabindex="-1" role="status" hidden>
+                    <svg class="modal-smile" viewBox="0 0 72 72" aria-hidden="true"><circle class="modal-smile-face" cx="36" cy="36" r="36"/><circle class="modal-smile-eye" cx="25" cy="29" r="3.5"/><circle class="modal-smile-eye" cx="47" cy="29" r="3.5"/><path class="modal-smile-mouth" pathLength="1" d="M21 42c3.5 7 9 10.5 15 10.5S47.5 49 51 42"/></svg>
+                    <h2 class="modal-title" data-modal-thanks>Merci !</h2>
+                    <p class="modal-success-text">Votre message est bien arrivé. On vous recontacte pour en parler. En attendant, l’un des plus beaux coups de pouce est d’en parler autour de vous.</p>
+                    <div class="modal-success-actions">
+                        <button type="button" class="modal-cta" data-modal-share>Partager le projet</button>
+                        <button type="button" class="modal-secondary" data-modal-close>Fermer</button>
                     </div>
                 </div>
-
-                <div class="form-group" style="margin-top: 1.25rem;">
-                    <label>Comment aimeriez-vous nous soutenir ?</label>
-                    <div class="involvement-options">
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
-                            <label for="role-ride" class="option-label">
-                                <i class="fa-solid fa-bicycle"></i>
-                                <span class="option-label-text">
-                                    <strong>Rouler avec nous</strong>
-                                    <span class="option-desc">Participer au défi.</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event">
-                            <label for="role-event" class="option-label">
-                                <i class="fa-solid fa-flag-checkered"></i>
-                                <span class="option-label-text">
-                                    <strong>Bénévole</strong>
-                                    <span class="option-desc">Aider sur le terrain.</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador">
-                            <label for="role-ambassador" class="option-label">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                <span class="option-label-text">
-                                    <strong>Ambassadeur</strong>
-                                    <span class="option-desc">Faire connaître le projet.</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_donation" value="donation" id="role-donation">
-                            <label for="role-donation" class="option-label">
-                                <i class="fa-solid fa-hand-holding-dollar"></i>
-                                <span class="option-label-text">
-                                    <strong>Faire un don</strong>
-                                    <span class="option-desc">Soutenir financièrement.</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote">
-                            <label for="role-remote" class="option-label">
-                                <i class="fa-solid fa-laptop"></i>
-                                <span class="option-label-text">
-                                    <strong>Aider à distance</strong>
-                                    <span class="option-desc">Communication, etc.</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="option-card">
-                            <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
-                            <label for="role-partner" class="option-label">
-                                <i class="fa-solid fa-handshake"></i>
-                                <span class="option-label-text">
-                                    <strong>Devenir partenaire</strong>
-                                    <span class="option-desc">Associer votre entreprise.</span>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;">
-                    <span class="btn-text">Je rejoins l'aventure</span>
-                    <span class="btn-loader"></span>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="newsletter-modal">
-        <div class="modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="modal-header">
-                <i class="fa-solid fa-envelope-open-text icon-header"></i>
-                <h3>Ne manquez rien de l'aventure !</h3>
-                <p class="modal-intro">Rejoignez notre communauté et recevez les actualités clés du défi, directement dans votre boîte mail.</p>
             </div>
-            <form name="newsletter-popup-fr-rgpd" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="newsletter-popup-fr-rgpd" />
-                <div class="input-group">
-                   <input type="email" name="email" placeholder="Votre meilleur email" required>
-                   <button type="submit" class="btn btn-primary form-submit-btn">
-                       <span class="btn-text">Je m'inscris</span>
-                       <span class="btn-loader"></span>
-                   </button>
-                </div>
-                <label class="custom-checkbox-container">
-                    <input type="checkbox" name="consent" id="consent-modal" required>
-                    <span class="checkbox-label">Je souhaite recevoir les actualités de We Ride For Smiles par e-mail. Je pourrai me désinscrire à tout moment. <a href="privacy.html" target="_blank">Politique de confidentialité</a></span>
-                </label>
-            </form>
         </div>
-    </div>
+    </dialog>
+
+    <dialog class="modal modal--newsletter" id="newsletter-modal" aria-labelledby="newsletter-modal-title" data-modal-auto>
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="../assets/edinburgh.webp" alt="" decoding="async" fetchpriority="low">
+                <div class="modal-media-caption">
+                    <p class="modal-countdown" data-modal-countdown hidden></p>
+                    <p class="modal-media-title">Paris–Édimbourg</p>
+                    <p class="modal-media-text">Environ 1 510 km à vélo pour les enfants malades et leurs familles.</p>
+                </div>
+            </div>
+            <div class="modal-main">
+                <form class="modal-form" name="newsletter-popup-fr-rgpd" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="newsletter-popup-fr-rgpd" />
+                    <div class="modal-scroll">
+                        <div class="modal-header">
+                            <p class="modal-countdown modal-countdown--inline" data-modal-countdown hidden></p>
+                            <h2 class="modal-title" id="newsletter-modal-title">Ne manquez rien de l’aventure !</h2>
+                            <p class="modal-intro">Rejoignez notre communauté et recevez les actualités clés du défi, directement dans votre boîte mail.</p>
+                        </div>
+                        <div class="modal-fields">
+                            <div class="modal-field">
+                                <label for="newsletter-email">Email</label>
+                                <input type="email" id="newsletter-email" name="email" placeholder="Votre meilleur email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="send" required>
+                            </div>
+                            <div class="modal-field">
+                                <label class="modal-consent">
+                                    <input type="checkbox" name="consent" id="newsletter-consent" required>
+                                    <span>Je souhaite recevoir les actualités de We Ride For Smiles par e-mail. Je pourrai me désinscrire à tout moment. <a href="privacy.html" target="_blank" rel="noopener">Politique de confidentialité</a></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="modal-cta">
+                            <span>Je m’inscris</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            <span class="modal-cta-loader"></span>
+                        </button>
+                    </div>
+                </form>
+                <div class="modal-success" tabindex="-1" role="status" hidden>
+                    <svg class="modal-smile" viewBox="0 0 72 72" aria-hidden="true"><circle class="modal-smile-face" cx="36" cy="36" r="36"/><circle class="modal-smile-eye" cx="25" cy="29" r="3.5"/><circle class="modal-smile-eye" cx="47" cy="29" r="3.5"/><path class="modal-smile-mouth" pathLength="1" d="M21 42c3.5 7 9 10.5 15 10.5S47.5 49 51 42"/></svg>
+                    <h2 class="modal-title">C’est noté !</h2>
+                    <p class="modal-success-text">Vous recevrez les prochaines actualités du défi par email. Envie d’aller plus loin ?</p>
+                    <div class="modal-success-actions">
+                        <button type="button" class="modal-cta" data-modal-trigger="involve-modal">Rejoindre l’aventure</button>
+                        <button type="button" class="modal-secondary" data-modal-close>Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
 
     <div class="charity-slider-widget">
         <h4>Associations soutenues</h4>
@@ -2078,14 +1761,6 @@
             document.querySelectorAll('[data-year]').forEach(el => { el.textContent = year; });
             const copyMeta = document.querySelector('meta[name="copyright"]');
             if (copyMeta) copyMeta.setAttribute('content', `© ${year} We Ride For Smiles. All rights reserved.`);
-            const preloader = document.querySelector('.preloader');
-            
-            window.addEventListener('load', () => {
-                setTimeout(() => preloader?.classList.add('start-animation'), 100);
-                setTimeout(() => preloader?.classList.add('disappear-up'), 1100);
-                setTimeout(() => preloader?.classList.add('fade-out'), 1500);
-            });
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
             }, { threshold: 0.1 });
@@ -2110,7 +1785,7 @@
             }
 
             const targetDate = new Date('June 14, 2027 09:00:00').getTime();
-            const timerInterval = setInterval(() => {
+            const updateCountdown = () => {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
                 const daysEl = document.getElementById('days');
@@ -2121,32 +1796,11 @@
                     document.getElementById('minutes').innerText = Math.floor((distance % 36e5) / 6e4).toString().padStart(2, '0');
                     document.getElementById('seconds').innerText = Math.floor((distance % 6e4) / 1000).toString().padStart(2, '0');
                 }
-            }, 1000);
-
-            const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
-            const modals = document.querySelectorAll('.modal-overlay');
-            const openModal = (modalId) => {
-                const modal = document.getElementById(modalId);
-                if (modal) { modal.classList.add('is-active'); body.classList.add('modal-open'); }
             };
-            const closeModal = (modal) => {
-                modal.classList.remove('is-active');
-                body.classList.remove('modal-open');
-            };
-            modalTriggers.forEach(trigger => trigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openModal(trigger.dataset.modalTrigger); }));
-            modals.forEach(modal => {
-                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
-                modal.querySelector('[data-modal-close]')?.addEventListener('click', () => closeModal(modal));
-            });
+            const timerInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
 
-            let newsletterModalShown = false;
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 2000 && !newsletterModalShown && !localStorage.getItem('newsletterModalSeen')) {
-                    openModal('newsletter-modal');
-                    newsletterModalShown = true;
-                    localStorage.setItem('newsletterModalSeen', 'true');
-                }
-            });
+
             const statsSection = document.querySelector('#stats');
             if(statsSection){
                 new IntersectionObserver((entries, obs) => {
@@ -2219,48 +1873,6 @@
                 });
             });
 
-            document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
-                const involvementBoxes = form.querySelectorAll('input[name^="involvement_"]');
-                if (involvementBoxes.length) {
-                    involvementBoxes.forEach(cb => cb.addEventListener('change', () => {
-                        if (Array.from(involvementBoxes).some(c => c.checked)) {
-                            form.querySelector('.involve-options-error')?.remove();
-                        }
-                    }));
-                }
-                form.addEventListener('submit', (e) => {
-                    if (involvementBoxes.length) {
-                        const anyChecked = Array.from(involvementBoxes).some(cb => cb.checked);
-                        if (!anyChecked) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            const lang = (document.documentElement.lang || 'fr').slice(0, 2);
-                            const msg = lang === 'en'
-                                ? 'Please select at least one way to contribute.'
-                                : lang === 'es'
-                                    ? 'Selecciona al menos una forma de contribuir.'
-                                    : 'Veuillez sélectionner au moins une façon de contribuer.';
-                            let err = form.querySelector('.involve-options-error');
-                            if (!err) {
-                                err = document.createElement('p');
-                                err.className = 'involve-options-error';
-                                err.setAttribute('role', 'alert');
-                                err.style.cssText = 'color:#e74c3c;font-size:0.9rem;margin:0.75rem 0 0;text-wrap:pretty;';
-                                const opts = form.querySelector('.involvement-options');
-                                if (opts) opts.insertAdjacentElement('afterend', err);
-                                else form.querySelector('.form-submit-btn')?.insertAdjacentElement('beforebegin', err);
-                            }
-                            err.textContent = msg;
-                            const submitBtn = form.querySelector('.form-submit-btn');
-                            if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
-                            return;
-                        }
-                        form.querySelector('.involve-options-error')?.remove();
-                    }
-                    const submitBtn = form.querySelector('.form-submit-btn');
-                    if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
-                });
-            });
 
             const themeToggle = document.getElementById('theme-toggle');
             const htmlEl = document.documentElement;

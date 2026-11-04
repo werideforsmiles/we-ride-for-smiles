@@ -7,15 +7,15 @@
     <title>Paris–Edinburgh 2027 Route — We Ride For Smiles</title>
     <meta name="description" content="Target edition: 14 June 2027. Explore the ~1,510 km charity cycling route from Paris to Edinburgh, stage by stage, on our interactive map.">
 
-    <link rel="canonical" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="canonical" href="https://werideforsmiles.org/en/route" />
 
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
     <meta property="og:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.werideforsmiles.org/en/route" />
-    <meta property="og:image" content="https://www.werideforsmiles.org/assets/hero-background.webp" />
+    <meta property="og:url" content="https://werideforsmiles.org/en/route" />
+    <meta property="og:image" content="https://werideforsmiles.org/assets/hero-background.webp" />
     <meta property="og:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families." />
     <meta property="og:site_name" content="We Ride For Smiles" />
     <meta property="og:locale" content="en_GB" />
@@ -23,20 +23,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Paris–Edinburgh 2027 Route — We Ride For Smiles">
     <meta name="twitter:description" content="Target edition 14 June 2027: Paris to Edinburgh, ~1,510 km for sick children and their families.">
-    <meta name="twitter:image" content="https://www.werideforsmiles.org/assets/hero-background.webp">
+    <meta name="twitter:image" content="https://werideforsmiles.org/assets/hero-background.webp">
 
-    <link rel="alternate" hreflang="fr" href="https://www.werideforsmiles.org/fr/route" />
-    <link rel="alternate" hreflang="en" href="https://www.werideforsmiles.org/en/route" />
-    <link rel="alternate" hreflang="es" href="https://www.werideforsmiles.org/es/route" />
-    <link rel="alternate" hreflang="x-default" href="https://www.werideforsmiles.org/en/route" />
+    <link rel="alternate" hreflang="fr" href="https://werideforsmiles.org/fr/route" />
+    <link rel="alternate" hreflang="en" href="https://werideforsmiles.org/en/route" />
+    <link rel="alternate" hreflang="es" href="https://werideforsmiles.org/es/route" />
+    <link rel="alternate" hreflang="x-default" href="https://werideforsmiles.org/en/route" />
     
     <link rel="icon" href="../assets/wrfs_favicon.webp" type="image/png">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>    
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" integrity="sha256-qx5w1Z7EBGW65+cDDaLzzPKBM/1QLmK9WY7vut/XpzI=" crossorigin="">
     <link rel="stylesheet" href="../css/fa-min.css">
     <link href="../css/styles.css" rel="stylesheet" />
     <style id="route-text-pretty">
 .route-edition-banner p, .step-description p, .story-container p, .story-container h3, .story-container h4 { text-wrap: pretty; }
-#newsletter-modal .custom-checkbox-container .checkbox-label { text-wrap: pretty; }
 .navbar-content { position: relative; }
 @media (min-width: 992px) {
   .nav-links-desktop {
@@ -231,9 +230,9 @@
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Paris–Edinburgh 2027 — We Ride For Smiles route",
-      "url": "https://www.werideforsmiles.org/en/route",
+      "url": "https://werideforsmiles.org/en/route",
       "description": "Interactive map of the target 2027 charity cycling route from Paris to Edinburgh.",
-      "isPartOf": { "@type": "WebSite", "name": "We Ride For Smiles", "url": "https://www.werideforsmiles.org/en/" }
+      "isPartOf": { "@type": "WebSite", "name": "We Ride For Smiles", "url": "https://werideforsmiles.org/en/" }
     }
     </script>
     <script type="application/ld+json">
@@ -241,12 +240,13 @@
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [{
-        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.werideforsmiles.org/en/"
+        "@type": "ListItem", "position": 1, "name": "Home", "item": "https://werideforsmiles.org/en/"
       },{
         "@type": "ListItem", "position": 2, "name": "The Route"
       }]
     }
     </script>
+    <script src="../js/modals.js" defer></script>
 </head>
 
 <body class="route-body dark-mode">
@@ -539,100 +539,180 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="involve-modal">
-        <div class="modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="modal-header">
-                <h3>Become a driving force of this adventure!</h3>
-                <p class="modal-intro">Every bit of help, big or small, on the ground or from a distance, is one more pedal stroke for the children. Find out how you can make a difference.</p>
+    <dialog class="modal modal--involve" id="involve-modal" aria-labelledby="involve-modal-title">
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="../assets/edinburgh.webp" alt="" decoding="async" fetchpriority="low">
+                <div class="modal-media-caption">
+                    <p class="modal-countdown" data-modal-countdown hidden></p>
+                    <p class="modal-media-title">Paris–Edinburgh</p>
+                    <p class="modal-media-text">Around 1,510 km by bike for sick children and their families.</p>
+                </div>
             </div>
-            <form name="get-involved-en-improved" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="get-involved-en-improved" />
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstname-involve">First Name</label>
-                        <input type="text" id="firstname-involve" name="firstname" placeholder="E.g., John" required>
+            <div class="modal-main">
+                <form class="modal-form" name="get-involved-en-improved" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="get-involved-en-improved" />
+                    <div class="modal-scroll">
+                        <div class="modal-header">
+                            <p class="modal-countdown modal-countdown--inline" data-modal-countdown hidden></p>
+                            <h2 class="modal-title" id="involve-modal-title">Become a driving force of this adventure!</h2>
+                            <p class="modal-intro">Every bit of help, big or small, is one more pedal stroke for the children.</p>
+                        </div>
+                        <fieldset class="modal-options">
+                            <legend class="modal-legend">How would you like to support us? <small>Choose as many as you like</small></legend>
+                            <div class="modal-option-grid">
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_ride" value="ride" id="role-ride">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-bicycle" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Ride with us</strong>
+                                            <small>Join the challenge.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Volunteer</strong>
+                                            <small>Help on the ground.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Ambassador</strong>
+                                            <small>Help spread the word.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_donation" value="donation" id="role-donation">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Make a Donation</strong>
+                                            <small>Provide financial support.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Help Remotely</strong>
+                                            <small>Communication, etc.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                                <label class="modal-option">
+                                    <input type="checkbox" name="involvement_partner" value="partner" id="role-partner">
+                                    <span class="modal-option-body">
+                                        <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                                        <span class="modal-option-text">
+                                            <strong>Become a Partner</strong>
+                                            <small>Associate your company.</small>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
+                        <div class="modal-fields">
+                            <div class="modal-field">
+                                <label for="involve-firstname">First Name</label>
+                                <input type="text" id="involve-firstname" name="firstname" placeholder="E.g., John" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" required>
+                            </div>
+                            <div class="modal-field">
+                                <label for="involve-email">Email</label>
+                                <input type="email" id="involve-email" name="email" placeholder="E.g., john.smith@email.com" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="send" required>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email-involve">Email</label>
-                        <input type="email" id="email-involve" name="email" placeholder="E.g., john.doe@email.com" required>
+                    <div class="modal-actions">
+                        <button type="submit" class="modal-cta">
+                            <span>I’m joining the adventure</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            <span class="modal-cta-loader"></span>
+                        </button>
+                        <p class="modal-note">No commitment: we’ll get back to you to talk it through. <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></p>
+                    </div>
+                </form>
+                <div class="modal-success" tabindex="-1" role="status" hidden>
+                    <svg class="modal-smile" viewBox="0 0 72 72" aria-hidden="true"><circle class="modal-smile-face" cx="36" cy="36" r="36"/><circle class="modal-smile-eye" cx="25" cy="29" r="3.5"/><circle class="modal-smile-eye" cx="47" cy="29" r="3.5"/><path class="modal-smile-mouth" pathLength="1" d="M21 42c3.5 7 9 10.5 15 10.5S47.5 49 51 42"/></svg>
+                    <h2 class="modal-title" data-modal-thanks>Thank you!</h2>
+                    <p class="modal-success-text">Your message has arrived. We’ll get back to you to talk it through. In the meantime, one of the best ways to help is to spread the word.</p>
+                    <div class="modal-success-actions">
+                        <button type="button" class="modal-cta" data-modal-share>Share the project</button>
+                        <button type="button" class="modal-secondary" data-modal-close>Close</button>
                     </div>
                 </div>
-                <div class="form-group" style="margin-top: 2.5rem;">
-                    <label>How would you like to support us?</label>
-                    <div class="involvement-options">
-                        <div class="option-card"><input type="checkbox" name="involvement_ride" value="ride" id="role-ride"><label for="role-ride" class="option-label">
-                            <i class="fa-solid fa-bicycle"></i>
-                            <span class="option-label-text">
-                                <strong>Ride with us</strong>
-                                <span class="option-desc">Participate in the challenge.</span>
-                            </span>
-                        </label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_event_volunteer" value="event_volunteer" id="role-event"><label for="role-event" class="option-label">
-                            <i class="fa-solid fa-flag-checkered"></i>
-                            <span class="option-label-text">
-                                <strong>Volunteer</strong>
-                                <span class="option-desc">Help on the ground.</span>
-                            </span>
-                        </label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_ambassador" value="ambassador" id="role-ambassador"><label for="role-ambassador" class="option-label">
-                            <i class="fa-solid fa-bullhorn"></i>
-                            <span class="option-label-text">
-                                <strong>Ambassador</strong>
-                                <span class="option-desc">Help spread the word.</span>
-                            </span>
-                        </label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_donation" value="donation" id="role-donation"><label for="role-donation" class="option-label">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
-                            <span class="option-label-text">
-                                <strong>Make a donation</strong>
-                                <span class="option-desc">Support financially.</span>
-                            </span>
-                        </label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_remote_volunteer" value="remote_volunteer" id="role-remote"><label for="role-remote" class="option-label">
-                            <i class="fa-solid fa-laptop"></i>
-                            <span class="option-label-text">
-                                <strong>Help remotely</strong>
-                                <span class="option-desc">Communication, etc.</span>
-                            </span>
-                        </label></div>
-                        <div class="option-card"><input type="checkbox" name="involvement_partner" value="partner" id="role-partner"><label for="role-partner" class="option-label">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span class="option-label-text">
-                                <strong>Become a partner</strong>
-                                <span class="option-desc">Associate your company.</span>
-                            </span>
-                        </label></div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary form-submit-btn" style="width: 100%; margin-top: 1rem;"><span class="btn-text">I'm joining the adventure</span><span class="btn-loader"></span></button>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="newsletter-modal">
-        <div class="modal-content">
-            <button class="modal-close" data-modal-close>&times;</button>
-            <div class="modal-header">
-                <i class="fa-solid fa-envelope-open-text icon-header"></i>
-                <h3>Don't miss any of the adventure!</h3>
-                <p class="modal-intro">Join our community and receive key updates on the challenge, directly in your inbox.</p>
             </div>
-            <form name="newsletter-popup-en-rgpd" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="newsletter-popup-en-rgpd" />
-                <div class="input-group">
-                   <input type="email" name="email" placeholder="Your best email" required>
-                   <button type="submit" class="btn btn-primary form-submit-btn"><span class="btn-text">I'm subscribing</span><span class="btn-loader"></span></button>
-                </div>
-                <label class="custom-checkbox-container">
-                    <input type="checkbox" name="consent" id="consent-modal" required>
-                    <span class="checkbox-label">I agree to receive news about the project. <a href="privacy.html" target="_blank">Privacy Policy</a></span>
-                </label>
-            </form>
         </div>
-    </div>
+    </dialog>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <dialog class="modal modal--newsletter" id="newsletter-modal" aria-labelledby="newsletter-modal-title">
+        <div class="modal-panel" tabindex="-1" autofocus>
+            <button class="modal-close" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            <div class="modal-media">
+                <img src="../assets/edinburgh.webp" alt="" decoding="async" fetchpriority="low">
+                <div class="modal-media-caption">
+                    <p class="modal-countdown" data-modal-countdown hidden></p>
+                    <p class="modal-media-title">Paris–Edinburgh</p>
+                    <p class="modal-media-text">Around 1,510 km by bike for sick children and their families.</p>
+                </div>
+            </div>
+            <div class="modal-main">
+                <form class="modal-form" name="newsletter-popup-en-rgpd" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="newsletter-popup-en-rgpd" />
+                    <div class="modal-scroll">
+                        <div class="modal-header">
+                            <p class="modal-countdown modal-countdown--inline" data-modal-countdown hidden></p>
+                            <h2 class="modal-title" id="newsletter-modal-title">Don’t miss any of the adventure!</h2>
+                            <p class="modal-intro">Join our community and receive key updates on the challenge, directly in your inbox.</p>
+                        </div>
+                        <div class="modal-fields">
+                            <div class="modal-field">
+                                <label for="newsletter-email">Email</label>
+                                <input type="email" id="newsletter-email" name="email" placeholder="Your best email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="send" required>
+                            </div>
+                            <div class="modal-field">
+                                <label class="modal-consent">
+                                    <input type="checkbox" name="consent" id="newsletter-consent" required>
+                                    <span>I want to receive We Ride For Smiles news by email. I can unsubscribe at any time. <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="modal-cta">
+                            <span>Sign me up</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            <span class="modal-cta-loader"></span>
+                        </button>
+                    </div>
+                </form>
+                <div class="modal-success" tabindex="-1" role="status" hidden>
+                    <svg class="modal-smile" viewBox="0 0 72 72" aria-hidden="true"><circle class="modal-smile-face" cx="36" cy="36" r="36"/><circle class="modal-smile-eye" cx="25" cy="29" r="3.5"/><circle class="modal-smile-eye" cx="47" cy="29" r="3.5"/><path class="modal-smile-mouth" pathLength="1" d="M21 42c3.5 7 9 10.5 15 10.5S47.5 49 51 42"/></svg>
+                    <h2 class="modal-title">You’re on the list!</h2>
+                    <p class="modal-success-text">You’ll receive the next challenge updates by email. Want to go further?</p>
+                    <div class="modal-success-actions">
+                        <button type="button" class="modal-cta" data-modal-trigger="involve-modal">Join the adventure</button>
+                        <button type="button" class="modal-secondary" data-modal-close>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" integrity="sha256-RamwepGJzlYFTGIKlHzPQeKR5YyV6bYVM7dAqqZe5cs=" crossorigin=""></script>
+    <script src="../js/route-map.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
@@ -653,91 +733,20 @@
                 });
             }
 
-            const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
-            const modals = document.querySelectorAll('.modal-overlay');
-            const openModal = (modalId) => {
-                const modal = document.getElementById(modalId);
-                if (modal) { modal.classList.add('is-active'); body.classList.add('modal-open'); }
-            };
-            const closeModal = (modal) => {
-                modal.classList.remove('is-active'); body.classList.remove('modal-open');
-            };
-            modalTriggers.forEach(trigger => trigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openModal(trigger.dataset.modalTrigger); }));
-            modals.forEach(modal => {
-                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal); });
-                modal.querySelector('[data-modal-close]')?.addEventListener('click', () => closeModal(modal));
-            });
 
-            document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
-                const involvementBoxes = form.querySelectorAll('input[name^="involvement_"]');
-                if (involvementBoxes.length) {
-                    involvementBoxes.forEach(cb => cb.addEventListener('change', () => {
-                        if (Array.from(involvementBoxes).some(c => c.checked)) {
-                            form.querySelector('.involve-options-error')?.remove();
-                        }
-                    }));
-                }
-                form.addEventListener('submit', (e) => {
-                    if (involvementBoxes.length) {
-                        const anyChecked = Array.from(involvementBoxes).some(cb => cb.checked);
-                        if (!anyChecked) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            const lang = (document.documentElement.lang || 'fr').slice(0, 2);
-                            const msg = lang === 'en'
-                                ? 'Please select at least one way to contribute.'
-                                : lang === 'es'
-                                    ? 'Selecciona al menos una forma de contribuir.'
-                                    : 'Veuillez sélectionner au moins une façon de contribuer.';
-                            let err = form.querySelector('.involve-options-error');
-                            if (!err) {
-                                err = document.createElement('p');
-                                err.className = 'involve-options-error';
-                                err.setAttribute('role', 'alert');
-                                err.style.cssText = 'color:#e74c3c;font-size:0.9rem;margin:0.75rem 0 0;text-wrap:pretty;';
-                                const opts = form.querySelector('.involvement-options');
-                                if (opts) opts.insertAdjacentElement('afterend', err);
-                                else form.querySelector('.form-submit-btn')?.insertAdjacentElement('beforebegin', err);
-                            }
-                            err.textContent = msg;
-                            const submitBtn = form.querySelector('.form-submit-btn');
-                            if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
-                            return;
-                        }
-                        form.querySelector('.involve-options-error')?.remove();
-                    }
-                    const submitBtn = form.querySelector('.form-submit-btn');
-                    if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
-                });
-            });
 
             const themeToggle = document.getElementById('theme-toggle');
             const htmlEl = document.documentElement;
             const sunIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
             const moonIconSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
             
-            const map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([53.2, -1.8], 6);
-            const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20
-            });
-            const lightTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 20
-            });
-            const applyMapTheme = () => {
-                if (htmlEl.classList.contains('light-mode')) {
-                    if (map.hasLayer(darkTiles)) map.removeLayer(darkTiles);
-                    if (!map.hasLayer(lightTiles)) lightTiles.addTo(map);
-                } else {
-                    if (map.hasLayer(lightTiles)) map.removeLayer(lightTiles);
-                    if (!map.hasLayer(darkTiles)) darkTiles.addTo(map);
-                }
-            };
+            const routeMap = createRouteMap('map', { center: [53.2, -1.8], zoom: 6, theme: localStorage.getItem('theme') || 'dark' });
 
             const setTheme = (theme) => {
                 htmlEl.className = theme + '-mode route-body';
                 localStorage.setItem('theme', theme);
                 if (themeToggle) themeToggle.innerHTML = theme === 'dark' ? sunIconSVG : moonIconSVG;
-                applyMapTheme();
+                routeMap.setTheme(theme);
             };
             setTheme(localStorage.getItem('theme') || 'dark');
             themeToggle?.addEventListener('click', () => setTheme(htmlEl.classList.contains('dark-mode') ? 'light' : 'dark'));
@@ -746,7 +755,7 @@
                 { id: 'step-0', coords: [48.8566, 2.3522], zoom: 11 },
                 { id: 'step-1', coords: [49.4431, 1.0993], zoom: 12 },
                 { id: 'step-2', coords: [49.4944, 0.1079], zoom: 12 },
-                { id: 'step-3', coords: [50.8198, -1.0880], zoom: 11 },
+                { id: 'step-3', via: [50.8198, -1.0880], coords: [50.9097, -1.4044], zoom: 10 },
                 { id: 'step-4', coords: [51.5074, -0.1278], zoom: 11 },
                 { id: 'step-5', coords: [51.5074, -0.1278], zoom: 12 },
                 { id: 'step-6', coords: [51.7520, -1.2577], zoom: 12 },
@@ -760,8 +769,8 @@
                 { id: 'step-14', coords: [55.9533, -3.1883], zoom: 11 },
             ];
 
-            const latlngs = stepsData.map(s => s.coords);
-            L.polyline(latlngs, { color: '#FFA500', weight: 4, opacity: 0.82 }).addTo(map);
+            // « via » : point de passage d'une étape qui n'en est pas la destination.
+            routeMap.setPath(stepsData.flatMap(s => (s.via ? [s.via, s.coords] : [s.coords])));
 
             const allElements = document.querySelectorAll('.step-content');
 
@@ -801,7 +810,7 @@
                         const elementId = entry.target.id;
                         const activeStepData = stepsData.find(s => s.id === elementId);
                         if (activeStepData) {
-                            map.flyTo(activeStepData.coords, activeStepData.zoom, { animate: true, duration: 1.5 });
+                            routeMap.flyTo(activeStepData.coords, activeStepData.zoom);
                         }
                         allElements.forEach(el => el.classList.toggle('is-active', el.id === elementId));
                         const idx = Array.from(allElements).findIndex(el => el.id === elementId);

@@ -13,6 +13,8 @@ const RETENTION_YEARS = 3;
 const PER_PAGE = 100;
 // L'API renvoie les réponses validées par défaut, et le spam avec state=spam.
 const LISTS = ['', '&state=spam'];
+// Le dépôt date de septembre 2025 : aucune réponse ne peut avoir 3 ans avant septembre 2028.
+const ACTIVATE_BY = new Date('2028-08-01T00:00:00Z');
 
 const request = async (path, options = {}) => {
     const response = await fetch(`${API}${path}`, {
@@ -36,6 +38,8 @@ const listSubmissions = async (formId, filter) => {
 const main = async () => {
     if (!TOKEN || !SITE_ID) {
         console.log('NETLIFY_AUTH_TOKEN ou NETLIFY_SITE_ID manquant : purge non activée, rien à faire.');
+        // Passé cette date, la tâche échoue : l'email d'échec de GitHub sert de rappel.
+        if (new Date() >= ACTIVATE_BY) throw new Error('Des réponses peuvent bientôt avoir 3 ans : ajouter les deux secrets pour activer la purge.');
         return;
     }
 

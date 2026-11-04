@@ -1,0 +1,44 @@
+# Applique la durée de conservation annoncée dans la politique de confidentialité :
+# supprime chaque mois les réponses « S'impliquer » de plus de 3 ans dans Netlify Forms.
+#
+# Inactif tant que ces deux secrets n'existent pas (Settings > Secrets and variables > Actions).
+# Aucune réponse ne peut avoir 3 ans avant septembre 2028 : à partir d'août 2028, la tâche échoue pour le rappeler.
+#   NETLIFY_AUTH_TOKEN : jeton créé dans Netlify, User settings > Applications > Personal access tokens.
+#                        S'il expire, la tâche échoue avec un message clair : le remplacer ici.
+#   NETLIFY_SITE_ID    : « Project ID » dans Netlify, Project configuration > General > Project details
+#
+# Pour contrôler sans rien supprimer : onglet Actions > Run workflow, avec « dry_run » coché.
+name: Purge old form submissions
+
+on:
+  schedule:
+    - cron: '0 4 1 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: List what would be deleted, without deleting it
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Delete expired submissions
+        run: node .github/scripts/purge-form-submissions.mjs
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          DRY_RUN: ${{ inputs.dry_run }}
+      # GitHub désactive les tâches planifiées d'un dépôt public après 60 jours sans activité.
+      - name: Keep the schedule enabled
+        if: always()
+        continue-on-error: true
+        run: gh api --method PUT "repos/${{ github.repository }}/actions/workflows/purge-form-submissions.yml/enable"
+        env:
+          GH_TOKEN: ${{ github.token }}

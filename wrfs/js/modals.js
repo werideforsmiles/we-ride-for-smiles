@@ -53,6 +53,9 @@
         try { localStorage.setItem(NEWSLETTER_SEEN, 'true'); } catch (e) { /* navigation privée */ }
     };
 
+    // Email déjà saisi : gardé en mémoire le temps de la page pour ne pas le redemander, jamais stocké.
+    let knownEmail = '';
+
     /* --- Ouverture et fermeture --- */
     const openDialogs = () => document.querySelectorAll('dialog.modal[open]');
 
@@ -77,6 +80,11 @@
         // Mesuré avant de masquer la barre de défilement, pour que la page ne saute pas.
         root.style.setProperty('--scrollbar-width', `${window.innerWidth - root.clientWidth}px`);
         body.classList.add('modal-open');
+
+        if (id === 'involve-modal' && knownEmail) {
+            const email = dialog.querySelector('input[type="email"]');
+            if (!email.value) email.value = knownEmail;
+        }
         dialog.showModal();
 
         if (id === 'newsletter-modal') {
@@ -213,8 +221,12 @@
 
         button.disabled = false;
         button.classList.remove(loadingClass);
-        if (failed) onOffline();
-        else onSent();
+        if (failed) {
+            onOffline();
+            return;
+        }
+        knownEmail = form.elements.email?.value.trim() || knownEmail;
+        onSent();
     };
 
     const showSuccess = (form, success) => {

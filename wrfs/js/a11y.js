@@ -20,6 +20,10 @@
         if (e.target.closest('.faq-question')) syncFaq();
     });
 
+    /* --- Sommaire des pages légales : replié sur mobile pour laisser place au texte, ouvert sur ordinateur --- */
+    const legalToc = document.querySelector('.legal-toc');
+    if (legalToc && matchMedia('(min-width: 992px)').matches) legalToc.open = true;
+
     /* --- Menu mobile --- */
     const toggle = document.getElementById('nav-toggle');
     const overlay = document.getElementById('nav-mobile-overlay');

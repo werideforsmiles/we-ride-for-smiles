@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - We Ride For Smiles</title>
-    <meta name="description" content="Politique de confidentialité de We Ride For Smiles, détaillant comment nous collectons, utilisons et protégeons vos données personnelles en conformité avec le RGPD, le CCPA et d'autres réglementations.">
+    <title>Politique de confidentialité - We Ride For Smiles</title>
+    <meta name="description" content="Quelles données We Ride For Smiles collecte, pourquoi, qui les reçoit et comment exercer vos droits. Sans cookies ni mesure d’audience.">
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
@@ -309,34 +309,6 @@
         }
 
         /* Styles spécifiques pour les pages légales */
-        .legal-header {
-            padding-top: 12rem;
-            padding-bottom: 2rem;
-            text-align: center;
-        }
-        .legal-content {
-            padding: 4rem 0 5rem 0;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .legal-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-        .legal-content p, .legal-content li {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            text-align: left;
-        }
-        .legal-content ul {
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-        }
-        .legal-content a {
-            text-decoration: underline;
-        }
     
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .footer-newsletter { max-width: none; width: 100%; }
@@ -464,14 +436,14 @@
             <div class="nav-links-desktop">
                     <a href="index.html#mission" class="nav-link">Mission</a>
                     <a href="route.html" class="nav-link">Parcours</a>
-                    <a href="index.html#causes" class="nav-link">Les Causes</a>
+                    <a href="index.html#causes" class="nav-link">Bénéficiaires</a>
                     <a href="index.html#faq" class="nav-link">FAQ</a>
             </div>
             <div class="nav-menu">
                 <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-                <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 1rem;">Rejoindre</button>
+                <button class="btn btn-primary btn-desktop-involved" data-modal-trigger="involve-modal" style="margin-left: 1rem;">S’impliquer</button>
                 <div class="nav-controls" id="nav-controls">
-                    <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">Rejoindre</button>
+                    <button class="btn btn-primary btn-mobile-involved" data-modal-trigger="involve-modal">S’impliquer</button>
                                         <div class="lang-switcher">
                         <button type="button" class="selected-lang" aria-label="Langue : Français"><svg class="lang-flag" viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></button>
                         <ul class="lang-dropdown">
@@ -494,87 +466,160 @@
         <div class="nav-mobile-links">
             <a href="index.html#mission" class="nav-link">Mission</a>
             <a href="route.html" class="nav-link">Parcours</a>
-            <a href="index.html#causes" class="nav-link">Les Causes</a>
+            <a href="index.html#causes" class="nav-link">Bénéficiaires</a>
             <a href="index.html#faq" class="nav-link">FAQ</a>
             <button class="nav-link-button" data-modal-trigger="newsletter-modal">Newsletter</button>
-            <button class="btn btn-primary" data-modal-trigger="involve-modal">Rejoindre</button>
+            <button class="btn btn-primary" data-modal-trigger="involve-modal">S’impliquer</button>
         </div>
     </div>
 
-    <main id="main">
-        <header class="section legal-header">
-            <div class="container">
-                <h1>Politique de Confidentialité</h1>
-                <p class="lead" style="margin-top: 1rem;">Dernière mise à jour : 3 septembre 2025</p>
-            </div>
+    <main id="main" class="legal-page">
+        <header class="legal-header container">
+            <h1>Politique de confidentialité</h1>
+            <p class="legal-updated">Dernière mise à jour : <time datetime="2026-11-04">4 novembre 2026</time></p>
         </header>
-
-        <section class="legal-content container">
-            <h2>1. Introduction</h2>
-            <p>We Ride For Smiles ("nous", "notre" ou "nos") s'engage à protéger vos données personnelles. Cette Politique de Confidentialité décrit comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web. Nos pratiques sont conçues pour être conformes au Règlement Général sur la Protection des Données (RGPD), à la Loi californienne sur la protection de la vie privée des consommateurs (CCPA), à la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) du Canada, et à la Loi britannique sur la protection des données de 2018.</p>
-
-            <h2>2. Informations que nous collectons</h2>
-            <p>Nous pouvons collecter les types de données personnelles suivants :</p>
-            <ul>
-                <li><strong>Informations Personnelles Identifiables (IPI) :</strong> Cela inclut votre nom, votre adresse e-mail et tout autre détail que vous fournissez volontairement en soumettant des formulaires sur notre site web, tels que les formulaires "S'impliquer" ou d'inscription à la newsletter.</li>
-                <li><strong>Données d'Utilisation :</strong> Nous collectons automatiquement des informations techniques lorsque vous naviguez sur notre site, y compris votre adresse IP, le type de navigateur, le système d'exploitation et les pages visitées. Ces données nous aident à comprendre comment notre site web est utilisé et comment l'améliorer.</li>
-                <li><strong>Cookies et Technologies de Suivi :</strong> Nous utilisons des cookies pour améliorer l'expérience utilisateur, mémoriser vos préférences (comme le choix du thème) et analyser le trafic du site. Nous pouvons utiliser une Plateforme de Gestion du Consentement (CMP) pour gérer votre consentement aux cookies de manière transparente.</li>
-            </ul>
-
-            <h2>3. Base Juridique du Traitement des Données Personnelles</h2>
-            <p>Nous traitons vos données personnelles sur la base des fondements juridiques suivants :</p>
-            <ul>
-                <li><strong>Consentement :</strong> Lorsque vous donnez votre consentement explicite, par exemple en vous abonnant à notre newsletter, en cochant une case de consentement ou en acceptant les cookies via notre CMP.</li>
-                <li><strong>Nécessité Contractuelle :</strong> Si vous vous inscrivez pour participer à un événement, nous traitons vos données pour remplir notre engagement envers vous.</li>
-                <li><strong>Obligation Légale :</strong> Nous pouvons traiter vos données pour nous conformer aux lois, réglementations ou demandes légales applicables.</li>
-                <li><strong>Intérêt Légitime :</strong> Nous traitons des données à des fins telles que la sécurité du site web, la prévention de la fraude et l'analyse des performances du site, qui relèvent de nos intérêts légitimes sans porter atteinte à vos droits fondamentaux.</li>
-            </ul>
-
-            <h2>4. Comment nous utilisons vos informations</h2>
-            <p>Vos informations sont utilisées aux fins suivantes :</p>
-            <ul>
-                <li>Pour exploiter et maintenir efficacement notre site web.</li>
-                <li>Pour répondre à vos demandes et gérer la participation à nos événements.</li>
-                <li>Pour vous envoyer des mises à jour, des newsletters et d'autres informations sur notre mission, mais uniquement avec votre consentement explicite.</li>
-                <li>Pour personnaliser votre expérience et améliorer les fonctionnalités de notre site web.</li>
-                <li>Pour assurer la sécurité, prévenir la fraude et nous conformer aux obligations légales.</li>
-            </ul>
-
-            <h2>5. Partage de Données et Sous-traitants</h2>
-            <p>Nous ne vendons pas vos données personnelles. Nous les partageons uniquement avec des tiers qui agissent en tant que nos prestataires de services (sous-traitants) dans le cadre d'accords de confidentialité stricts. Cela inclut :</p>
-            <ul>
-                <li><strong>Hébergement et Traitement des Formulaires :</strong> Notre site web est hébergé sur Netlify, Inc. Lorsque vous soumettez un formulaire sur notre site, les données sont traitées par les services de Netlify pour nous permettre de recevoir et de gérer votre soumission.</li>
-            </ul>
-            <p>Nous ne travaillons qu'avec des sous-traitants qui fournissent des garanties suffisantes pour mettre en œuvre des mesures techniques et organisationnelles appropriées de manière à garantir la protection de vos droits.</p>
-
-            <h2>6. Sécurité et Conservation des Données</h2>
-            <p>Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre l'accès, l'utilisation ou la divulgation non autorisés. Cependant, aucune méthode de transmission sur Internet n'est sécurisée à 100%.</p>
-            <p><strong>Conservation des Données :</strong> Nous ne conservons vos données personnelles que le temps nécessaire aux fins énoncées dans cette politique, ou tel que requis par nos obligations légales.</p>
-
-            <h2>7. Vos Droits</h2>
-            <p>Selon votre juridiction, vous disposez des droits suivants concernant vos données personnelles :</p>
-            <ul>
-                <li><strong>Droit d'Accès :</strong> Vous pouvez demander une copie des données personnelles que nous détenons à votre sujet.</li>
-                <li><strong>Droit de Rectification :</strong> Vous pouvez demander la mise à jour ou la correction de données inexactes.</li>
-                <li><strong>Droit à l'Effacement (Droit à l'oubli) :</strong> Vous pouvez demander la suppression de vos données personnelles.</li>
-                <li><strong>Droit d'Opposition ou de Limitation du Traitement :</strong> Vous pouvez vous opposer ou demander une limitation du traitement de vos données.</li>
-                <li><strong>Droit de Retirer votre Consentement :</strong> Vous pouvez retirer votre consentement à tout moment pour les communications marketing ou le suivi par cookies.</li>
-                <li><strong>Droit à la Portabilité des Données :</strong> Vous pouvez demander à recevoir vos données dans un format lisible par machine (en vertu du RGPD).</li>
-            </ul>
-            <p>Pour exercer ces droits, veuillez nous contacter à <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
-
-            <h2>8. Cookies et Gestion du Consentement</h2>
-            <p>Nous utilisons des cookies pour améliorer la fonctionnalité et à des fins d'analyse. Vous pouvez gérer vos préférences en matière de cookies à tout moment via les paramètres de votre navigateur ou l'outil de consentement de notre site, le cas échéant.</p>
-
-            <h2>9. Liens vers des Tiers</h2>
-            <p>Notre site web peut contenir des liens vers des sites externes (par exemple, réseaux sociaux, associations caritatives partenaires). Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites tiers. Nous vous encourageons à consulter leurs politiques de confidentialité.</p>
-            
-            <h2>10. Mises à Jour de cette Politique</h2>
-            <p>Nous pouvons mettre à jour cette Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique sur cette page et en mettant à jour la date de "Dernière mise à jour".</p>
-
-            <h2>11. Nous Contacter</h2>
-            <p>Si vous avez des questions ou des préoccupations concernant cette Politique de Confidentialité ou nos pratiques en matière de données, veuillez nous contacter à : <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
-        </section>
+        <div class="legal-layout container">
+            <details class="legal-toc">
+                <summary>Sommaire</summary>
+                <nav aria-label="Sommaire">
+                    <ol>
+                        <li><a href="#responsable">Qui est responsable de vos données ?</a></li>
+                        <li><a href="#donnees">Quelles données, pour quoi, combien de temps ?</a></li>
+                        <li><a href="#cookies">Cookies et stockage dans votre navigateur</a></li>
+                        <li><a href="#destinataires">Qui reçoit vos données ?</a></li>
+                        <li><a href="#transferts">Transferts hors de l’Union européenne</a></li>
+                        <li><a href="#securite">Sécurité</a></li>
+                        <li><a href="#droits">Vos droits</a></li>
+                        <li><a href="#mineurs">Mineurs</a></li>
+                        <li><a href="#liens">Liens vers d’autres sites</a></li>
+                        <li><a href="#modifications">Modifications</a></li>
+                    </ol>
+                </nav>
+            </details>
+            <div class="legal-content">
+            <section class="legal-summary" aria-labelledby="legal-summary-title">
+                <h2 id="legal-summary-title">L’essentiel</h2>
+                <ul>
+                    <li>Aucun cookie, aucune publicité, aucun outil de mesure d’audience.</li>
+                    <li>Nous collectons uniquement ce que vous saisissez dans nos formulaires : votre prénom, votre email et vos choix.</li>
+                    <li>Nous ne vendons pas vos données.</li>
+                    <li>Vous pouvez demander leur suppression à tout moment : <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</li>
+                </ul>
+            </section>
+            <section id="responsable">
+                <h2>Qui est responsable de vos données ?</h2>
+                <p>We Ride For Smiles est responsable des données collectées sur ce site. Le directeur de la publication est Ben Morin.</p>
+                <p>Pour toute question : <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
+            </section>
+            <section id="donnees">
+                <h2>Quelles données, pour quoi, combien de temps ?</h2>
+                <div class="legal-card">
+                    <h3>Répondre à votre demande d’implication</h3>
+                    <dl>
+                        <div><dt>Données</dt><dd>Prénom, email, formes d’implication choisies</dd></div>
+                        <div><dt>Base légale</dt><dd>Mesures prises à votre demande avant un éventuel engagement (art. 6.1.b du RGPD)</dd></div>
+                        <div><dt>Durée</dt><dd>3 ans après notre dernier échange</dd></div>
+                    </dl>
+                </div>
+                <div class="legal-card">
+                    <h3>Vous envoyer les actualités du défi</h3>
+                    <dl>
+                        <div><dt>Données</dt><dd>Email, preuve de votre consentement</dd></div>
+                        <div><dt>Base légale</dt><dd>Votre consentement (art. 6.1.a du RGPD)</dd></div>
+                        <div><dt>Durée</dt><dd>Jusqu’à votre désinscription</dd></div>
+                    </dl>
+                </div>
+                <div class="legal-card">
+                    <h3>Répondre aux messages que vous nous envoyez</h3>
+                    <dl>
+                        <div><dt>Données</dt><dd>Email, contenu du message</dd></div>
+                        <div><dt>Base légale</dt><dd>Notre intérêt légitime à vous répondre (art. 6.1.f du RGPD)</dd></div>
+                        <div><dt>Durée</dt><dd>3 ans après notre dernier échange</dd></div>
+                    </dl>
+                </div>
+                <div class="legal-card">
+                    <h3>Faire fonctionner et sécuriser le site</h3>
+                    <dl>
+                        <div><dt>Données</dt><dd>Données techniques de connexion : adresse IP, navigateur, pages demandées</dd></div>
+                        <div><dt>Base légale</dt><dd>Notre intérêt légitime à garantir la sécurité du site (art. 6.1.f du RGPD)</dd></div>
+                        <div><dt>Durée</dt><dd>Durée fixée par notre hébergeur, voir sa politique de confidentialité</dd></div>
+                    </dl>
+                </div>
+                <p>Nous ne prenons aucune décision automatisée et ne faisons aucun profilage.</p>
+            </section>
+            <section id="cookies">
+                <h2>Cookies et stockage dans votre navigateur</h2>
+                <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire ou de mesure d’audience. C’est pourquoi il n’affiche pas de bandeau de cookies.</p>
+                <p>Il enregistre seulement trois préférences dans votre navigateur. Elles ne contiennent aucune donnée personnelle, ne nous sont pas transmises et peuvent être effacées depuis les réglages de votre navigateur :</p>
+                <ul>
+                    <li><code>theme</code> : le thème clair ou sombre.</li>
+                    <li><code>newsletterModalSeen</code> : évite de vous reproposer la newsletter.</li>
+                    <li><code>wrfs-intro-seen</code> : évite de rejouer l’animation d’accueil pendant votre visite. Effacé à la fermeture de l’onglet.</li>
+                </ul>
+                <p>L’email saisi pour la newsletter reste en mémoire le temps de la page, pour préremplir le formulaire « S’impliquer ». Il n’est pas enregistré dans votre navigateur.</p>
+            </section>
+            <section id="destinataires">
+                <h2>Qui reçoit vos données ?</h2>
+                <p>Nous ne vendons pas vos données et ne les cédons à personne à des fins commerciales. Seuls ces prestataires y ont accès, pour les besoins indiqués :</p>
+                <h3>Pour tous les visiteurs</h3>
+                <ul>
+                    <li><strong>Netlify, Inc. (États-Unis)</strong> : héberge le site. <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                </ul>
+                <h3>Si vous remplissez un formulaire</h3>
+                <ul>
+                    <li><strong>Netlify, Inc. (États-Unis)</strong> : reçoit et stocke vos réponses.</li>
+                    <li><strong>Akismet, d’Automattic (États-Unis)</strong> : filtre le spam des formulaires, à la demande de Netlify. <a href="https://akismet.com/privacy/" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                </ul>
+                <h3>Si vous nous écrivez ou recevez nos emails</h3>
+                <ul>
+                    <li><strong>ImprovMX</strong> : transfère les messages envoyés à notre adresse. <a href="https://improvmx.com/privacy" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                    <li><strong>Resend (États-Unis)</strong> : envoie nos emails. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                </ul>
+                <h3>Sur les pages Parcours</h3>
+                <p>Pour afficher la carte et certaines photos, votre navigateur contacte directement ces services, qui reçoivent alors votre adresse IP :</p>
+                <ul>
+                    <li><strong>OpenFreeMap (Hyperknot Software Kft., Hongrie)</strong> : fond de carte. Ce service indique ne pas utiliser de cookies et ne pas conserver les adresses IP dans ses journaux d’accès, sauf journaux d’erreurs et incidents de sécurité. <a href="https://openfreemap.org/privacy/" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                    <li><strong>unpkg.com</strong> : code de la carte.</li>
+                    <li><strong>Unsplash</strong> : photos de la page du parcours potentiel. <a href="https://unsplash.com/privacy" target="_blank" rel="noopener">Sa politique de confidentialité</a></li>
+                </ul>
+            </section>
+            <section id="transferts">
+                <h2>Transferts hors de l’Union européenne</h2>
+                <p>Certains prestataires sont situés aux États-Unis. Netlify indique adhérer au cadre de protection des données UE–États-Unis (Data Privacy Framework) et recourir aux clauses contractuelles types de la Commission européenne. Pour en savoir plus sur ces garanties, écrivez-nous à <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
+            </section>
+            <section id="securite">
+                <h2>Sécurité</h2>
+                <p>Le site est servi uniquement en HTTPS, avec des en-têtes de sécurité stricts. Vos formulaires partent par une connexion chiffrée et votre email n’apparaît jamais dans l’adresse de la page. Le site ne traite aucun paiement et ne comporte aucun compte utilisateur.</p>
+                <p>Aucune transmission sur Internet n’est sûre à 100 %, mais nous limitons les données collectées et les services qui y ont accès.</p>
+            </section>
+            <section id="droits">
+                <h2>Vos droits</h2>
+                <p>Quel que soit votre pays de résidence, vous pouvez :</p>
+                <ul>
+                    <li>accéder à vos données et en obtenir une copie ;</li>
+                    <li>les faire corriger ou supprimer ;</li>
+                    <li>limiter leur utilisation ou vous y opposer ;</li>
+                    <li>les récupérer dans un format lisible par une machine ;</li>
+                    <li>retirer votre consentement à tout moment, sans effet sur ce qui a été fait auparavant ;</li>
+                    <li>définir des directives sur le sort de vos données après votre décès.</li>
+                </ul>
+                <p>Pour cela, écrivez-nous à <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>. Nous répondons sous un mois. Pour quitter la newsletter, vous pouvez aussi utiliser le lien de désinscription présent dans nos emails.</p>
+                <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">la CNIL</a> ou l’autorité de protection des données de votre pays.</p>
+            </section>
+            <section id="mineurs">
+                <h2>Mineurs</h2>
+                <p>Nos formulaires s’adressent aux personnes de 18 ans et plus. Une personne mineure doit obtenir l’accord d’un parent ou d’un tuteur légal avant de les remplir.</p>
+            </section>
+            <section id="liens">
+                <h2>Liens vers d’autres sites</h2>
+                <p>Ce site renvoie vers des réseaux sociaux et des associations partenaires. Ces sites ont leurs propres politiques, que nous vous invitons à consulter.</p>
+            </section>
+            <section id="modifications">
+                <h2>Modifications</h2>
+                <p>Nous mettons cette page à jour lorsque nos pratiques changent. La date de dernière mise à jour figure en haut de la page.</p>
+            </section>
+            </div>
+        </div>
     </main>
 
     <footer id="footer">
@@ -609,7 +654,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-links"><a href="privacy.html">Confidentialité</a> &middot; <a href="terms.html">Conditions</a></span>
+                <span class="footer-links"><a href="privacy.html">Confidentialité</a> &middot; <a href="terms.html">Mentions légales</a></span>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>

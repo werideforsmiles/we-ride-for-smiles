@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions - We Ride For Smiles</title>
-    <meta name="description" content="Terms and Conditions for using the We Ride For Smiles website and participating in our events.">
+    <title>Legal notice and terms of use - We Ride For Smiles</title>
+    <meta name="description" content="Publisher, hosting provider and terms of use of the We Ride For Smiles website.">
     <meta name="author" content="Ben Morin, bemorin.com">
     <meta name="copyright" content="© We Ride For Smiles. All rights reserved.">
 
@@ -309,34 +309,6 @@
         }
 
         /* Specific styles for legal pages */
-        .legal-header {
-            padding-top: 12rem;
-            padding-bottom: 2rem;
-            text-align: center;
-        }
-        .legal-content {
-            padding: 4rem 0 5rem 0;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .legal-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-        .legal-content p, .legal-content li {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            text-align: left;
-        }
-        .legal-content ul {
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-        }
-        .legal-content a {
-            text-decoration: underline;
-        }
     
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .footer-newsletter { max-width: none; width: 100%; }
@@ -501,56 +473,82 @@
         </div>
     </div>
 
-    <main id="main">
-        <header class="section legal-header">
-            <div class="container">
-                <h1>Terms and Conditions</h1>
-                <p class="lead" style="margin-top: 1rem;">Last Updated: September 3, 2025</p>
-            </div>
+    <main id="main" class="legal-page">
+        <header class="legal-header container">
+            <h1>Legal notice and terms of use</h1>
+            <p class="legal-updated">Last updated: <time datetime="2026-11-04">November 4, 2026</time></p>
         </header>
-
-        <section class="legal-content container">
-            <h2>1. Introduction</h2>
-            <p>Welcome to We Ride For Smiles ("we," "our," or "us"). By accessing our website and using our services, you agree to be bound by these Terms and Conditions ("Terms"). If you disagree with any part of these terms, you must not use our website.</p>
-
-            <h2>2. Use of the Website</h2>
-            <p>You agree to use our website only for lawful purposes. You must not:</p>
-            <ul>
-                <li>Engage in any activity that disrupts, interferes with, or harms the website's infrastructure or functionality.</li>
-                <li>Attempt to gain unauthorized access to any part of the website or its related systems.</li>
-                <li>Use our website to transmit any unlawful, harassing, defamatory, or otherwise objectionable material.</li>
-            </ul>
-            <p>To participate in our events or submit forms, you must be at least 18 years old or have obtained consent from a parent or legal guardian.</p>
-
-            <h2>3. Intellectual Property Rights</h2>
-            <p>All content on this website—including text, graphics, logos, images, and software—is the property of We Ride For Smiles or its content suppliers and is protected by international copyright and trademark laws. Unauthorized use, reproduction, modification, or distribution of this content is strictly prohibited without our prior written permission.</p>
-
-            <h2>4. Donations and Fundraising</h2>
-            <p>While We Ride For Smiles facilitates fundraising for partner charities, we do not process payments directly at this time. All donations are made through third-party platforms associated with our beneficiary organizations. We are not responsible for the processing, security, or privacy of transactions conducted on these external sites. Participants in our events who commit to fundraising agree to abide by the rules and deadlines set forth during registration.</p>
-
-            <h2>5. User-Generated Content</h2>
-            <p>If you submit content to our website (such as comments, testimonials, or messages), you grant us a non-exclusive, worldwide, royalty-free, perpetual license to use, reproduce, display, and distribute that content in connection with our mission. You are solely responsible for the content you submit and must ensure it is not offensive, unlawful, or infringing on the rights of others.</p>
-
-            <h2>6. Disclaimer and Limitation of Liability</h2>
-            <p>The website and its content are provided on an "as is" and "as available" basis without any warranties, express or implied. We do not warrant that the site will be error-free or uninterrupted.</p>
-            <p>To the fullest extent permitted by law, We Ride For Smiles shall not be liable for any indirect, incidental, consequential, or punitive damages arising from your use of, or inability to use, our website or services.</p>
-
-            <h2>7. Third-Party Links</h2>
-            <p>Our website may contain links to third-party websites. These links are provided for your convenience only. We do not endorse and are not responsible for the content, privacy policies, or practices of any third-party sites.</p>
-
-            <h2>8. Termination of Use</h2>
-            <p>We reserve the right to terminate or suspend your access to our website, without prior notice or liability, for any reason, including if you breach these Terms.</p>
-
-            <h2>9. Governing Law</h2>
-            <p>These Terms shall be governed and construed in accordance with the laws of France, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms will be brought exclusively in the courts located in France.</p>
-
-            <h2>10. Changes to These Terms</h2>
-            <p>We reserve the right to modify these Terms at any time. We will notify users of any changes by posting the new Terms on this page and updating the "Last Updated" date. Your continued use of the website after such changes constitutes your acceptance of the new Terms.</p>
-            
-            <h2>11. Contact Information</h2>
-            <p>The Director of Publication for this website is Ben Morin.</p>
-            <p>If you have any questions about these Terms, please contact us at: <a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a>.</p>
-        </section>
+        <div class="legal-layout container">
+            <details class="legal-toc">
+                <summary>Contents</summary>
+                <nav aria-label="Contents">
+                    <ol>
+                        <li><a href="#legal-notice">Legal notice</a></li>
+                        <li><a href="#use">Using the site</a></li>
+                        <li><a href="#ip">Intellectual property</a></li>
+                        <li><a href="#donations">Donations and fundraising</a></li>
+                        <li><a href="#liability">Liability</a></li>
+                        <li><a href="#links">Links to other sites</a></li>
+                        <li><a href="#suspension">Suspension of access</a></li>
+                        <li><a href="#law">Governing law</a></li>
+                        <li><a href="#changes">Changes</a></li>
+                    </ol>
+                </nav>
+            </details>
+            <div class="legal-content">
+            <section id="legal-notice">
+                <h2>Legal notice</h2>
+                <dl class="legal-facts">
+                    <div><dt>Publisher</dt><dd>We Ride For Smiles</dd></div>
+                    <div><dt>Publication director</dt><dd>Ben Morin</dd></div>
+                    <div><dt>Contact</dt><dd><a href="mailto:hello@werideforsmiles.org">hello@werideforsmiles.org</a></dd></div>
+                    <div><dt>Hosting provider</dt><dd>Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, United States. <a href="https://www.netlify.com" target="_blank" rel="noopener">netlify.com</a></dd></div>
+                    <div><dt>Domain name</dt><dd>Registered with Porkbun LLC. <a href="https://porkbun.com" target="_blank" rel="noopener">porkbun.com</a></dd></div>
+                    <div><dt>Design and development</dt><dd>Ben Morin. <a href="https://bemorin.com" target="_blank" rel="noopener">bemorin.com</a></dd></div>
+                </dl>
+            </section>
+            <section id="use">
+                <h2>Using the site</h2>
+                <p>By using this site, you accept these terms. If you disagree with any of them, please do not use it.</p>
+                <p>You agree to use this site for lawful purposes only. You must not:</p>
+                <ul>
+                    <li>disrupt or damage the site or its infrastructure;</li>
+                    <li>try to gain unauthorized access to the site or its systems;</li>
+                    <li>send illegal, harassing or defamatory content.</li>
+                </ul>
+                <p>To take part in our events or fill in a form, you must be at least 18 years old or have the agreement of a parent or legal guardian.</p>
+            </section>
+            <section id="ip">
+                <h2>Intellectual property</h2>
+                <p>The text, graphics, logos, images and software on this site belong to We Ride For Smiles or its content providers, and are protected by copyright and trademark law. Any use, reproduction or modification without our written agreement is prohibited. Photos credited on the site remain the property of their authors.</p>
+            </section>
+            <section id="donations">
+                <h2>Donations and fundraising</h2>
+                <p>We Ride For Smiles facilitates fundraising for partner charities but does not process any payments at this time. Donations are made on third-party platforms linked to the beneficiary organizations. We are not responsible for the processing, security or confidentiality of transactions made on those sites.</p>
+                <p>Participants who commit to fundraising agree to follow the rules and deadlines given when they register.</p>
+            </section>
+            <section id="liability">
+                <h2>Liability</h2>
+                <p>The site is provided “as is”. We do not guarantee that it is free of errors or available without interruption. To the fullest extent permitted by law, We Ride For Smiles is not liable for indirect damages arising from the use of the site or the inability to use it.</p>
+            </section>
+            <section id="links">
+                <h2>Links to other sites</h2>
+                <p>Links to third-party sites are provided for your convenience. We are not responsible for their content or practices.</p>
+            </section>
+            <section id="suspension">
+                <h2>Suspension of access</h2>
+                <p>We may suspend access to the site if these terms are not respected.</p>
+            </section>
+            <section id="law">
+                <h2>Governing law</h2>
+                <p>These terms are governed by French law. Any dispute falls under the jurisdiction of the French courts, without prejudice to mandatory rules protecting consumers in their country of residence.</p>
+            </section>
+            <section id="changes">
+                <h2>Changes</h2>
+                <p>We may change these terms at any time. The date of the last update appears at the top of the page.</p>
+            </section>
+            </div>
+        </div>
     </main>
 
     <footer id="footer">
@@ -585,7 +583,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-links"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+                <span class="footer-links"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Legal notice</a></span>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@werideforsmiles" target="_blank" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/werideforsmiles/" target="_blank" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>

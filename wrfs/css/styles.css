@@ -197,7 +197,7 @@ html.light-mode .navbar.scrolled {
 .nav-link-button:hover { color: var(--color-primary-dark); }
 .route-edition-banner {
   position: fixed;
-  top: 4.25rem;
+  top: var(--route-nav-bottom);
   left: 0;
   right: 0;
   z-index: 999;
@@ -224,12 +224,8 @@ html.light-mode .route-edition-banner { background: rgba(255, 255, 255, 0.95); }
   border-left: 3px solid var(--color-text-secondary);
 }
 .route-edition-banner--archive strong { color: var(--color-text-secondary); }
-.route-body.has-route-banner .route-container { margin-top: 7.5rem; }
-.route-body.has-route-banner #map { top: 7.5rem; height: calc(100vh - 7.5rem); }
-@media (max-width: 992px) {
-  .route-body.has-route-banner .route-container { margin-top: 6.75rem; }
-  .route-body.has-route-banner #map { top: 6.75rem; height: 30vh; }
-}
+.route-body { --route-nav-bottom: 3.5rem; --route-top: 3.5rem; }
+.route-body.has-route-banner { --route-top: 7rem; }
 .nav-controls { display: flex; align-items: center; gap: 1rem; z-index: 1001; }
         /* --- AJOUTS POUR LA NAVIGATION MOBILE --- */
         .btn-mobile-involved {
@@ -1074,14 +1070,14 @@ footer .input-group button {
     display: flex;
     flex: 1;
     width: 100%;
-    margin-top: 80px; /* Ajustez si la hauteur de votre navbar est différente */
+    margin-top: var(--route-top);
 }
 
 #map {
     position: sticky;
-    top: 80px; /* Doit correspondre au margin-top de .route-container */
+    top: var(--route-top);
     width: 55%;
-    height: calc(100vh - 80px); /* Hauteur de la fenêtre moins la navbar */
+    height: calc(100vh - var(--route-top));
     background-color: var(--color-dark-gray);
 }
 
@@ -1133,7 +1129,7 @@ html.light-mode #map .maplibregl-ctrl-attrib:not(.maplibregl-compact) { backgrou
         width: 100%;
         height: 30vh;
         position: sticky;
-        top: 70px; /* Ajustez selon la hauteur de la navbar en mode mobile */
+        top: var(--route-top);
         z-index: 2;
         background-color: var(--color-background);
     }
@@ -1223,6 +1219,7 @@ html.light-mode #map .maplibregl-ctrl-attrib:not(.maplibregl-compact) { backgrou
 .skip-link { position: fixed; top: 0.5rem; left: 0.5rem; z-index: 3000; padding: 0.75rem 1.25rem; border-radius: 999px; background: var(--color-primary); color: #0A0A0A; font-weight: 700; transform: translateY(-200%); }
 .skip-link:focus { transform: none; color: #0A0A0A; }
 :focus-visible { outline: 2px solid var(--color-primary-text); outline-offset: 2px; }
+.modal-panel:focus-visible, .modal-success:focus-visible, .footer-newsletter-success:focus-visible, .legal-content section:focus-visible { outline: none; }
 .charity-category a:focus-visible { outline-color: #A85B00; }
 .custom-checkbox-container input:focus-visible + .checkbox-label::before { outline: 2px solid #FFA500; outline-offset: 2px; }
 /* Une réponse repliée ne doit plus recevoir le focus clavier. */
@@ -1244,7 +1241,7 @@ html .step-content.is-active .step-description { border-color: rgba(255, 165, 0,
   html { scroll-behavior: auto; }
   .fade-in-up { opacity: 1; transform: none; transition: none; }
   .hero::before { animation: none; transition: none; }
-  .step-content, .step-description, .faq-answer { transition: none; }
+  .step-content, .step-description, .faq-answer, .modal-panel, .legal-toc ol::before, .legal-toc summary::after { transition: none !important; }
 }
 
 /* --- 18. PAGES LÉGALES --- */
@@ -1256,13 +1253,32 @@ html .step-content.is-active .step-description { border-color: rgba(255, 165, 0,
 .legal-toc { position: sticky; top: 6rem; }
 .legal-toc summary { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); cursor: pointer; list-style: none; }
 .legal-toc summary::-webkit-details-marker { display: none; }
-.legal-toc ol { margin-top: 0.875rem; list-style: none; }
+.legal-toc nav { display: block; }
+.legal-toc.is-animating nav { overflow: hidden; }
+/* padding plutôt que margin : la hauteur animée reste exacte du début à la fin. */
+.legal-toc ol { position: relative; padding-top: 0.875rem; list-style: none; }
+/* Repère de la section en cours : il glisse le long du rail. */
+.legal-toc ol::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 2px;
+  height: var(--toc-marker-height, 0);
+  border-radius: 2px;
+  background: var(--color-primary);
+  transform: translateY(var(--toc-marker-y, 0));
+}
+.legal-toc.is-ready ol::before { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.legal-toc a[aria-current="location"] { color: var(--color-text-primary); }
 .legal-toc a { display: block; padding: 0.4rem 0 0.4rem 0.875rem; border-left: 2px solid var(--color-border); font-size: 0.9rem; line-height: 1.35; color: var(--color-text-secondary); text-wrap: pretty; transition: color 0.15s ease, border-color 0.15s ease; }
 .legal-toc a:hover { border-left-color: var(--color-primary); color: var(--color-text-primary); }
 html.light-mode main .legal-toc li a { color: var(--color-text-secondary); }
-html.light-mode main .legal-toc li a:hover { color: var(--color-text-primary); }
+html.light-mode main .legal-toc li a:hover,
+html.light-mode main .legal-toc li a[aria-current="location"] { color: var(--color-text-primary); }
 .legal-content { min-width: 0; }
-.legal-content section { scroll-margin-top: 6rem; }
+.legal-content section { scroll-margin-top: 6rem; outline: none; }
 .legal-content section + section { margin-top: 3rem; }
 .legal-content h2 { margin-bottom: 1rem; font-size: clamp(1.4rem, 2.5vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
 .legal-content h3 { margin: 1.5rem 0 0.5rem; font-size: 1.0625rem; font-weight: 700; line-height: 1.3; }
@@ -1290,10 +1306,56 @@ html.light-mode main .legal-toc li a:hover { color: var(--color-text-primary); }
   .legal-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .legal-toc { position: static; padding: 0.875rem 1.25rem; border: 1px solid var(--color-border); border-radius: 0.875rem; background: var(--color-surface); }
   .legal-toc summary { display: flex; justify-content: space-between; align-items: center; min-height: 1.75rem; }
-  .legal-toc summary::after { content: '+'; font-size: 1.25rem; font-weight: 400; line-height: 1; }
-  .legal-toc[open] summary::after { content: '\2212'; }
+  .legal-toc summary::after {
+    content: '';
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-right: 0.2rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .legal-toc[open]:not(.is-closing) summary::after { transform: translateY(2px) rotate(-135deg); }
 }
 @media (max-width: 575px) {
   .legal-card dl > div, .legal-facts > div { grid-template-columns: minmax(0, 1fr); }
   .legal-summary, .legal-card { padding: 1.125rem 1.25rem; }
+}
+
+/* --- 19. CASE DE CONSENTEMENT DU PIED DE PAGE --- */
+footer .footer-consent { justify-content: flex-start; width: 100%; }
+footer .footer-consent .checkbox-label { display: block; width: 100%; text-align: left; text-wrap: pretty; }
+@media (max-width: 767px) {
+  footer .footer-consent { margin-top: 0.875rem; }
+  footer .footer-consent .checkbox-label { padding-left: 2.25rem; min-height: 1.5rem; font-size: 0.875rem; line-height: 1.5; }
+  footer .footer-consent .checkbox-label::before { top: 0; width: 1.5rem; height: 1.5rem; border-radius: 0.4rem; }
+  footer .footer-consent input:checked + .checkbox-label::before { background-size: 1rem 1rem; }
+}
+
+/* --- 20. GESTES TACTILES --- */
+label, summary { -webkit-tap-highlight-color: transparent; }
+/* Le navigateur garde le défilement vertical et le zoom ; le geste horizontal revient au script. */
+.route-body .story-container { touch-action: pan-y pinch-zoom; }
+.modal::backdrop { opacity: var(--sheet-progress, 1); }
+@media (max-width: 767px) {
+  .modal-panel { touch-action: pan-y pinch-zoom; transition: transform 0.36s var(--modal-ease); }
+  .modal-panel.is-dragging { transition: none; }
+  /* Poignée : montre que le panneau se ferme en glissant vers le bas. */
+  .modal-panel::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    z-index: 3;
+    width: 2.5rem;
+    height: 0.25rem;
+    margin-left: -1.25rem;
+    border-radius: 999px;
+    background: #C9C9CF;
+    transition: background-color 0.15s ease;
+  }
+  .modal--newsletter .modal-panel::before,
+  .modal--team .modal-panel::before { background: rgba(255, 255, 255, 0.9); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }
+  .modal-panel.is-dragging::before { background: #85858E; }
 }

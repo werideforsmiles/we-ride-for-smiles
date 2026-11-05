@@ -248,6 +248,7 @@
     </script>
     <script src="../js/modals.js" defer></script>
     <script src="../js/a11y.js" defer></script>
+    <script src="../js/route-ui.js" defer></script>
 </head>
 
 <body class="route-body dark-mode">
@@ -834,8 +835,8 @@
                 const element = allElements[index];
                 const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
                 let targetPosition;
-                if (window.innerWidth <= 768) {
-                    targetPosition = elementTop - window.innerHeight * 0.35;
+                if (window.innerWidth <= 992) {
+                    targetPosition = elementTop - document.getElementById('map').getBoundingClientRect().bottom;
                 } else {
                     targetPosition = elementTop - 96;
                 }
@@ -855,18 +856,6 @@
                 }
             }, { passive: false });
 
-            let touchStartY = 0;
-            window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
-            window.addEventListener('touchend', (e) => {
-                if (isScrolling) return;
-                const touchEndY = e.changedTouches[0].clientY;
-                const swipeDistance = touchStartY - touchEndY;
-                const currentIndex = Array.from(allElements).findIndex(el => el.classList.contains('is-active'));
-                if (Math.abs(swipeDistance) > 50) {
-                    if (swipeDistance > 0 && currentIndex < allElements.length - 1) scrollToElement(currentIndex + 1);
-                    else if (swipeDistance < 0 && currentIndex > 0) scrollToElement(currentIndex - 1);
-                }
-            }, { passive: true });
             
             const navControls = document.getElementById('nav-controls');
             window.addEventListener('scroll', () => {

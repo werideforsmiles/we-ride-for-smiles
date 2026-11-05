@@ -94,7 +94,85 @@
         }
     };
 
+    /* --- Panneau mobile : glisser vers le bas pour fermer --- */
+    const bottomSheet = matchMedia('(max-width: 767px)');
+    const DRAG_START = 6;
+    const CLOSE_RATIO = 0.25;
+    const CLOSE_VELOCITY = 0.5;
+    const CLOSE_MIN_DISTANCE = 40;
+
+    const enableSwipeToClose = (dialog) => {
+        const panel = dialog.querySelector('.modal-panel');
+        let drag = null;
+
+        panel.addEventListener('touchstart', (e) => {
+            drag = null;
+            if (!bottomSheet.matches || e.touches.length !== 1 || dialog.classList.contains('is-closing')) return;
+            // Dans une zone qui défile, le geste ne ferme le panneau qu'une fois revenu tout en haut.
+            const scroller = e.target.closest('.modal-scroll, .modal-success');
+            if (scroller && scroller.scrollTop > 0) return;
+            const [touch] = e.touches;
+            drag = { startX: touch.clientX, startY: touch.clientY, lastY: touch.clientY, lastTime: e.timeStamp, velocity: 0, distance: 0, active: false };
+        }, { passive: true });
+
+        panel.addEventListener('touchmove', (e) => {
+            if (!drag) return;
+            if (e.touches.length !== 1) {
+                drag = null;
+                return;
+            }
+            const [touch] = e.touches;
+            const dx = touch.clientX - drag.startX;
+            const dy = touch.clientY - drag.startY;
+
+            if (!drag.active) {
+                // Vers le haut ou de côté : c'est un défilement, pas une fermeture.
+                if (dy < 0 || Math.abs(dx) > Math.abs(dy)) {
+                    if (Math.abs(dx) > DRAG_START || dy < -DRAG_START) drag = null;
+                    return;
+                }
+                if (e.cancelable) e.preventDefault();
+                if (dy < DRAG_START) return;
+                drag.active = true;
+                panel.classList.add('is-dragging');
+            }
+
+            if (e.cancelable) e.preventDefault();
+            const elapsed = e.timeStamp - drag.lastTime;
+            if (elapsed > 0) drag.velocity = 0.4 * drag.velocity + 0.6 * ((touch.clientY - drag.lastY) / elapsed);
+            drag.lastY = touch.clientY;
+            drag.lastTime = e.timeStamp;
+            drag.distance = Math.max(0, dy);
+            panel.style.transform = `translateY(${drag.distance}px)`;
+            dialog.style.setProperty('--sheet-progress', String(Math.max(0, 1 - drag.distance / panel.offsetHeight)));
+        }, { passive: false });
+
+        const release = () => {
+            const finished = drag;
+            drag = null;
+            if (!finished?.active) return;
+            panel.classList.remove('is-dragging');
+            const farEnough = finished.distance > panel.offsetHeight * CLOSE_RATIO;
+            const flicked = finished.velocity > CLOSE_VELOCITY && finished.distance > CLOSE_MIN_DISTANCE;
+            if (farEnough || flicked) {
+                closeModal(dialog);
+                return;
+            }
+            panel.style.transform = '';
+            dialog.style.removeProperty('--sheet-progress');
+        };
+        panel.addEventListener('touchend', release, { passive: true });
+        panel.addEventListener('touchcancel', release, { passive: true });
+
+        dialog.addEventListener('close', () => {
+            panel.classList.remove('is-dragging');
+            panel.style.transform = '';
+            dialog.style.removeProperty('--sheet-progress');
+        });
+    };
+
     document.querySelectorAll('dialog.modal').forEach((dialog) => {
+        enableSwipeToClose(dialog);
         // Un texte sélectionné à la souris peut finir hors du panneau : seul un appui commencé dehors ferme.
         let pressedOutside = false;
         dialog.addEventListener('pointerdown', (e) => { pressedOutside = e.target === dialog; });

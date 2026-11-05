@@ -35,11 +35,17 @@
 
         // Sur petit écran, l'attribution se replie derrière son bouton « i » pour libérer la carte.
         if (isSmall()) {
-            map.once('load', () => {
+            // MapLibre l'ouvre une seule fois, dès que le style fournit son texte : on la replie à cet instant.
+            const collapseAttribution = () => {
                 const attribution = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
-                attribution?.removeAttribute('open');
-                attribution?.classList.remove('maplibregl-compact-show');
-            });
+                if (!attribution?.classList.contains('maplibregl-compact')) return;
+                attribution.removeAttribute('open');
+                attribution.classList.remove('maplibregl-compact-show');
+                map.off('styledata', collapseAttribution);
+                map.off('sourcedata', collapseAttribution);
+            };
+            map.on('styledata', collapseAttribution);
+            map.on('sourcedata', collapseAttribution);
         }
 
         // Le style OpenFreeMap référence des icônes absentes de son sprite : rien à dessiner.
